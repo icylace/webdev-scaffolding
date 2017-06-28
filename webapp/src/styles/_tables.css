@@ -1,0 +1,8 @@
+table {
+  table-layout: fixed;
+
+  /* http://www.thisprogrammingthing.com/2014/preventing-tables-from-printing-across-pages/ */
+  @media only print {
+    page-break-inside: avoid;
+  }
+}

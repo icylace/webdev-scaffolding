@@ -1,0 +1,96 @@
+:root {
+  --danger-theme: {
+    color: white;
+    background-color: blue;
+  };
+}
+
+.danger {
+  @apply --danger-theme;
+}
+
+html {
+  /* https://subtlepatterns.com/dark-sharp-edges/ */
+  background-image: url("./assets/footer_lodyas.png");
+}
+
+body {
+  font-family:    "Signika", sans-serif;
+  font-size:      1.4rem;
+  letter-spacing: 1px;
+}
+
+h1,
+h2,
+p {
+  color: #DDDDDD;
+}
+
+h1 {
+  display: inline-block;
+}
+
+label {
+  color:     #FFFFFF;
+  display:   inline-block;
+  transform: skew(20deg);
+  &[for] {
+    cursor: pointer;
+  }
+}
+
+/*
+input,
+textarea,
+button {}
+*/
+
+button {
+  background-color: transparent;
+  color: #FFFFFF;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.container {
+  margin: 0 auto;
+  width: 35rem;
+}
+
+.form-item + * {
+  margin-top: 1rem;
+}
+
+.form-subitem {
+  background-color: #336688;
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  transform: skew(-20deg);
+  vertical-align: top;
+}
+
+.form-subitem-input {
+  background-color: #FFFFFF;
+  cursor: pointer;
+  left: -0.3rem;
+  position: relative;
+}
+
+.form-submit {
+  display: inline-block;
+  margin-left: 12rem;
+  & .form-subitem {
+    border: 3px solid #FFFFFF;
+    &:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      button {
+        color: #336688;
+      }
+    }
+  }
+}
+
+.form-login .form-submit {
+  margin-left: 7.5rem;
+}

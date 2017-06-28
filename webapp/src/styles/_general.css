@@ -1,0 +1,173 @@
+:root {
+  scroll-behavior: smooth;
+
+  /*
+  https://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements/
+  https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling
+
+  -webkit-overflow-scrolling: touch;
+  */
+
+  --color-hot-pink: #FF69B4;
+  --selection-color: var(--color-hot-pink);
+}
+
+/* -----------------------------------------------------------------------------
+//  `box-sizing` best practice.
+//  https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/#comment-1583754
+// -------------------------------------------------------------------------- */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img {
+  box-sizing: content-box;
+}
+
+/* -----------------------------------------------------------------------------
+//  The "lobotomized owl selector".
+//  http://alistapart.com/article/axiomatic-css-and-lobotomized-owls
+// -------------------------------------------------------------------------- */
+
+* + * {
+  margin-top: 1.5em;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Based on:
+ * https://github.com/necolas/normalize.css/issues/319#issuecomment-40595056
+ */
+[disabled] {
+  cursor:         not-allowed;
+  pointer-events: none;
+}
+
+html {
+  /*
+  background-color: #222222;
+
+  // Show vertical scrollbar always.  This will prevent sudden page shifting
+  // as the size of the window changes.
+  // http://snippets.dzone.com/posts/show/217
+
+  // // overflow   -moz-scrollbars-vertical
+  // // overflow-y scroll
+  // margin-bottom 1px
+  */
+}
+
+body {
+  /*
+  background-color: #444444;
+  color:            #222222;
+  */
+
+  /**
+   * Scale the default font size to make it easy to work with.  Normally the
+   * default is 16px so this will scale it to 10px.
+   *
+   * Use the golden ratio for leading.
+   */
+  font-family:      var(--font-helvetica);
+  font-size:        62.5%;
+  font-size-adjust: none;
+  font-style:       normal;
+  font-variant:     normal;
+  font-weight:      normal;
+  line-height:      1.618;
+}
+
+/*
+div {}
+
+figure {}
+img {}
+video {}
+
+section {}
+article {}
+aside {}
+header {}
+footer {}
+details {}
+command {}
+menu {}
+*/
+
+/*
+img,
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+*/
+
+/*
+:focus {}
+*/
+
+::-moz-selection {
+  background-color: var(--selection-color);
+}
+
+::selection {
+  background-color: var(--selection-color);
+}
+
+/* -----------------------------------------------------------------------------
+//  Cross-browser float clearing.
+//  http://cssmojo.com/the-very-latest-clearfix-reloaded/
+//  http://nicolasgallagher.com/micro-clearfix-hack/
+//  http://perishablepress.com/press/2009/12/06/new-clearfix-hack/
+// -------------------------------------------------------------------------- */
+
+.clearfix::after {
+  clear:   both;
+  content: "";
+  display: block;
+}
+
+/* -----------------------------------------------------------------------------
+//  Recommended media query breakpoints:
+//  https://medium.freecodecamp.com/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862
+// -------------------------------------------------------------------------- */
+
+@media (max-width: 599px) {
+  main {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: 600px) {
+  main {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: 900px) {
+  main {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: 1200px) {
+  main {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: 1800px) {
+  main {
+    flex-direction: column-reverse;
+  }
+}

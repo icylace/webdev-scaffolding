@@ -1,0 +1,16 @@
+[ignore]
+.*/node_modules/.cache
+.*/node_modules/stylelint/lib
+.*/node_modules/vue\(-router\)?/src
+
+[include]
+
+[libs]
+flow
+
+[options]
+module.file_ext=.js
+module.file_ext=.vue
+
+[version]
+^0.49.1

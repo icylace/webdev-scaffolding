@@ -1,0 +1,42 @@
+/* -----------------------------------------------------------------------------
+//  Styles are written in a generally verbose fashion for ease of comprehension.
+//  The build process is relied upon to produce production-ready CSS.
+//
+//  Rules are ordered first by grouping them according to purpose (e.g. menus,
+//  forms, diagnostic styles) before being grouped according to type:
+//
+//      1.  Elements
+//      2.  Pseudo-Elements
+//      3.  Pseudo-Selectors
+//      4.  Classes
+//      5.  IDs
+//      6.  Hacks
+//
+//  They are further ordered according to priority:
+//
+//      1.  Nesting order if there is one (e.g. `.intro-wrapper` before `.intro`).
+//      2.  Rules with multiple selectors are grouped together by similar
+//          starting selectors.
+//      3.  Increasing cascade level.
+//      4.  Increasing specificity.
+//      5.  Sibling order if there is one (e.g. `.first` before `.last`).
+//      6.  HTML document order.
+//      7.  Alphabetical order.
+//      8.  Numerical order.
+//
+//  Selectors and properties are arranged alphabetically by default.
+//
+//  Shorthand notations should be mostly avoided for sake of precision.
+//
+//  Hex notation is preferred for opaque color values.
+//
+//  In HTML element tags, attributes usually associated with CSS are ordered
+//  by increasing CSS specificity (i.e. `class` before `id` before `style`).
+// -------------------------------------------------------------------------- */
+
+@import "";
+
+/* -----------------------------------------------------------------------------
+//  Shame Styles
+//  http://csswizardry.com/2013/04/shame-css/
+// -------------------------------------------------------------------------- */

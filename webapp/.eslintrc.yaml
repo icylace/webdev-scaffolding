@@ -1,0 +1,62 @@
+parser: babel-eslint
+plugins: [ava, flowtype, flowtype-errors, html]
+rules:
+  quotes: [error, double]
+
+  # The following rules are from eslint-plugin-flowtype-errors.
+  flowtype-errors/show-errors: error
+
+  # The following rules are from eslint-plugin-ava.
+  ava/assertion-arguments:       error
+  ava/max-asserts:               [off, 5]
+  ava/no-async-fn-without-await: error
+  ava/no-cb-test:                off
+  ava/no-duplicate-modifiers:    error
+  ava/no-identical-title:        error
+  ava/no-ignored-test-files:     error
+  ava/no-invalid-end:            error
+  ava/no-nested-tests:           error
+  ava/no-only-test:              error
+  ava/no-skip-assert:            error
+  ava/no-skip-test:              error
+  ava/no-statement-after-end:    error
+  ava/no-todo-implementation:    error
+  ava/no-todo-test:              warn
+  ava/no-unknown-modifiers:      error
+  ava/prefer-async-await:        error
+  ava/prefer-power-assert:       off
+  ava/test-ended:                error
+  ava/test-title:                [error, if-multiple]
+  ava/use-t:                     error
+  ava/use-t-well:                error
+  ava/use-test:                  error
+  ava/use-true-false:            error
+
+  # The following rules are from eslint-plugin-flowtype.
+  flowtype/boolean-style:                  [error, bool]
+  flowtype/define-flow-type:               error
+  flowtype/delimiter-dangle:               [error, always]
+  flowtype/generic-spacing:                [error, never]
+  flowtype/no-dupe-keys:                   error
+  flowtype/no-primitive-constructor-types: error
+  flowtype/no-weak-types:                  off
+  flowtype/object-type-delimiter:          [error, comma]
+  # # Waiting on support for Flow comments:
+  # # https://github.com/gajus/eslint-plugin-flowtype/issues/87
+  # flowtype/require-parameter-type:        [error, { excludeArrowFunctions: true }]
+  # flowtype/require-return-type:           [error, { annotateUndefined: never, excludeArrowFunctions: true }]
+  # flowtype/require-valid-file-annotation: [error, always, { annotationStyle: line }]
+  flowtype/require-variable-type:        off
+  flowtype/semi:                         [error, never]
+  flowtype/sort-keys:                    [error, asc, { natural: true }]
+  flowtype/space-after-type-colon:       [error, always]
+  flowtype/space-before-generic-bracket: [error, never]
+  flowtype/space-before-type-colon:      [error, never]
+  flowtype/type-id-match:                [error, '^[A-Z][A-Za-z0-9]*$']
+  flowtype/union-intersection-spacing:   [error, always]
+  flowtype/use-flow-type:                error
+
+settings:
+  # The following are from eslint-plugin-flowtype.
+  flowtype:
+    onlyFilesWithFlowAnnotation: true

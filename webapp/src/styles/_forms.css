@@ -1,0 +1,74 @@
+/**
+ * Only give a pointer cursor for labels if they're linked to a form control.
+ * http://davidwalsh.name/css-enhancements-user-experience#comment-9327
+ */
+label[for] {
+  cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"],
+select {
+  cursor: pointer;
+}
+
+fieldset {
+  -webkit-margin-end:     0;
+  -webkit-margin-start:   0;
+  -webkit-padding-after:  0;
+  -webkit-padding-before: 0;
+  -webkit-padding-end:    0;
+  -webkit-padding-start:  0;
+}
+
+legend {
+  -webkit-padding-start: 0;
+  -webkit-padding-end:   0;
+}
+
+/*
+input,
+select,
+textarea,
+::-webkit-datetime-edit,
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-year-field,
+::-webkit-inner-spin-button,
+::-webkit-calendar-picker-indicator {}
+*/
+
+input,
+textarea {
+  box-sizing: content-box;
+}
+
+select {
+  cursor:      pointer;
+  user-select: none;
+  &[size] {
+    height: auto;
+  }
+}
+
+button,
+input[type="button"],
+input[type="image"],
+input[type="reset"],
+input[type="submit"] {
+  cursor:      pointer;
+  user-select: none;
+}
+
+/* Change button focus outlines in Firefox. */
+button,
+input[type="button"],
+input[type="file"] > input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}

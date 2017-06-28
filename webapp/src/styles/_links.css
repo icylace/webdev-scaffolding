@@ -1,0 +1,104 @@
+/**
+ * Pseudo-classes, especially on anchors, are ordered in a particular way.
+ * http://meyerweb.com/eric/css/link-specificity.html
+ */
+a {
+  &,
+  &:link {
+    border-bottom:   1px dotted currentColor;
+    color:           #00CC00;
+    text-decoration: none;
+  }
+  &:visited {
+    color:           #008800;
+    text-decoration: none;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    border-bottom:   1px solid currentColor;
+    color:           #00FF00;
+    text-decoration: none;
+  }
+}
+
+/* https://webdesign.tutsplus.com/articles/quick-tip-make-telephone-numbers-do-something--webdesign-9271 */
+a[href^="tel:"]:before {
+  content: "\260E";
+  margin-right: 0.5em;
+}
+
+/*
+nav {}
+*/
+
+%basis_menu {
+  margin:  0;
+  padding: 0;
+  li {
+    list-style: none;
+    margin:     0;
+    padding:    0;
+  }
+  a {
+    &,
+    &:link,
+    &:visited,
+    &:hover,
+    &:active,
+    &:focus {
+      display:         block;
+      text-decoration: none;
+    }
+  }
+  .basis-menu-parent:hover {
+    .basis-menu__submenu {
+      visibility: visible;
+    }
+  }
+  .basis-menu__submenu {
+    padding:    0;
+    visibility: hidden;
+    z-index:    1;
+    li {
+      display: block;
+    }
+  }
+}
+
+%basis_menu__horizontal-floated {
+  @extends %basis_menu;
+  li {
+    float:    left;
+    position: relative;
+  }
+  .basis-menu__submenu {
+    position: absolute;
+  }
+}
+
+%basis_menu__horizontal-justified {
+  @extends %basis_menu;
+
+  position:   relative;
+  text-align: justify;
+  &::after {
+    content: "";
+    display: inline-block;
+    width:   100%;
+  }
+  li {
+    display:    inline-block;
+    text-align: left;
+  }
+  .basis-menu__submenu {
+    position: absolute;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*
+// http://jsfiddle.net/csswizardry/zfSt4/
+// table-layout
+*/

@@ -1,0 +1,9 @@
+# {{ project }}
+{{ project description }}
+
+## Team
+Creator:  {{ author }}
+Site:  {{ site }}
+
+## Thanks to Awesome People and Their Projects
+{{ project name }}: {{ project site }}
