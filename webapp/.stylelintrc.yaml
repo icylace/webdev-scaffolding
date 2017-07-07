@@ -13,7 +13,7 @@ rules:
     - ignore:
       - after-comment
       - inside-block
-  # The following rules are copied verbatim from stylelint-config-standard.
+  # The following rules are based on stylelint-config-standard.
   at-rule-empty-line-before:                          [always, {except: [blockless-after-same-name-blockless, first-nested], ignore: [after-comment]}]
   at-rule-name-case:                                  lower
   at-rule-name-space-after:                           always-single-line
