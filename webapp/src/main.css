@@ -9,11 +9,6 @@
   @apply --danger-theme;
 }
 
-html {
-  /* https://subtlepatterns.com/dark-sharp-edges/ */
-  background-image: url("./assets/footer_lodyas.png");
-}
-
 body {
   font-family:    "Signika", sans-serif;
   font-size:      1.4rem;

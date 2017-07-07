@@ -116,12 +116,21 @@ object {
 :focus {}
 */
 
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ */
+
 ::-moz-selection {
   background-color: var(--selection-color);
+  text-shadow: none;
 }
 
 ::selection {
   background-color: var(--selection-color);
+  text-shadow: none;
 }
 
 /* -----------------------------------------------------------------------------
@@ -135,6 +144,15 @@ object {
   clear:   both;
   content: "";
   display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.browser-upgrade {
+  background-color: #CCCCCC;
+  color: #000000;
+  margin: 0.2em 0;
+  padding: 0.2em 0;
 }
 
 /* -----------------------------------------------------------------------------

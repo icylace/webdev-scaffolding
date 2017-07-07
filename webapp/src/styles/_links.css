@@ -23,7 +23,7 @@ a {
 }
 
 /* https://webdesign.tutsplus.com/articles/quick-tip-make-telephone-numbers-do-something--webdesign-9271 */
-a[href^="tel:"]:before {
+a[href^="tel:"]::before {
   content: "\260E";
   margin-right: 0.5em;
 }

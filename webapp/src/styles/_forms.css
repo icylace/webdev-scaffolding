@@ -45,6 +45,10 @@ textarea {
   box-sizing: content-box;
 }
 
+textarea {
+  resize: vertical;
+}
+
 select {
   cursor:      pointer;
   user-select: none;
