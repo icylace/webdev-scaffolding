@@ -50,10 +50,10 @@ setup_app_system() {
   # # https://date-fns.org/
   # modules+=('date-fns')
 
-  # # Lost Grid
-  # # Grid layout system.
-  # # http://lostgrid.org/
-  # devModules+=('lost')
+  # Lost Grid
+  # Grid layout system.
+  # http://lostgrid.org/
+  devModules+=('lost')
 
   # Ramda
   # Functional programming library
