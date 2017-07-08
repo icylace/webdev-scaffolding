@@ -1,28 +1,22 @@
 // TODO
-// - auto-clean build folder before building
+// - ensure CSS extraction to separate file works
 // - image optimization
 //   - url-loader afterwards ?
-// - flexbox (or lost?) for layout
-// - color audit
 // - gzipping
-// - ensure CSS extraction to separate file works
 // - Vue server-side rendering
 // - chunking
-// - posthtml ?
 // - accessibility auditing ?
 // - w3c validation ?
-
-
-
+// - color audit ?
 
 
 
 // @flow
 "use strict"
 
-const path    = require("path")
-const webpack = require("webpack")
-
+const path              = require("path")
+const webpack           = require("webpack")
+const CleanPlugin       = require("clean-webpack-plugin")
 const CompressionPlugin = require("compression-webpack-plugin")
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const extractStyles     = new ExtractTextPlugin("build.css")
@@ -30,16 +24,18 @@ const extractStyles     = new ExtractTextPlugin("build.css")
 function setupWebpack(env/*: Object*/ = {})/*: Object*/ {
   const inProduction = (process.env.NODE_ENV === "production")
   return {
-    entry: (inProduction
-      ? "./src/main.js"
-      : {
-          main: [
-            "webpack-hot-middleware/client",
-            "webpack/hot/dev-server",
-            "./src/main.js",
-          ],
-        }
-    ),
+    entry: (() => {
+      if (inProduction) {
+        return "./src/main.js"
+      }
+      return {
+        main: [
+          "webpack-hot-middleware/client",
+          "webpack/hot/dev-server",
+          "./src/main.js",
+        ],
+      }
+    })(),
     output: {
       filename: "build.js",
       publicPath: "/",
@@ -119,6 +115,7 @@ function setupWebpack(env/*: Object*/ = {})/*: Object*/ {
     plugins: (() => {
       if (inProduction) {
         return [
+          new CleanPlugin(["dist/*.*"]),
           // new webpack.optimize.ModuleConcatenationPlugin(),
           extractStyles,
           new webpack.optimize.UglifyJsPlugin({
@@ -130,6 +127,7 @@ function setupWebpack(env/*: Object*/ = {})/*: Object*/ {
         ]
       }
       return [
+        new CleanPlugin(["dist/*.*"]),
         // new webpack.optimize.ModuleConcatenationPlugin(),
         extractStyles,
         new webpack.HotModuleReplacementPlugin(),
