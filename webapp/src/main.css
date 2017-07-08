@@ -1,14 +1,3 @@
-:root {
-  --danger-theme: {
-    color: white;
-    background-color: blue;
-  };
-}
-
-.danger {
-  @apply --danger-theme;
-}
-
 body {
   font-family:    "Signika", sans-serif;
   font-size:      1.4rem;
