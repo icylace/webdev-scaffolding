@@ -1,3 +1,3 @@
-# Webdev Scaffolding (WORK-IN-PROGRESS)
+# WORK-IN-PROGRESS
 
-Scaffolding for web projects.
+Scaffolding for web app projects.

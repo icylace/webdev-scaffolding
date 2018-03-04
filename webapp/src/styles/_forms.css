@@ -50,7 +50,7 @@ textarea {
 }
 
 select {
-  cursor:      pointer;
+  cursor: pointer;
   user-select: none;
   &[size] {
     height: auto;
@@ -62,7 +62,7 @@ input[type="button"],
 input[type="image"],
 input[type="reset"],
 input[type="submit"] {
-  cursor:      pointer;
+  cursor: pointer;
   user-select: none;
 }
 

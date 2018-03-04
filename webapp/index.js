@@ -1,4 +1,3 @@
-// @flow
 "use strict"
 
 const { foo } = require("./lib/functions.js")

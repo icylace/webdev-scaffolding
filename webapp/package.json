@@ -13,35 +13,36 @@
     }
   ],
   "license": "MIT",
-  "keywords": [
-    ""
-  ],
+  "keywords": [""],
   "private": true,
   "main": "server.js",
   "engines": {
-    "node": "8.1.2"
+    "node": ">=7.5.0"
   },
   "repository": {
     "type": "git",
     "url": ""
   },
-  "dependencies": {
-  },
-  "devDependencies": {
-  },
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
-    "exam": "yarn lint:css ; yarn lint:js ; yarn type ; yarn test",
+    "dev:all": "cross-env NODE_ENV=development CLEANING_ALL=1 webpack --progress --hide-modules",
+    "dev:analyze": "cross-env NODE_ENV=development CLEANING_ALL=1 ANALYZING=1 webpack --progress --hide-modules",
+    "exam": "yarn lint ; yarn type ; yarn test",
     "lint": "yarn lint:css ; yarn lint:js",
     "lint:css": "stylelint '**/*.{css,vue}'",
     "lint:js": "eslint --ext js,vue .",
     "prod": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "prod:analyze": "cross-env NODE_ENV=production ANALYZING=1 webpack --progress --hide-modules",
     "start": "node server.js",
+    "start:prod": "cross-env NODE_ENV=production node server.js",
+    "start:dev": "cross-env NODE_ENV=development node server.js",
     "test": "ava --verbose --timeout=60s",
     "test:coverage": "nyc ava --verbose --timeout=60s",
     "type": "flow check --show-all-errors",
     "type:status": "flow status --show-all-errors",
     "type:status:stop": "flow stop",
-    "watch": "pm2-dev start server.js"
+    "watch": "pm2-dev start src/server/server.js"
   }
 }

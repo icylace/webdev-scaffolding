@@ -6,18 +6,15 @@
 </template>
 
 <script>
-  // @flow
-  "use strict"
+import {} from "./main.css";
 
-  import {} from "./main.css"
-
-  export default {
-    // data() {
-    //   return {
-    //   }
-    // },
-    created() {
-      this.$router.push("/")
-    },
+export default {
+  // data() {
+  //   return {
+  //   }
+  // },
+  created() {
+    this.$router.push("/");
   }
+};
 </script>

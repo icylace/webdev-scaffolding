@@ -1,9 +1,7 @@
-// @flow
 "use strict"
 
 // const bar = require("bar")
 
-function foo() {
-}
+function foo() {}
 
 module.exports = { foo }

@@ -1,13 +1,13 @@
 body {
-  font-family:    "Signika", sans-serif;
-  font-size:      1.4rem;
+  font-family: "Signika", sans-serif;
+  font-size: 1.4rem;
   letter-spacing: 1px;
 }
 
 h1,
 h2,
 p {
-  color: #DDDDDD;
+  color: #dddddd;
 }
 
 h1 {
@@ -15,8 +15,8 @@ h1 {
 }
 
 label {
-  color:     #FFFFFF;
-  display:   inline-block;
+  color: #ffffff;
+  display: inline-block;
   transform: skew(20deg);
   &[for] {
     cursor: pointer;
@@ -31,7 +31,7 @@ button {}
 
 button {
   background-color: transparent;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   letter-spacing: 1px;
 }
@@ -54,7 +54,7 @@ button {
 }
 
 .form-subitem-input {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   cursor: pointer;
   left: -0.3rem;
   position: relative;
@@ -64,9 +64,9 @@ button {
   display: inline-block;
   margin-left: 12rem;
   & .form-subitem {
-    border: 3px solid #FFFFFF;
+    border: 3px solid #ffffff;
     &:hover {
-      background-color: #FFFFFF;
+      background-color: #ffffff;
       cursor: pointer;
       button {
         color: #336688;

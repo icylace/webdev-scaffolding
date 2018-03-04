@@ -5,17 +5,12 @@
 </template>
 
 <script>
-  // @flow
-  "use strict"
-
-  export default {
-    data() {
-      return {
-      }
-    },
-    methods: {
-      submit() {
-      },
-    },
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    submit() {}
   }
+};
 </script>

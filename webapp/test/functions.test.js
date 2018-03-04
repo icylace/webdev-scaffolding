@@ -1,10 +1,9 @@
-// @flow
 "use strict"
 
 import test from "ava"
 import { foo } from "../lib/functions.js"
 
-test("should run", (t) => {
+test("should run", t => {
   t.pass()
   // const x = true
   // const y = false

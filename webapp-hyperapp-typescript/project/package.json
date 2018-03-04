@@ -1,0 +1,27 @@
+{
+  "name": "example",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [""],
+  "author": "",
+  "license": "MIT",
+  "main": "./dist/main.js",
+  "repository": {
+    "url": "",
+    "type": "git"
+  },
+  "homepage": "https://example.com/",
+  "bugs": "",
+  "engines": {
+    "node": ">=9.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "rm ./dist/* ; parcel build ./src/client/main.html",
+    "dev": "parcel ./src/client/main.html",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "typecheck": "tsc --noEmit",
+    "watch": "parcel watch ./src/client/main.html"
+  }
+}

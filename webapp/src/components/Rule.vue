@@ -5,13 +5,9 @@
 </template>
 
 <script>
-  // @flow
-  "use strict"
-
-  export default {
-    data() {
-      return {
-      }
-    },
+export default {
+  data() {
+    return {};
   }
+};
 </script>
