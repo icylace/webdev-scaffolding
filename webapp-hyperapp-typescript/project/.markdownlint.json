@@ -1,4 +1,5 @@
 {
+  "//": "https://github.com/DavidAnson/markdownlint#rules--aliases",
   "default": true,
   "MD003": { "style": "atx" },
   "MD004": { "style": "asterisk" },

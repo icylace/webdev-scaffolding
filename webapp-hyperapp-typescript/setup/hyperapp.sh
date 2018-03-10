@@ -9,10 +9,10 @@ setup_hyperapp() {
   # https://hyperapp.js.org/
   main+=('hyperapp')
 
-  # @hyperapp/html
-  # Html helper functions for Hyperapp.
-  # https://github.com/hyperapp/html
-  main+=('@hyperapp/html')
+  # Hyperapp FX
+  # Effects as data for Hyperapp.
+  # https://github.com/hyperapp/fx
+  main+=('@hyperapp/fx')
 
   # @hyperapp/logger
   # Log Hyperapp state updates and action information to the console.

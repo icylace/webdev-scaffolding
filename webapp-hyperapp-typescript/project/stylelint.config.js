@@ -1,137 +1,141 @@
 "use strict"
 
-// stylelint-config-standard uses `no-empty-source` but we can't undo that rule
-// in our own ruleset if we just simply extend stylelint-config-standard.  This
-// is why we copy most of the rules used in stylelint-config-standard instead
-// of extending it.
+const propertiesOrder = require("./stylelint-order-properties.js")
+
+// https://stylelint.io/user-guide/rules/
 
 module.exports = {
+  plugins: [
+    "stylelint-csstree-validator",
+    "stylelint-declaration-block-no-ignored-properties",
+    "stylelint-declaration-strict-value",
+    "stylelint-images",
+    "stylelint-no-browser-hacks/lib",
+    "stylelint-no-unsupported-browser-features",
+    "stylelint-order",
+  ],
+  extends: [
+    // We're explicitly extending `stylelint-config-recommended` even though
+    // it's already included with `stylelint-config-standard` so that the
+    // `stylelint-find-unused-rules` package.json script recognizes that
+    // it is being used.
+    "stylelint-config-recommended",
+    "stylelint-config-standard",
+    "stylelint-config-prettier",
+  ],
   rules: {
-    "color-hex-case": "lower",
-    "rule-empty-line-before": [
-      "always-multi-line",
-      {
-        ignore: ["after-comment", "inside-block"],
-      },
-    ],
-    "at-rule-empty-line-before": [
-      "always",
-      {
-        except: ["blockless-after-same-name-blockless", "first-nested"],
-        ignore: ["after-comment"],
-      },
-    ],
-    "at-rule-name-case": "lower",
-    "at-rule-name-space-after": "always-single-line",
-    "at-rule-semicolon-newline-after": "always",
-    "block-closing-brace-empty-line-before": "never",
-    "block-closing-brace-newline-after": "always",
-    "block-closing-brace-newline-before": "always-multi-line",
-    "block-closing-brace-space-before": "always-single-line",
+    "at-rule-blacklist": "extend",
+    "at-rule-no-vendor-prefix": true,
+    "at-rule-whitelist": null,
     "block-no-empty": true,
-    "block-opening-brace-newline-after": "always-multi-line",
-    "block-opening-brace-space-after": "always-single-line",
-    "block-opening-brace-space-before": "always",
-    "color-hex-length": "short",
+    "color-hex-length": "long",
+    "color-named": "never",
+    "color-no-hex": null,
     "color-no-invalid-hex": true,
-    "comment-empty-line-before": [
-      "always",
-      {
-        except: ["first-nested"],
-        ignore: ["stylelint-commands"],
-      },
-    ],
     "comment-no-empty": true,
-    "comment-whitespace-inside": "always",
-    "custom-property-empty-line-before": [
-      "always",
-      {
-        except: ["after-custom-property", "first-nested"],
-        ignore: ["after-comment", "inside-single-line-block"],
-      },
-    ],
-    "declaration-bang-space-after": "never",
-    "declaration-bang-space-before": "always",
-    "declaration-block-no-duplicate-properties": [
-      true,
-      {
-        ignore: ["consecutive-duplicates-with-different-values"],
-      },
-    ],
-    "declaration-block-no-redundant-longhand-properties": true,
-    "declaration-block-no-shorthand-property-overrides": true,
-    "declaration-block-semicolon-newline-after": "always-multi-line",
-    "declaration-block-semicolon-space-after": "always-single-line",
-    "declaration-block-semicolon-space-before": "never",
-    "declaration-block-single-line-max-declarations": 1,
-    "declaration-block-trailing-semicolon": "always",
-    "declaration-colon-newline-after": "always-multi-line",
-    "declaration-colon-space-after": "always-single-line",
-    "declaration-colon-space-before": "never",
-    "declaration-empty-line-before": [
-      "always",
-      {
-        except: ["after-declaration", "first-nested"],
-        ignore: ["after-comment", "inside-single-line-block"],
-      },
-    ],
+    "comment-word-blacklist": "/^TODO:/",
+    "custom-media-pattern": "media-.+",
+    "custom-property-pattern": null,
+    "declaration-no-important": true,
+    "declaration-property-unit-blacklist": {
+      "font-size": ["px"],
+    },
+    "declaration-property-unit-whitelist": null,
+    "declaration-property-value-blacklist": null,
+    "declaration-property-value-whitelist": null,
+    "font-family-no-missing-generic-family-keyword": true,
+    "font-family-name-quotes": "always-unless-keyword",
     "font-family-no-duplicate-names": true,
+    "font-weight-notation": "named-where-possible",
+    "function-blacklist": null,
     "function-calc-no-unspaced-operator": true,
-    "function-comma-newline-after": "always-multi-line",
-    "function-comma-space-after": "always-single-line",
-    "function-comma-space-before": "never",
     "function-linear-gradient-no-nonstandard-direction": true,
-    "function-max-empty-lines": 0,
-    "function-name-case": "lower",
-    "function-parentheses-newline-inside": "always-multi-line",
-    "function-parentheses-space-inside": "never-single-line",
-    "function-whitespace-after": "always",
-    indentation: 2,
+    "function-url-no-scheme-relative": true,
+    "function-url-quotes": "always",
+    "function-url-scheme-blacklist": ["ftp", "/^http:/"],
+    "function-url-scheme-whitelist": ["data", "/^https:/"],
+    "function-whitelist": null,
     "keyframe-declaration-no-important": true,
-    "length-zero-no-unit": true,
-    "max-empty-lines": 1,
-    "media-feature-colon-space-after": "always",
-    "media-feature-colon-space-before": "never",
-    "media-feature-name-case": "lower",
+    "max-nesting-depth": 3,
+    "media-feature-name-blacklist": null,
     "media-feature-name-no-unknown": true,
-    "media-feature-parentheses-space-inside": "never",
+    "media-feature-name-no-vendor-prefix": true,
+    "media-feature-name-whitelist": null,
     "media-feature-range-operator-space-after": "always",
     "media-feature-range-operator-space-before": "always",
-    "media-query-list-comma-newline-after": "always-multi-line",
-    "media-query-list-comma-space-after": "always-single-line",
-    "media-query-list-comma-space-before": "never",
-    "no-eol-whitespace": true,
-    "no-extra-semicolons": true,
-    "no-invalid-double-slash-comments": true,
-    "no-missing-end-of-source-newline": true,
-    "number-leading-zero": "always",
-    "number-no-trailing-zeros": true,
-    "property-case": "lower",
-    "property-no-unknown": true,
-    "selector-attribute-brackets-space-inside": "never",
+    "no-unknown-animations": true,
+    "number-max-precision": 4,
+    "property-blacklist": null,
+    "property-no-vendor-prefix": true,
+    "property-whitelist": null,
+    "selector-attribute-operator-blacklist": null,
+    "selector-attribute-operator-whitelist": null,
     "selector-attribute-operator-space-after": "never",
     "selector-attribute-operator-space-before": "never",
-    "selector-combinator-space-after": "always",
-    "selector-combinator-space-before": "always",
-    "selector-descendant-combinator-no-non-space": true,
-    "selector-list-comma-newline-after": "always",
-    "selector-list-comma-space-before": "never",
-    "selector-max-empty-lines": 0,
-    "selector-pseudo-class-case": "lower",
-    "selector-pseudo-class-no-unknown": true,
-    "selector-pseudo-class-parentheses-space-inside": "never",
-    "selector-pseudo-element-case": "lower",
-    "selector-pseudo-element-colon-notation": "double",
-    "selector-pseudo-element-no-unknown": true,
-    "selector-type-case": "lower",
-    "selector-type-no-unknown": true,
+    "selector-class-pattern": null,
+    "selector-combinator-blacklist": null,
+    "selector-combinator-whitelist": null,
+    "selector-id-pattern": null,
+    "selector-max-attribute": 2,
+    "selector-max-class": 3,
+    "selector-max-combinators": 3,
+    "selector-max-compound-selectors": 3,
+    "selector-max-id": 0,
+    "selector-max-specificity": "0,6,3",
+    "selector-max-type": 3,
+    "selector-max-universal": 2,
+    "selector-nested-pattern": null,
+    "selector-no-qualifying-type": null,
+    "selector-no-vendor-prefix": true,
+    "selector-pseudo-class-blacklist": null,
+    "selector-pseudo-class-whitelist": null,
+    "selector-pseudo-element-blacklist": null,
+    "selector-pseudo-element-whitelist": null,
     "shorthand-property-no-redundant-values": true,
-    "string-no-newline": true,
-    "unit-case": "lower",
-    "unit-no-unknown": true,
-    "value-list-comma-newline-after": "always-multi-line",
-    "value-list-comma-space-after": "always-single-line",
-    "value-list-comma-space-before": "never",
-    "value-list-max-empty-lines": 0,
+    "string-quotes": "double",
+    "time-min-milliseconds": null,
+    "unit-blacklist": null,
+    "unit-whitelist": null,
+    "value-keyword-case": "lower",
+    "value-no-vendor-prefix": true,
+
+    // https://github.com/csstree/stylelint-validator#usage
+    "csstree/validator": true,
+
+    // https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties#usage
+    "plugin/declaration-block-no-ignored-properties": true,
+
+    // https://github.com/AndyOGo/stylelint-declaration-strict-value#usage
+    "scale-unlimited/declaration-strict-value": [["/color/", "font-size"]],
+
+    // https://github.com/ramasilveyra/stylelint-images#usage
+    "images/broken": true,
+    "images/prefer-data-uri": 256,
+
+    // https://github.com/Slamdunk/stylelint-no-browser-hacks#usage
+    "plugin/no-browser-hacks": [true, { browsers: ["last 2 versions", "ie >= 11"] }],
+
+    // https://github.com/ismay/stylelint-no-unsupported-browser-features#usage
+    "plugin/no-unsupported-browser-features": [
+      true,
+      {
+        browsers: ["last 2 versions", "ie >= 11"],
+        severity: "warning",
+      },
+    ],
+
+    // https://github.com/hudochenkov/stylelint-order#list-of-rules
+    "order/order": [
+      "less-mixins",
+      "custom-properties",
+      "dollar-variables",
+      "at-variables",
+      "declarations",
+      "rules",
+      "at-rules",
+    ],
+    // TODO: take advantage of this:
+    "order/properties-order": [propertiesOrder, { disableFix: true }],
+    "order/properties-alphabetical-order": null,
   },
 }

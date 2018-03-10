@@ -1,4 +1,5 @@
 {
+  "//": "https://docs.npmjs.com/files/package.json",
   "name": "example",
   "version": "0.0.0",
   "description": "",
@@ -17,10 +18,14 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "rm ./dist/* ; parcel build ./src/client/main.html",
     "dev": "parcel ./src/client/main.html",
+    "lint": "tslint --project tsconfig.json --config tslint.json",
+    "prod": "rm ./dist/* ; parcel build ./src/client/main.html",
+    "stylelint-find-unused-rules": "stylelint-find-rules",
     "test": "jest",
     "test:coverage": "jest --coverage",
+    "test:mutation": "stryker run",
+    "tslint-check": "tslint-config-prettier-check ./tslint.json",
     "typecheck": "tsc --noEmit",
     "watch": "parcel watch ./src/client/main.html"
   }

@@ -4,14 +4,13 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# # https://www.peterbe.com/plog/set-ex
-# set -x
-
 init() {
   if [ -z "$1" ] ; then
     echo "You need to name your new project!"
     return 1
   fi
+
+  shopt -s dotglob
 
   # https://stackoverflow.com/a/59916/1935675
   local here="$(dirname $0)"
@@ -23,12 +22,14 @@ init() {
   mkdir -v './src/client/assets'
 
   source "$here/setup/babel.sh"
-  source "$here/setup/formatters.sh"
   source "$here/setup/hyperapp.sh"
   source "$here/setup/linters.sh"
   source "$here/setup/parcel.sh"
   source "$here/setup/postcss.sh"
+  source "$here/setup/prettier.sh"
+  source "$here/setup/stylelint.sh"
   source "$here/setup/testers.sh"
+  source "$here/setup/tslint.sh"
   source "$here/setup/typescript.sh"
 
   local devExactModules=()
@@ -37,22 +38,24 @@ init() {
   local modules=()
 
   setup_babel devModules
-  setup_formatters devExactModules
   setup_hyperapp devModules modules
   setup_linters devModules devFirstModules
   setup_parcel devModules
   setup_postcss devModules
+  setup_prettier devModules devExactModules
+  setup_stylelint devModules
   setup_testers devModules
+  setup_tslint devModules
   setup_typescript devModules
 
   yarn add --dev "${devFirstModules[@]}" "${devModules[@]}"
   yarn add --dev --exact "${devExactModules[@]}"
   yarn add "${modules[@]}"
 
-  # eslint --init
-  # stryker init
-  # tsc --init
-  # tslint --init
+  git init
+  git config core.hooksPath .githooks
+  git add --all
+  git commit --message='build: Scaffold a new project.'
 }
 
 init "$1"

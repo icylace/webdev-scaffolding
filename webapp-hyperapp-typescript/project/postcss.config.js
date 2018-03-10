@@ -1,5 +1,7 @@
 "use strict"
 
+// https://github.com/postcss/postcss#usage
+
 module.exports = {
   plugins: [
     require("postcss-import")(),

@@ -1,8 +1,7 @@
 // Based on:
 // https://codepen.io/Daynox/pen/ZvKZzx
 
-import { app } from "hyperapp"
-import { button, div, li, ol } from "@hyperapp/html"
+import { app, h } from "hyperapp"
 
 type state = {
   history: { squares: any[] }[]
@@ -45,25 +44,25 @@ const actions: actions = {
 }
 
 type square = (a: any) => any
-const square: square = ({ value, index, tick }) => button({ onclick: () => tick(index), class: "square" }, value)
+const square: square = ({ value, index, tick }) => h("button", { onclick: () => tick(index), class: "square" }, value)
 
 type board = (a: any) => any
 const board: board = ({ squares, tick }) =>
-  div([
-    div({ class: "board-row" }, [
-      square({ index: 0, tick, value: squares[0] }),
-      square({ index: 1, tick, value: squares[1] }),
-      square({ index: 2, tick, value: squares[2] }),
+  h("div", [
+    h("div", { class: "board-row" }, [
+      square({ value: squares[0], index: 0, tick }),
+      square({ value: squares[1], index: 1, tick }),
+      square({ value: squares[2], index: 2, tick }),
     ]),
-    div({ class: "board-row" }, [
-      square({ index: 3, tick, value: squares[3] }),
-      square({ index: 4, tick, value: squares[4] }),
-      square({ index: 5, tick, value: squares[5] }),
+    h("div", { class: "board-row" }, [
+      square({ value: squares[3], index: 3, tick }),
+      square({ value: squares[4], index: 4, tick }),
+      square({ value: squares[5], index: 5, tick }),
     ]),
-    div({ class: "board-row" }, [
-      square({ index: 6, tick, value: squares[6] }),
-      square({ index: 7, tick, value: squares[7] }),
-      square({ index: 8, tick, value: squares[8] }),
+    h("div", { class: "board-row" }, [
+      square({ value: squares[6], index: 6, tick }),
+      square({ value: squares[7], index: 7, tick }),
+      square({ value: squares[8], index: 8, tick }),
     ]),
   ])
 
@@ -74,11 +73,11 @@ const view: view = (state, actions) => {
   const status = winner ? `Winner: ${winner}` : `Next player: ${state.xIsNext ? "X" : "O"}`
   const moves = state.history.map((_step: any, move: number) => {
     const desc = move ? "Go to move #" + move : "Go to game start"
-    return li([button({ onclick: () => actions.jumpTo(move) }, desc)])
+    return h("li", [h("button", { onclick: () => actions.jumpTo(move) }, desc)])
   })
-  return div({ class: "game" }, [
-    div({ class: "game-board" }, [board({ squares: current.squares, tick: actions.tick })]),
-    div({ class: "game-info" }, [div([status]), ol([moves])]),
+  return h("div", { class: "game" }, [
+    h("div", { class: "game-board" }, [board({ squares: current.squares, tick: actions.tick })]),
+    h("div", { class: "game-info" }, [h("div", [status]), h("ol", [moves])]),
   ])
 }
 

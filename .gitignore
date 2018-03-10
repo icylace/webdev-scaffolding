@@ -64,17 +64,14 @@ typings/
 # next.js build output
 .next
 
-
 # ------------------------------------------------------------------------------
 #  https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
+#  https://github.com/github/gitignore/pull/2618
 # ------------------------------------------------------------------------------
 
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
-# ------------------------------------------------------------------------------
-
-.vscode

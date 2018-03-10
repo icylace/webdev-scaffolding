@@ -1,2 +1,6 @@
+# https://prettier.io/docs/en/ignore.html#ignoring-files
+
 *.min.css
 *.min.js
+
+dist/*

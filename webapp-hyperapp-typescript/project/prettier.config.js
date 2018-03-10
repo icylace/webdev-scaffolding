@@ -1,5 +1,7 @@
 "use strict"
 
+// https://prettier.io/docs/en/options.html
+
 module.exports = {
   arrowParens: "avoid",
   bracketSpacing: true,
