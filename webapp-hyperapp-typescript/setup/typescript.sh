@@ -8,6 +8,12 @@ setup_typescript() {
   # https://www.typescriptlang.org/
   dev+=('typescript')
 
+  # @types/jest
+  # This package contains type definitions for Jest
+  # (http://facebook.github.io/jest/).
+  # https://www.npmjs.com/package/@types/jest
+  dev+=('@types/jest')
+
   # @types/node
   # This package contains type definitions for Node.js (http://nodejs.org/).
   # https://www.npmjs.com/package/@types/node

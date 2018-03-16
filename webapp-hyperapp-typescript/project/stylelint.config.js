@@ -36,6 +36,13 @@ module.exports = {
     "comment-word-blacklist": "/^TODO:/",
     "custom-media-pattern": "media-.+",
     "custom-property-pattern": null,
+    "declaration-empty-line-before": [
+      "always",
+      {
+        except: ["first-nested"],
+        ignore: ["after-comment", "after-declaration", "inside-single-line-block"],
+      },
+    ],
     "declaration-no-important": true,
     "declaration-property-unit-blacklist": {
       "font-size": ["px"],

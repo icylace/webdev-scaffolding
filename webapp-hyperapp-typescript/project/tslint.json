@@ -25,6 +25,7 @@
     "interface-name": false,
     "match-default-export-name": true,
     "max-file-line-count": [true, 1000],
+    "newline-before-return": false,
     "no-any": true,
     "no-boolean-literal-compare": true,
     "no-default-export": true,
@@ -35,7 +36,7 @@
     "no-inferrable-types": [true, "ignore-params"],
     "no-inferred-empty-object-type": true,
     "no-invalid-this": [true, "check-function-in-method"],
-    "no-magic-numbers": true,
+    "no-magic-numbers": [true, -1, 0, 1, 2],
     "no-mergeable-namespace": true,
     "no-non-null-assertion": true,
     "no-parameter-properties": true,
@@ -56,7 +57,7 @@
     "prefer-conditional-expression": [true, "check-else-if"],
     "prefer-const": [true, { "destructuring": "any" }],
     "prefer-function-over-method": true,
-    "prefer-method-signature": true,
+    "prefer-method-signature": false,
     "prefer-readonly": true,
     "prefer-switch": true,
     "prefer-template": true,
@@ -68,6 +69,7 @@
     "switch-default": true,
     "switch-final-break": true,
     "triple-equals": true,
+    "type-literal-delimiter": false,
     "typedef": [true, "call-signature"],
     "typeof-compare": true,
     "use-default-type-parameter": true,
@@ -75,7 +77,7 @@
     "variable-name": [true, "allow-leading-underscore", "ban-keywords", "check-format"],
 
     // ESLint rules for TSLint
-    // https://github.com/dividab/tslint-divid
+    // https://github.com/buzinas/tslint-eslint-rules#rules-copied-from-the-eslint-website
     "handle-callback-err": [true, "error"],
     "no-constant-condition": true,
     "no-duplicate-case": true,
@@ -115,10 +117,10 @@
 
     // tslint-microsoft-contrib
     // https://github.com/Microsoft/tslint-microsoft-contrib
-    "export-name": true,
+    "export-name": false,
     "import-name": true,
     "insecure-random": true,
-    "max-func-body-length": [true, 30],
+    "max-func-body-length": [true, 40],
     "no-banned-terms": true,
     "no-control-regex": true,
     "no-cookies": true,
@@ -134,7 +136,7 @@
     "no-inner-html": true,
     "no-multiline-string": true,
     "no-octal-literal": true,
-    "no-relative-imports": true,
+    "no-relative-imports": false,
     "no-reserved-keywords": true,
     "no-single-line-block-comment": true,
     "no-string-based-set-immediate": true,
@@ -153,6 +155,7 @@
     "non-literal-require": true,
     "possible-timing-attack": true,
     "prefer-array-literal": true,
+    "prefer-type-cast": false,
     "promise-must-complete": true,
     "use-named-parameter": true,
 

@@ -3,6 +3,7 @@
 // Based on:
 // https://9elements.com/css-rule-order/
 // https://github.com/brandon-rhodes/Concentric-CSS/blob/master/style3.css
+
 module.exports = [
   // CSS Miscellaneous
   // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Miscellaneous
@@ -219,6 +220,60 @@ module.exports = [
     ],
   },
 
+  // CSS Logical Properties and Values
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties
+  {
+    emptyLineBefore: "always",
+    properties: [
+      "margin-block-start",
+      "margin-block-end",
+      "margin-inline-start",
+      "margin-inline-end",
+
+      "padding-block-start",
+      "padding-block-end",
+      "padding-inline-start",
+      "padding-inline-end",
+
+      "border-block-start",
+      "border-block-start-width",
+      "border-block-start-style",
+      "border-block-start-color",
+      "border-block-end",
+      "border-block-end-width",
+      "border-block-end-style",
+      "border-block-end-color",
+      "border-inline-start",
+      "border-inline-start-width",
+      "border-inline-start-style",
+      "border-inline-start-color",
+      "border-inline-end",
+      "border-inline-end-width",
+      "border-inline-end-style",
+      "border-inline-end-color",
+
+      "block-size",
+      "min-block-size",
+      "max-block-size",
+
+      "inline-size",
+      "min-inline-size",
+      "max-inline-size",
+
+      "offset-block-end",
+      "offset-block-start",
+      "offset-inline-end",
+      "offset-inline-start",
+    ],
+  },
+
+  // CSS Images
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images
+  {
+    emptyLineBefore: "always",
+    properties: ["image-orientation", "image-rendering", "object-fit", "object-position"],
+  },
+
   // CSS Fonts
   // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts
   {
@@ -373,6 +428,20 @@ module.exports = [
       "resize",
       "user-select",
     ],
+  },
+
+  // CSSOM View
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/CSSOM_View
+  {
+    emptyLineBefore: "always",
+    properties: ["scroll-behavior"],
+  },
+
+  // CSS Shapes
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Shapes
+  {
+    emptyLineBefore: "always",
+    properties: ["shape-image-threshold", "shape-margin", "shape-outside"],
   },
 
   // CSS Paged Media

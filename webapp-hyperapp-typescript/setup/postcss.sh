@@ -30,6 +30,11 @@ setup_postcss() {
   # https://github.com/postcss/postcss-import
   dev+=('postcss-import')
 
+  # postcss-modules
+  # PostCSS plugin to use CSS Modules everywhere
+  # https://github.com/css-modules/postcss-modules
+  dev+=('postcss-modules')
+
   # postcss-reporter
   # A PostCSS plugin to print messages registered by other PostCSS plugins.
   # https://github.com/postcss/postcss-reporter

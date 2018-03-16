@@ -30,10 +30,25 @@ setup_linters() {
   # "eslint-plugin-promise": "^3.6.0",
   # "eslint-plugin-standard": "^3.0.1",
 
-  # markdownlint
-  # A Node.js style checker and lint tool for Markdown/CommonMark files.
-  # https://github.com/DavidAnson/markdownlint
-  dev+=('markdownlint')
-  # TODO: Consider using remark-lint:
-  # https://github.com/remarkjs/remark-lint
+  # TODO: Migrate to remark-lint:
+  # # markdownlint
+  # # A Node.js style checker and lint tool for Markdown/CommonMark files.
+  # # https://github.com/DavidAnson/markdownlint
+  # dev+=('markdownlint')
+
+  # # remark-lint
+  # # Markdown code style linter
+  # # https://github.com/remarkjs/remark-lint
+  # dev+=('remark-lint')
+
+  # # remark-cli
+  # # Command-line interface for remark.
+  # # https://github.com/remarkjs/remark/tree/master/packages/remark-cli
+  # dev+=('remark-cli')
+
+  # # remark-preset-lint-recommended
+  # # emark preset to configure remark-lint with settings that prevent mistakes
+  # # or syntaxes that do not work correctly across vendors.
+  # # https://github.com/remarkjs/remark-lint/tree/master/packages/remark-preset-lint-recommended
+  # dev+=('remark-preset-lint-recommended')
 }
