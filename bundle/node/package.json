@@ -1,0 +1,22 @@
+{
+  "//": "https://docs.npmjs.com/files/package.json",
+  "name": "example",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [""],
+  "author": "",
+  "license": "MIT",
+  "main": "./dist/main.js",
+  "repository": {
+    "url": "",
+    "type": "git"
+  },
+  "homepage": "https://example.com/",
+  "bugs": "",
+  "engines": {
+    "node": ">=9.8",
+    "yarn": "1.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {}
+}
