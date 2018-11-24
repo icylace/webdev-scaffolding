@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
 
 setup_parcel() {
-  local devModules=()
-
   # Parcel
   # Blazing fast, zero configuration web application bundler
   # https://parceljs.org/
-  devModules+=('parcel-bundler')
-
-  yarn add --dev "${devModules[@]}"
+  yarn add --dev parcel-bundler
 
   # ----------------------------------------------------------------------------
 

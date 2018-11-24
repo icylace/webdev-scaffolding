@@ -1,29 +1,24 @@
 #!/usr/bin/env bash
 
+# $1 = Directory containing scaffold bundles.
 setup_babel() {
-  local devModules=()
+  if [ -z "$1" ] ; then
+    echo 'ERROR: Scaffold bundle directory required.'
+    return 1
+  fi
 
-  # TODO: start using Babel 7 when ready
+  # Babel
+  # Use next generation JavaScript, today.
+  # https://babeljs.io/
+  yarn add --dev @babel/core
 
-  # # Babel
-  # # Use next generation JavaScript, today.
-  # # https://babeljs.io/
-  # dev+=('@babel/core')
-
-  devModules+=('babel-core')
-
-  # # @babel/preset-env
-  # # A Babel preset that compiles ES2015+ down to ES5.
-  # # https://github.com/babel/babel/tree/master/packages/babel-preset-env
-  # devModules+=('@babel/preset-env')
-
-  devModules+=('babel-preset-env')
-
-  yarn add --dev "${devModules[@]}"
+  # @babel/preset-env
+  # A Babel preset that compiles ES2015+ down to ES5.
+  # https://github.com/babel/babel/tree/master/packages/babel-preset-env
+  yarn add --dev @babel/preset-env
 
   # ----------------------------------------------------------------------------
 
-  local here="$(dirname $0)/../bundle/babel"
+  cp "$1/babel/.babelrc" .
 
-  cp "$here/.babelrc" .
 }

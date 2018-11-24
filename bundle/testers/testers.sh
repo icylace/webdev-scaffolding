@@ -1,34 +1,38 @@
 #!/usr/bin/env bash
 
+# $1 = Directory containing scaffold bundles.
 setup_testers() {
-  local devModules=()
+  if [ -z "$1" ] ; then
+    echo 'ERROR: Scaffold bundle directory required.'
+    return 1
+  fi
 
   # # Cypress
   # # Fast, easy and reliable testing for anything that runs in a browser.
   # # https://www.cypress.io/
-  # devModules+=('cypress')
+  # yarn add --dev cypress
 
   # # faker.js
   # # generate massive amounts of fake data in Node.js and the browser
   # # https://github.com/marak/Faker.js/
-  # devModules+=('faker')
+  # yarn add --dev faker
 
   # Jest
   # Delightful JavaScript Testing
   # https://facebook.github.io/jest/
-  devModules+=('jest')
+  yarn add --dev jest
 
   # # JSVerify
   # # JSVerify is a property-based testing library, highly inspired by QuickCheck.
   # # https://jsverify.github.io/
-  # devModules+=('jsverify')
+  # yarn add --dev jsverify
 
   # TODO: Setup Stryker.
   # # Stryker
   # # Measure the effectiveness of JavaScript tests.
   # # https://stryker-mutator.io/
-  # devModules+=('stryker')
-  # devModules+=('stryker-api')
+  # yarn add --dev stryker
+  # yarn add --dev stryker-api
   # "stryker-babel-transpiler": "^0.3.1",
   # "stryker-baseline-reporter": "^1.0.3",
   # "stryker-html-reporter": "^0.12.1",
@@ -41,18 +45,12 @@ setup_testers() {
   # # Super-agent driven library for testing node.js HTTP servers using
   # # a fluent API
   # # https://github.com/visionmedia/supertest
-  # devModules+=('supertest')
-
-  yarn add --dev "${devModules[@]}"
+  # yarn add --dev supertest
 
   # ----------------------------------------------------------------------------
 
-  local here="$(dirname $0)/../bundle/testers"
-
-  cp "$here/jest.config.js" .
-  # cp "$here/stryker.conf.js" .
-
-  # ----------------------------------------------------------------------------
+  cp "$1/testers/jest.config.js" .
+  # cp "$1/testers/stryker.conf.js" .
 
   local tmp="$(mktemp)"
   # jq '.scripts += {

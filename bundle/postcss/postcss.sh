@@ -1,50 +1,50 @@
 #!/usr/bin/env bash
 
+# $1 = Directory containing scaffold bundles.
 setup_postcss() {
-  local devModules=()
+  if [ -z "$1" ] ; then
+    echo 'ERROR: Scaffold bundle directory required.'
+    return 1
+  fi
 
   # cssnano
   # cssnano takes your nicely formatted CSS and runs it through many focused
   # optimisations, to ensure that the final result is as small as possible
   # for a production environment.
   # http://cssnano.co/
-  devModules+=('cssnano')
+  yarn add --dev cssnano
 
   # PostCSS
   # Processes CSS using plugins.
   # http://postcss.org/
-  devModules+=('postcss')
+  yarn add --dev postcss
 
   # PostCSS Colorblind Plugin
   # A PostCSS plugin for seeing your site as a colorblind person may.
   # https://github.com/btholt/postcss-colorblind
-  devModules+=('postcss-colorblind')
+  yarn add --dev postcss-colorblind
 
   # PostCSS-cssnext
   # A PostCSS plugin to use the latest CSS.
   # http://cssnext.io/
-  devModules+=('postcss-cssnext')
+  yarn add --dev postcss-cssnext
 
   # postcss-import
   # A PostCSS plugin to inline `@import` rules content.
   # https://github.com/postcss/postcss-import
-  devModules+=('postcss-import')
+  yarn add --dev postcss-import
 
   # postcss-modules
   # PostCSS plugin to use CSS Modules everywhere
   # https://github.com/css-modules/postcss-modules
-  devModules+=('postcss-modules')
+  yarn add --dev postcss-modules
 
   # postcss-reporter
   # A PostCSS plugin to print messages registered by other PostCSS plugins.
   # https://github.com/postcss/postcss-reporter
-  devModules+=('postcss-reporter')
-
-  yarn add --dev "${devModules[@]}"
+  yarn add --dev postcss-reporter
 
   # ----------------------------------------------------------------------------
 
-  local here="$(dirname $0)/../bundle/postcss"
-
-  cp "$here/.postcssrc" .
+  cp "$1/postcss/.postcssrc" .
 }

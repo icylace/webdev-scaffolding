@@ -64,7 +64,7 @@ init() {
   git init
   git config core.hooksPath .githooks
   git add --all
-  git commit --message='build: Scaffold a new project.'
+  git commit --message='set: Scaffold a new project.'
 }
 
 init "$1"

@@ -230,11 +230,6 @@ module.exports = [
       "margin-inline-start",
       "margin-inline-end",
 
-      "padding-block-start",
-      "padding-block-end",
-      "padding-inline-start",
-      "padding-inline-end",
-
       "border-block-start",
       "border-block-start-width",
       "border-block-start-style",
@@ -251,6 +246,11 @@ module.exports = [
       "border-inline-end-width",
       "border-inline-end-style",
       "border-inline-end-color",
+
+      "padding-block-start",
+      "padding-block-end",
+      "padding-inline-start",
+      "padding-inline-end",
 
       "block-size",
       "min-block-size",
