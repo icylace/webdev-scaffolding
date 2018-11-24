@@ -25,6 +25,11 @@ save_gitignore() {
 # $1 - Which extra gitignores to get.
 #
 setup_git() {
+  if ! we_have git ; then
+    echo 'ERROR: `git` is missing !'
+    return 1
+  fi
+
   if [ -z "$1" ] ; then
     echo 'ERROR: Scaffold bundle directory required.'
     return 1

@@ -11,7 +11,7 @@ setup_postcss() {
   # cssnano takes your nicely formatted CSS and runs it through many focused
   # optimisations, to ensure that the final result is as small as possible
   # for a production environment.
-  # http://cssnano.co/
+  # https://cssnano.co/
   yarn add --dev cssnano
 
   # PostCSS

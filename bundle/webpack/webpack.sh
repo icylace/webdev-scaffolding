@@ -9,7 +9,7 @@ setup_webpack() {
 
   # webpack
   # A static module bundler for modern JavaScript applications.
-  # https://webpack.js.org
+  # https://webpack.js.org/
   # https://webpack.js.org/api/cli/
   yarn add --dev webpack
   yarn add --dev webpack-cli

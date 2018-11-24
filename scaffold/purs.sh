@@ -1,44 +1,44 @@
 #!/usr/bin/env bash
 
-# http://redsymbol.net/articles/unofficial-bash-strict-mode/
-set -euo pipefail
-IFS=$'\n\t'
-
-# $1 = Name of project.
+# $1 = Directory containing scaffold bundles.
+# $2 = Name of project.
 scaffold_purescript() {
-  # TODO: verify `node` is installed
-  # TODO: verify `yarn` is installed
-  # TODO: verify `jq` is installed
-  # TODO: verify `git` is installed
+  local error='\e[1;31m'
+  local reset='\e[0m'
 
-  mkdir "$1"
-  cd "$1"
+  if [[ -z "$1" ]] ; then
+    echo "${error}ERROR: Scaffold bundle directory required!${reset}"
+    return 1
+  fi
+
+  if [[ -z "$2" ]] ; then
+    echo "${error}ERROR: You need to name your new project!${reset}"
+    return 1
+  fi
+
+  # source "$1/base/base.sh"
+  # source "$1/git/git.sh"
+  # source "$1/hyperapp/hyperapp.sh"
+  # source "$1/node/node.sh"
+  # source "$1/parcel/parcel.sh"
+  # source "$1/postcss/postcss.sh"
+  # source "$1/prettier/prettier.sh"
+  source "$1/purescript/purescript.sh"
+  # source "$1/stylelint/stylelint.sh"
+  # source "$1/testers/testers.sh"
+
+  mkdir "$2"
+  cd "$2"
   mkdir ./src
 
-  # https://stackoverflow.com/a/59916
-  local bundleDir="$(dirname $0)/../bundle"
-
-  # source "$bundleDir/base/base.sh"
-  # source "$bundleDir/git/git.sh"
-  # source "$bundleDir/hyperapp/hyperapp.sh"
-  # source "$bundleDir/node/node.sh"
-  # source "$bundleDir/parcel/parcel.sh"
-  # source "$bundleDir/postcss/postcss.sh"
-  # source "$bundleDir/prettier/prettier.sh"
-  source "$bundleDir/purescript/purescript.sh"
-  # source "$bundleDir/stylelint/stylelint.sh"
-  # source "$bundleDir/testers/testers.sh"
-
-  # setup_base "$bundleDir"
-  # setup_node "$bundleDir"
-  # setup_git "$bundleDir"
-  # setup_postcss "$bundleDir"
-  # setup_stylelint "$bundleDir"
+  # setup_base "$1"
+  # setup_node "$1"
+  # setup_git "$1"
+  # setup_postcss "$1"
+  # setup_stylelint "$1"
   setup_purescript
   # setup_hyperapp
-  # setup_prettier "$bundleDir" stylelint
+  # setup_prettier "$1" stylelint
   # setup_parcel
-  # setup_testers "$bundleDir"
+  # setup_testers "$1"
 }
-
-scaffold_purescript "$1"

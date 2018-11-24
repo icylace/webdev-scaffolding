@@ -7,8 +7,15 @@ setup_node() {
     return 1
   fi
 
+  if ! we_have node ; then
+    echo 'ERROR: `node` is missing !'
+    return 1
+  fi
+
   cp "$1/node/.nvmrc" .
   cp "$1/node/package.json" .
 
-  save_gitignore node
+  if we_have save_gitignore ; then
+    save_gitignore node
+  fi
 }

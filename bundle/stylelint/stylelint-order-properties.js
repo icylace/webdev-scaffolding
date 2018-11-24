@@ -1,6 +1,5 @@
 "use strict"
 
-// Based on:
 // https://9elements.com/css-rule-order/
 // https://github.com/brandon-rhodes/Concentric-CSS/blob/master/style3.css
 
