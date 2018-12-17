@@ -18,22 +18,18 @@ setup_purescript() {
 
   local tmp="$(mktemp)"
   jq '.scripts += {
+    browserify: "pulp --psc-package browserify",
     build: "pulp --psc-package build",
-    "build-optimized": "pulp --psc-package build --optimise",
+    craft: "pulp --psc-package build --optimise",
     docs: "pulp --psc-package docs",
     psci: "pulp --psc-package psci",
-    repl: "yarn run psci",
+    repl: "pulp --psc-package psci",
     go: "pulp --psc-package run",
     serve: "pulp --psc-package server",
     test: "pulp --psc-package test"
-  }' ./package.json > "$tmp" && mv "$tmp" ./package.json
+  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 
   if we_have save_gitignore ; then
     save_gitignore purescript
   fi
 }
-
-
-# pulp browserify
-# pulp build --optimise
-# pulp build --optimise --to output.js

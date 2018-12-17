@@ -75,5 +75,5 @@ setup_stylelint() {
   jq '.scripts += {
     "lint:css": "stylelint ./src/**/*.css",
     "check:stylelint": "stylelint-find-rules"
-  }' ./package.json > "$tmp" && mv "$tmp" ./package.json
+  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 }

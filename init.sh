@@ -4,9 +4,6 @@
 # set -euo pipefail
 # IFS=$'\n\t'
 
-source scaffold/purs.sh
-source scaffold/ts.sh
-
 #
 # Checks if a command or program is available.
 #
@@ -49,8 +46,10 @@ gimme() {
     return 1
   fi
 
-  # https://stackoverflow.com/a/59916
-  local bundleDir="$(dirname $0)/bundle"
+  # # https://stackoverflow.com/a/59916
+  # local bundleDir="$(dirname $0)/bundle"
+
+  local bundleDir="$HOME/My/Code/webdev-scaffolding/bundle"
 
   case "$1" in
     purs)
@@ -70,7 +69,5 @@ gimme() {
     return 1
   fi
 
-  echo "\n\n🔥  🎉  ✨  --------«  Project setup done !  »-------- ✨  🎉  🔥"
-
-  cd "./$2"
+  echo "\n\n🔥  🎉  ✨  ········«  Project setup done ‼  »········ ✨  🎉  🔥"
 }

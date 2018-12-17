@@ -55,5 +55,5 @@ setup_tslint() {
   jq '.scripts += {
     "lint:ts": "tslint --project tsconfig.json --config tslint.json",
     "check:tslint": "tslint-config-prettier-check ./tslint.json"
-  }' ./package.json > "$tmp" && mv "$tmp" ./package.json
+  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 }

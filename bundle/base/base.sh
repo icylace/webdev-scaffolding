@@ -27,6 +27,9 @@ setup_base() {
   # http://humanstxt.org/
   cp "$1/base/humans.txt" ./src/client
 
+  # The MIT License
+  # https://opensource.org/licenses/MIT
+
   # Put the current year in the license file.
   sed "s/{{year}}/$(date +%Y)/g" "$1/LICENSE.md" > ./LICENSE.md
 }

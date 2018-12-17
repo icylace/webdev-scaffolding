@@ -182,5 +182,7 @@ setup_markdown() {
   cp "$1/markdown/.remarkrc.js" .
 
   local tmp="$(mktemp)"
-  jq '.scripts += { "lint:md": "remark ." }' ./package.json > "$tmp" && mv "$tmp" ./package.json
+  jq '.scripts += {
+    "lint:md": "remark ."
+  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 }

@@ -28,7 +28,9 @@ setup_typescript() {
   cp "$1/typescript/tsconfig.json" .
 
   local tmp="$(mktemp)"
-  jq '.scripts += { typecheck: "tsc --noEmit" }' ./package.json > "$tmp" && mv "$tmp" ./package.json
+  jq '.scripts += {
+    typecheck: "tsc --noEmit"
+  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 
   shift
 

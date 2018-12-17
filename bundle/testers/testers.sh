@@ -61,5 +61,5 @@ setup_testers() {
   jq '.scripts += {
     test: "jest",
     "test:coverage": "jest --coverage"
-  }' ./package.json > "$tmp" && mv "$tmp" ./package.json
+  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 }

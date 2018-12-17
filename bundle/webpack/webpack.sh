@@ -19,5 +19,7 @@ setup_webpack() {
   cp "$1/webpack/webpack.config.js" .
 
   local tmp="$(mktemp)"
-  jq '.scripts += { start: "webpack --config webpack.config.js" }' ./package.json > "$tmp" && mv "$tmp" ./package.json
+  jq '.scripts += {
+    start: "webpack --config webpack.config.js"
+  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 }

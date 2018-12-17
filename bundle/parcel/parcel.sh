@@ -14,5 +14,5 @@ setup_parcel() {
     prod: "rm ./dist/* && parcel build ./src/client/main.html",
     start: "yarn run dev",
     watch: "parcel watch ./src/client/main.html"
-  }' ./package.json > "$tmp" && mv "$tmp" ./package.json
+  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 }

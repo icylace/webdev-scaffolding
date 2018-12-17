@@ -43,7 +43,7 @@ scaffold_typescript() {
   # setup_postcss "$1"
   # setup_stylelint "$1"
   # setup_hyperapp
-  # setup_typescript 'jest'
+  # setup_typescript jest
   # setup_tslint "$1"
   # setup_prettier "$1" stylelint tslint
   # setup_parcel
