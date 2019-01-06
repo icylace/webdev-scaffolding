@@ -16,8 +16,13 @@ scaffold_purescript() {
     return 1
   fi
 
+  mkdir "$2"
+  cd "$2"
+  mkdir ./src
+
   # source "$1/base/base.sh"
   # source "$1/git/git.sh"
+  # source "$1/webpack/webpack.sh"
   # source "$1/hyperapp/hyperapp.sh"
   # source "$1/node/node.sh"
   # source "$1/parcel/parcel.sh"
@@ -27,13 +32,10 @@ scaffold_purescript() {
   # source "$1/stylelint/stylelint.sh"
   # source "$1/testers/testers.sh"
 
-  mkdir "$2"
-  cd "$2"
-  mkdir ./src
-
   # setup_base "$1"
   # setup_node "$1"
   # setup_git "$1"
+  # setup_webpack "$1"
   # setup_postcss "$1"
   # setup_stylelint "$1"
   setup_purescript

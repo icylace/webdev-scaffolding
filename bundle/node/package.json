@@ -2,22 +2,30 @@
   "//": "https://docs.npmjs.com/files/package.json",
   "name": "example",
   "version": "0.0.0",
-  "description": "",
-  "keywords": [
-    ""
-  ],
-  "author": "",
-  "license": "MIT",
-  "private": true,
-  "main": "./dist/main.js",
-  "repository": {
-    "url": "",
-    "type": "git"
-  },
+  "description": "Example project.",
   "homepage": "https://example.com/",
-  "bugs": "",
+  "license": "See the license is in the LICENSE.md file.",
+  "main": "./dist/main.js",
+  "browser": "/",
+  "private": true,
+  "keywords": [
+    "example"
+  ],
+  "author": {
+    "name": "Example Developer",
+    "email": "someone@example.com",
+    "url": "https://example.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/example-developer/example-project.git"
+  },
+  "bugs": {
+    "email": "someone@example.com",
+    "url": "https://github.com/example-developer/example-project/issues"
+  },
   "engines": {
-    "node": ">=10.13",
+    "node": ">=10.15",
     "yarn": ">=1.12.3"
   },
   "devDependencies": {},

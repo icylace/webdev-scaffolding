@@ -7,6 +7,11 @@ setup_postcss() {
     return 1
   fi
 
+  # PostCSS
+  # Processes CSS using plugins.
+  # http://postcss.org/
+  yarn add --dev postcss
+
   # cssnano
   # cssnano takes your nicely formatted CSS and runs it through many focused
   # optimisations, to ensure that the final result is as small as possible
@@ -14,15 +19,10 @@ setup_postcss() {
   # https://cssnano.co/
   yarn add --dev cssnano
 
-  # PostCSS
-  # Processes CSS using plugins.
-  # http://postcss.org/
-  yarn add --dev postcss
-
-  # PostCSS Colorblind Plugin
-  # A PostCSS plugin for seeing your site as a colorblind person may.
-  # https://github.com/btholt/postcss-colorblind
-  yarn add --dev postcss-colorblind
+  # # PostCSS Colorblind Plugin
+  # # A PostCSS plugin for seeing your site as a colorblind person may.
+  # # https://github.com/btholt/postcss-colorblind
+  # yarn add --dev postcss-colorblind
 
   # PostCSS-cssnext
   # A PostCSS plugin to use the latest CSS.
@@ -46,5 +46,6 @@ setup_postcss() {
 
   # ----------------------------------------------------------------------------
 
-  cp "$1/postcss/.postcssrc" .
+  # cp "$1/postcss/.postcssrc" .
+  cp "$1/postcss/postcss.config.js" .
 }

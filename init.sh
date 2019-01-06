@@ -58,6 +58,12 @@ gimme() {
     ts)
       scaffold_typescript "$bundleDir" "$2"
       ;;
+    testpurs)
+      scaffold_purescript_test "$bundleDir" "$2"
+      ;;
+    testwebpack)
+      scaffold_webpack_test "$bundleDir" "$2"
+      ;;
     *)
       echo "${error}ERROR: You need to use a proper scaffold code!${reset}"
       return 1

@@ -16,6 +16,10 @@ scaffold_typescript() {
     return 1
   fi
 
+  mkdir "$2"
+  cd "$2"
+  mkdir ./src
+
   # source "$1/babel/babel.sh"
   source "$1/base/base.sh"
   # source "$1/eslint/eslint.sh"
@@ -30,10 +34,6 @@ scaffold_typescript() {
   # source "$1/testers/testers.sh"
   # source "$1/tslint/tslint.sh"
   # source "$1/typescript/typescript.sh"
-
-  mkdir "$2"
-  cd "$2"
-  mkdir ./src
 
   setup_base "$1"
   setup_node "$1"
