@@ -8,5 +8,6 @@ module.exports.push(require("./css.js"))
 module.exports.push(require("./compression.js"))
 module.exports.push(require("./hmr.js"))
 
-// module.exports.push(require("./purescript.js"))
+module.exports.push(require("./purescript.js"))
+
 // module.exports.push(require("./typescript.js"))

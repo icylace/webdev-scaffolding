@@ -22,5 +22,5 @@ scaffold_webpack_test() {
 
   source "$1/webpack/webpack.sh"
 
-  setup_webpack "$1"
+  setup_webpack "$1" purescript
 }
