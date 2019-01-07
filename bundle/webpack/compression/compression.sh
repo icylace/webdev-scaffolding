@@ -30,5 +30,7 @@ setup_webpack_compression() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/webpack/compression/compression.js" ./webpack.config.js
+  cp "$1/webpack/compression/compression.js" ./webpack.config.js/setters
+
+  echo 'module.exports.push(require("./setters/compression.js"))' >> ./webpack.config.js/setters.js
 }

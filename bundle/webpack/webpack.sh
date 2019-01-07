@@ -23,10 +23,8 @@ setup_webpack() {
   setup_webpack_css "$1"
   setup_webpack_html "$1"
 
-  # https://superuser.com/a/1002826
-
   # If we're using PureScript, set up webpack accordingly.
-  if [[ "${@#purescript}" == "$@" ]] ; then
+  if [[ $@ == *'purescript'* ]] ; then
     source "$1/webpack/purescript/purescript.sh"
     setup_webpack_purescript "$1"
   fi

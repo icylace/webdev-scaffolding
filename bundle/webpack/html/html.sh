@@ -29,5 +29,7 @@ setup_webpack_html() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/webpack/html/html.js" ./webpack.config.js
+  cp "$1/webpack/html/html.js" ./webpack.config.js/setters
+
+  echo 'module.exports.push(require("./setters/html.js"))' >> ./webpack.config.js/setters.js
 }

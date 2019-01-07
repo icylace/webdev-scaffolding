@@ -36,5 +36,7 @@ setup_webpack_css() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/webpack/css/css.js" ./webpack.config.js
+  cp "$1/webpack/css/css.js" ./webpack.config.js/setters
+
+  echo 'module.exports.push(require("./setters/css.js"))' >> ./webpack.config.js/setters.js
 }

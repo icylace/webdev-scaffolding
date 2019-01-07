@@ -10,7 +10,9 @@ const purescriptSetup = _ => ({
         test: /\.purs?$/,
         loader: "purs-loader",
         exclude: /node_modules/,
-        bundleOutput: "tmp/purescriptOutput.js",
+        query: {
+          bundleOutput: "tmp/purescriptOutput.js",
+        },
       },
     ],
   },
