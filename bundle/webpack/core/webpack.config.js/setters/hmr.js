@@ -6,4 +6,4 @@ const hmrSetup = inProduction => {
   return inProduction ? {} : { plugins: [new webpack.HotModuleReplacementPlugin()] }
 }
 
-module.exports = [hmrSetup]
+module.exports = hmrSetup

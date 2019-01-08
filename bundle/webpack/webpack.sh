@@ -13,12 +13,16 @@ setup_webpack() {
   mkdir ./webpack.config.js
   mkdir ./tmp
 
-  source "$1/webpack/basis/basis.sh"
+  source "$1/webpack/core/core.sh"
+  source "$1/webpack/cleaning/cleaning.sh"
+  source "$1/webpack/assets/assets.sh"
   source "$1/webpack/compression/compression.sh"
   source "$1/webpack/css/css.sh"
   source "$1/webpack/html/html.sh"
 
-  setup_webpack_basis "$1"
+  setup_webpack_core "$1"
+  setup_webpack_cleaning "$1"
+  setup_webpack_assets "$1"
   setup_webpack_compression "$1"
   setup_webpack_css "$1"
   setup_webpack_html "$1"

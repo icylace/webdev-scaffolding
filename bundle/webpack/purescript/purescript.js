@@ -18,4 +18,4 @@ const purescriptSetup = _ => ({
   },
 })
 
-module.exports = [purescriptSetup]
+module.exports = purescriptSetup

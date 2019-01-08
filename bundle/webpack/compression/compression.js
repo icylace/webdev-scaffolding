@@ -38,4 +38,4 @@ const compressionSetup = inProduction => {
   return settings
 }
 
-module.exports = [compressionSetup]
+module.exports = compressionSetup

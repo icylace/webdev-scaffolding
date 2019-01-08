@@ -94,9 +94,10 @@ module.exports = (env, argv) => {
     },
   }
 
-  const settings = webpackSetters
-    .flatMap(x => x)
-    .reduce((acc, f) => merge.smart(acc, f(inProduction)), merge(baseSettings, optimizationSettings, devServerSettings))
+  const settings = webpackSetters.reduce(
+    (acc, f) => merge.smart(acc, f(inProduction)),
+    merge(baseSettings, optimizationSettings, devServerSettings),
+  )
 
   return settings
 }

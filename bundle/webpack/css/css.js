@@ -31,4 +31,4 @@ const cssSetup = inProduction => ({
   },
 })
 
-module.exports = [cssSetup]
+module.exports = cssSetup

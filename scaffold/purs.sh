@@ -35,7 +35,7 @@ scaffold_purescript() {
   # setup_base "$1"
   # setup_node "$1"
   # setup_git "$1"
-  # setup_webpack "$1"
+  # setup_webpack "$1" purescript
   # setup_postcss "$1"
   # setup_stylelint "$1"
   setup_purescript

@@ -19,4 +19,4 @@ const typescriptSetup = _ => ({
   },
 })
 
-module.exports = [typescriptSetup]
+module.exports = typescriptSetup
