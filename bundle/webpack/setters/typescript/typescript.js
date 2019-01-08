@@ -1,6 +1,6 @@
 "use strict"
 
-const typescriptSetup = _ => ({
+const typescriptSetup = () => ({
   resolve: {
     extensions: [".ts", ".tsx"],
   },

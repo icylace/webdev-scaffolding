@@ -1,6 +1,6 @@
 "use strict"
 
-const purescriptSetup = _ => ({
+const purescriptSetup = () => ({
   resolve: {
     extensions: [".purs"],
   },

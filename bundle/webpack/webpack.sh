@@ -14,13 +14,17 @@ setup_webpack() {
   mkdir ./tmp
 
   source "$1/webpack/core/core.sh"
-  source "$1/webpack/cleaning/cleaning.sh"
-  source "$1/webpack/assets/assets.sh"
-  source "$1/webpack/compression/compression.sh"
-  source "$1/webpack/css/css.sh"
-  source "$1/webpack/html/html.sh"
+  # source "$1/webpack/setters/base/base.sh"
+  # source "$1/webpack/setters/dev-server/dev-server.sh"
+  source "$1/webpack/setters/cleaning/cleaning.sh"
+  source "$1/webpack/setters/assets/assets.sh"
+  source "$1/webpack/setters/compression/compression.sh"
+  source "$1/webpack/setters/css/css.sh"
+  source "$1/webpack/setters/html/html.sh"
 
   setup_webpack_core "$1"
+  # setup_webpack_base "$1"
+  # setup_webpack_dev_server "$1"
   setup_webpack_cleaning "$1"
   setup_webpack_assets "$1"
   setup_webpack_compression "$1"
@@ -29,7 +33,7 @@ setup_webpack() {
 
   # If we're using PureScript, set up webpack accordingly.
   if [[ $@ == *'purescript'* ]] ; then
-    source "$1/webpack/purescript/purescript.sh"
+    source "$1/webpack/setters/purescript/purescript.sh"
     setup_webpack_purescript "$1"
   fi
 

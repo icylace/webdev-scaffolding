@@ -30,7 +30,9 @@ setup_webpack_assets() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/webpack/assets/assets.js" ./webpack.config.js/setters
+  mkdir -p ./src/client/assets/root
+
+  cp "$1/webpack/setters/assets/assets.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/assets.js"))' >> ./webpack.config.js/setters.js
 }

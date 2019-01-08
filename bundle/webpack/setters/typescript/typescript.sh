@@ -24,7 +24,7 @@ setup_webpack_typescript() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/webpack/typescript/typescript.js" ./webpack.config.js/setters
+  cp "$1/webpack/setters/typescript/typescript.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/typescript.js"))' >> ./webpack.config.js/setters.js
 }

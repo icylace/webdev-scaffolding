@@ -47,10 +47,10 @@ setup_webpack_core() {
   yarn add --dev "${modules[@]}"
 
   mkdir -p ./src/client/assets/icons
-  mkdir ./src/client/assets/root
 
   cp "$1/webpack/core/index.ejs" ./src/client
   cp "$1/webpack/core/index.js" ./src/client
   cp "$1/webpack/core/logo-ipsum.png" ./src/client/assets/icons
+
   cp -R "$1/webpack/core/webpack.config.js/"* ./webpack.config.js
 }
