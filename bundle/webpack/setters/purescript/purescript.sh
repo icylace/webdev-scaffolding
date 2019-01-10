@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
 
-# $1 = Directory containing scaffold bundles.
+# $1 = Directory for webpack PureScript settings.
 setup_webpack_purescript() {
-  local error='\e[1;31m'
-  local reset='\e[0m'
-
-  if [[ -z "$1" ]] ; then
-    echo "${error}ERROR: Scaffold bundle directory required!${reset}"
-    return 1
-  fi
-
   local modules=()
 
   # purs-loader
@@ -19,7 +11,7 @@ setup_webpack_purescript() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/webpack/setters/purescript/purescript.js" ./webpack.config.js/setters
+  cp "$1/purescript.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/purescript.js"))' >> ./webpack.config.js/setters.js
 }

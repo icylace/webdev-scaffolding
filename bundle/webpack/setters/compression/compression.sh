@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
 
-# $1 = Directory containing scaffold bundles.
+# $1 = Directory for webpack compression settings.
 setup_webpack_compression() {
-  local error='\e[1;31m'
-  local reset='\e[0m'
-
-  if [[ -z "$1" ]] ; then
-    echo "${error}ERROR: Scaffold bundle directory required!${reset}"
-    return 1
-  fi
-
   local modules=()
 
   # brotli plugin for webpack
@@ -30,7 +22,7 @@ setup_webpack_compression() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/webpack/setters/compression/compression.js" ./webpack.config.js/setters
+  cp "$1/compression.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/compression.js"))' >> ./webpack.config.js/setters.js
 }

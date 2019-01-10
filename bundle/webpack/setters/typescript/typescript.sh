@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
 
-# $1 = Directory containing scaffold bundles.
+# $1 = Directory for webpack TypeScript settings.
 setup_webpack_typescript() {
-  local error='\e[1;31m'
-  local reset='\e[0m'
-
-  if [[ -z "$1" ]] ; then
-    echo "${error}ERROR: Scaffold bundle directory required!${reset}"
-    return 1
-  fi
-
   local modules=()
 
   # tslint-loader
@@ -24,7 +16,7 @@ setup_webpack_typescript() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/webpack/setters/typescript/typescript.js" ./webpack.config.js/setters
+  cp "$1/typescript.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/typescript.js"))' >> ./webpack.config.js/setters.js
 }

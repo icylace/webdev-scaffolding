@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
 
-# $1 = Directory containing scaffold bundles.
+# $1 = Directory for webpack html settings.
 setup_webpack_html() {
-  local error='\e[1;31m'
-  local reset='\e[0m'
-
-  if [[ -z "$1" ]] ; then
-    echo "${error}ERROR: Scaffold bundle directory required!${reset}"
-    return 1
-  fi
-
   local modules=()
 
   # HTML Webpack Plugin
@@ -29,7 +21,7 @@ setup_webpack_html() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/webpack/setters/html/html.js" ./webpack.config.js/setters
+  cp "$1/html.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/html.js"))' >> ./webpack.config.js/setters.js
 }

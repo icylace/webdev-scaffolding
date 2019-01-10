@@ -1,15 +1,7 @@
 #!/usr/bin/env bash
 
-# $1 = Directory containing scaffold bundles.
+# $1 = Directory containing scaffold for webpack core.
 setup_webpack_core() {
-  local error='\e[1;31m'
-  local reset='\e[0m'
-
-  if [[ -z "$1" ]] ; then
-    echo "${error}ERROR: Scaffold bundle directory required!${reset}"
-    return 1
-  fi
-
   local modules=()
 
   # webpack
@@ -18,21 +10,6 @@ setup_webpack_core() {
   # https://webpack.js.org/api/cli/
   modules+=('webpack')
   modules+=('webpack-cli')
-
-  # webpack-dev-server
-  # Serves a webpack app. Updates the browser on changes.
-  # https://github.com/webpack/webpack-dev-server
-  modules+=('webpack-dev-server')
-
-  # # webpack-dev-middleware
-  # # A development middleware for webpack
-  # # https://github.com/webpack/webpack-dev-middleware
-  # modules+=('webpack-dev-middleware')
-
-  # # Webpack Hot Middleware
-  # # Webpack hot reloading you can attach to your own server
-  # # https://github.com/webpack-contrib/webpack-hot-middleware
-  # modules+=('webpack-hot-middleware')
 
   # webpack-merge
   # Merge designed for Webpack
@@ -46,11 +23,13 @@ setup_webpack_core() {
 
   yarn add --dev "${modules[@]}"
 
+  mkdir -p ./webpack.config.js/setters
   mkdir -p ./src/client/assets/icons
 
-  cp "$1/webpack/core/index.ejs" ./src/client
-  cp "$1/webpack/core/index.js" ./src/client
-  cp "$1/webpack/core/logo-ipsum.png" ./src/client/assets/icons
+  # cp "$1/webpack/core/index.ejs" ./src/client
+  cp "$1/index.ejs" ./src/client
+  cp "$1/index.js" ./src/client
+  cp "$1/logo-ipsum.png" ./src/client/assets/icons
 
-  cp -R "$1/webpack/core/webpack.config.js/"* ./webpack.config.js
+  cp "$1/webpack.config.js/"* ./webpack.config.js
 }

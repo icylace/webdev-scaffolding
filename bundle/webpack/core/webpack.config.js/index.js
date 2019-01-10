@@ -23,84 +23,14 @@
 const path = require("path")
 const merge = require("webpack-merge")
 
-const webpackSetters = require("./setters.js")
+const setters = require("./setters.js")
 
-module.exports = (env, argv) => {
+const webpackConfig = (env, argv) => {
   const inProduction = argv.mode === "production"
-
-  const baseSettings = {
-    // devtool: inProduction ? "hidden-source-map" : "cheap-module-eval-source-map",
-    devtool: inProduction ? "source-map" : "inline-source-map",
-    mode: inProduction ? "production" : "development",
-    module: { rules: [] },
-    plugins: [],
-    stats: "normal",
-    entry: {
-      main: "./src/client/index.js",
-      // vendor: "./src/client/vendor.js",
-    },
-    output: {
-      path: path.resolve(__dirname, "..", "dist"),
-      filename: inProduction ? "[name].[chunkhash].js" : "[name].js",
-      publicPath: "/",
-      crossOriginLoading: "anonymous",
-    },
-    resolve: {
-      extensions: [".js"],
-    },
-  }
-
-  const optimizationSettings = {
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          vendor: {
-            chunks: "initial",
-            name: "vendor",
-            test: "vendor",
-          },
-        },
-      },
-    },
-    performance: {
-      hints: inProduction ? "warning" : false,
-      maxEntrypointSize: 200000,
-      maxAssetSize: 200000,
-    },
-  }
-
-  // Settings for webpack-dev-server.
-  // https://webpack.js.org/configuration/dev-server/
-  const devServerSettings = {
-    devServer: {
-      // compress: true,
-      // contentBase: path.join(__dirname, "dist"),
-      historyApiFallback: true,
-      hotOnly: true,
-      https: true,
-      inline: true,
-      // noInfo: true,
-      // port: 9000,
-      // proxy: {
-      //   "/api": "http://localhost:3000",
-      // },
-      publicPath: "/",
-      openPage: "/",
-      stats: "normal",
-      overlay: {
-        warnings: true,
-        errors: true,
-      },
-    },
-  }
-
-  const settings = webpackSetters.reduce(
-    (acc, f) => merge.smart(acc, f(inProduction)),
-    merge(baseSettings, optimizationSettings, devServerSettings),
-  )
-
-  return settings
+  return setters.reduce((acc, f) => merge.smart(acc, f(inProduction)), {})
 }
+
+module.exports = webpackConfig
 
 // https://github.com/webpack/webpack/issues/1315#issuecomment-386267369
 // https://medium.com/webpack/predictable-long-term-caching-with-webpack-d3eee1d3fa31
