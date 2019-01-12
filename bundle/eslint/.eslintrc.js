@@ -2,6 +2,8 @@
 
 // https://eslint.org/docs/rules/
 
-module.exports = {
+const settings = {
   extends: "standard",
 }
+
+module.exports = settings

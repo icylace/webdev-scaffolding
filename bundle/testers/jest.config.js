@@ -2,6 +2,8 @@
 
 // https://facebook.github.io/jest/docs/en/configuration.html
 
-module.exports = {
+const settings = {
   verbose: true,
 }
+
+module.exports = settings

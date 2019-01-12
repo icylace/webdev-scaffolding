@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 
-# $1 = Directory containing scaffold bundles.
+# $1 = Directory for the base bundle.
 setup_base() {
-  if [ -z "$1" ] ; then
-    echo 'ERROR: Scaffold bundle directory required.'
-    return 1
-  fi
-
   mkdir ./dist
   mkdir -p ./src/client
 
@@ -14,18 +9,18 @@ setup_base() {
   # EditorConfig helps developers define and maintain consistent coding styles
   # between different editors and IDEs.
   # https://editorconfig.org/
-  cp "$1/base/.editorconfig" .
+  cp "$1/.editorconfig" .
 
   # Make a README
   # Because no one can read your mind (yet)
   # https://www.makeareadme.com/
   # https://github.com/RichardLitt/standard-readme
-  cp "$1/base/README.md" .
+  cp "$1/README.md" .
 
   # humans.txt
   # It's an initiative for knowing the people behind a website.
   # http://humanstxt.org/
-  cp "$1/base/humans.txt" ./src/client
+  cp "$1/humans.txt" ./src/client
 
   # The MIT License
   # https://opensource.org/licenses/MIT

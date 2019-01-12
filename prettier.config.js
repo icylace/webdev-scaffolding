@@ -2,7 +2,7 @@
 
 // https://prettier.io/docs/en/options.html
 
-module.exports = {
+const settings = {
   arrowParens: "avoid",
   bracketSpacing: true,
   endOfLine: "auto",
@@ -21,3 +21,5 @@ module.exports = {
   trailingComma: "all",
   useTabs: false,
 }
+
+module.exports = settings

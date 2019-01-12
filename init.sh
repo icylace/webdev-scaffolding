@@ -58,6 +58,9 @@ gimme() {
     ts)
       scaffold_typescript "$bundleDir" "$2"
       ;;
+    testcss)
+      scaffold_css_test "$bundleDir" "$2"
+      ;;
     testpurs)
       scaffold_purescript_test "$bundleDir" "$2"
       ;;

@@ -21,6 +21,6 @@ scaffold_webpack_test() {
   mkdir ./src
 
   source "$1/webpack/webpack.sh"
-
-  setup_webpack "$1" purescript
+  # setup_webpack "$1/webpack" purescript
+  setup_webpack "$1/webpack"
 }

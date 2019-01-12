@@ -2,7 +2,7 @@
 
 // https://marionebl.github.io/commitlint/#/reference-rules
 
-module.exports = {
+const settings = {
   rules: {
     "body-leading-blank": [2, "always"],
     "body-max-length": [2, "always", 512],
@@ -50,3 +50,5 @@ module.exports = {
     "signed-off-by": [0, "always", "Signed-off by:"],
   },
 }
+
+module.exports = settings

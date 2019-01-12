@@ -1,23 +1,20 @@
 #!/usr/bin/env bash
 
-# $1 = Directory containing scaffold bundles.
+# $1 = Directory for the Babel bundle.
 setup_babel() {
-  if [ -z "$1" ] ; then
-    echo 'ERROR: Scaffold bundle directory required.'
-    return 1
-  fi
+  local modules=()
 
   # Babel
   # Use next generation JavaScript, today.
   # https://babeljs.io/
-  yarn add --dev @babel/core
+  modules+=('@babel/core')
 
   # @babel/preset-env
   # A Babel preset that compiles ES2015+ down to ES5.
   # https://github.com/babel/babel/tree/master/packages/babel-preset-env
-  yarn add --dev @babel/preset-env
+  modules+=('@babel/preset-env')
 
-  # ----------------------------------------------------------------------------
+  yarn add --dev "${modules[@]}"
 
-  cp "$1/babel/.babelrc" .
+  cp "$1/.babelrc" .
 }

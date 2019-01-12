@@ -3,7 +3,7 @@
 // https://9elements.com/css-rule-order/
 // https://github.com/brandon-rhodes/Concentric-CSS/blob/master/style3.css
 
-module.exports = [
+const propertyOrderSettings = [
   // CSS Miscellaneous
   // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Miscellaneous
   {
@@ -296,12 +296,12 @@ module.exports = [
       "font-variant-ligatures",
       "font-variant-east-asian",
       "font-variant-position",
-      "font-variation-settings",
+      "font-variation-propertyOrderSettings",
 
       "font-kerning",
       "font-language-override",
       "font-synthesis",
-      "font-feature-settings",
+      "font-feature-propertyOrderSettings",
     ],
   },
 
@@ -450,3 +450,5 @@ module.exports = [
     properties: ["page-break-before", "page-break-after", "page-break-inside"],
   },
 ]
+
+module.exports = propertyOrderSettings

@@ -2,7 +2,7 @@
 
 // https://github.com/stryker-mutator/stryker/tree/master/packages/stryker#configuration
 
-module.exports = function(config) {
+const settings = config => {
   config.set({
     files: [],
     testRunner: "jest",
@@ -18,3 +18,5 @@ module.exports = function(config) {
     babelrcFile: ".babelrc",
   })
 }
+
+module.exports = settings

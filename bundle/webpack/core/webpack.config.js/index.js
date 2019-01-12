@@ -20,7 +20,6 @@
 
 "use strict"
 
-const path = require("path")
 const merge = require("webpack-merge")
 
 const setters = require("./setters.js")

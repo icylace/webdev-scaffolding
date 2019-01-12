@@ -5,7 +5,7 @@
 # $1 = The predefined external gitignore definition to get.
 #
 save_gitignore() {
-  if [ -z "$1" ] ; then
+  if [[ -z "$1" ]] ; then
     echo 'ERROR: Which language/platform/etc. to get the .gitignore definition for?'
     return 1
   fi
@@ -21,46 +21,41 @@ save_gitignore() {
   mv "$tmp" ./.gitignore
 }
 
-# Parameters:
-# $1 - Which extra gitignores to get.
-#
+# ------------------------------------------------------------------------------
+
+# $1 = Directory for the Git bundle.
 setup_git() {
   if ! we_have git ; then
     echo 'ERROR: `git` is missing !'
     return 1
   fi
 
-  if [ -z "$1" ] ; then
-    echo 'ERROR: Scaffold bundle directory required.'
-    return 1
-  fi
+  # local modules=()
 
   # TODO: do we wanna use Commitizen stuff ?
 
   # # Commitizen
   # # Simple commit conventions for internet citizens.
   # # https://commitizen.github.io/cz-cli/
-  # yarn add --dev commitizen
+  # modules+=('commitizen')
 
   # # commitlint
   # # Lint commit messages
   # # https://marionebl.github.io/commitlint/#/
-  # yarn add --dev @commitlint/cli
+  # modules+=('@commitlint/cli')
 
   # # @commitlint/prompt
   # # This is the library and commitizen adapter version of commitlint prompt.
   # # https://www.npmjs.com/package/@commitlint/prompt
-  # yarn add --dev @commitlint/prompt
+  # modules+=('@commitlint/prompt')
 
-  # ----------------------------------------------------------------------------
+  # yarn add --dev "${modules[@]}"
 
-  cp "$1/git/.gitattributes" .
-  # cp "$1/git/commitlint.config.js" .
+  cp "$1/.gitattributes" .
+  # cp "$1/commitlint.config.js" .
 
-  # mkdir -v './.githooks'
+  # mkdir -v ./.githooks
   # cp "$1/commit-msg" ./.githooks
-
-  # ----------------------------------------------------------------------------
 
   local tmp="$(mktemp)"
 
@@ -105,8 +100,6 @@ EOF
   # ----------------------------------------------------------------------------
 
   mv -f "$tmp" ./.gitignore
-
-  # ----------------------------------------------------------------------------
 
   git init
   # git config core.hooksPath .githooks

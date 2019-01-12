@@ -1,38 +1,36 @@
 #!/usr/bin/env bash
 
-# $1 = Directory containing scaffold bundles.
+# $1 = Directory for the testers bundle.
 setup_testers() {
-  if [ -z "$1" ] ; then
-    echo 'ERROR: Scaffold bundle directory required.'
-    return 1
-  fi
+  local modules=()
 
   # # Cypress
   # # Fast, easy and reliable testing for anything that runs in a browser.
   # # https://www.cypress.io/
-  # yarn add --dev cypress
+  # modules+=('cypress')
 
   # # faker.js
   # # generate massive amounts of fake data in Node.js and the browser
   # # https://github.com/marak/Faker.js/
-  # yarn add --dev faker
+  # modules+=('faker')
 
   # Jest
   # Delightful JavaScript Testing
   # https://facebook.github.io/jest/
-  yarn add --dev jest
+  modules+=('jest')
 
   # # JSVerify
   # # JSVerify is a property-based testing library, highly inspired by QuickCheck.
   # # https://jsverify.github.io/
-  # yarn add --dev jsverify
+  # modules+=('jsverify')
 
   # TODO: Setup Stryker.
   # # Stryker
   # # Measure the effectiveness of JavaScript tests.
   # # https://stryker-mutator.io/
-  # yarn add --dev stryker
-  # yarn add --dev stryker-api
+  # modules+=('stryker')
+  # modules+=('stryker-api')
+
   # "stryker-babel-transpiler": "^0.3.1",
   # "stryker-baseline-reporter": "^1.0.3",
   # "stryker-html-reporter": "^0.12.1",
@@ -45,12 +43,12 @@ setup_testers() {
   # # Super-agent driven library for testing node.js HTTP servers using
   # # a fluent API
   # # https://github.com/visionmedia/supertest
-  # yarn add --dev supertest
+  # modules+=('supertest')
 
-  # ----------------------------------------------------------------------------
+  yarn add --dev "${modules[@]}"
 
-  cp "$1/testers/jest.config.js" .
-  # cp "$1/testers/stryker.conf.js" .
+  cp "$1/jest.config.js" .
+  # cp "$1/stryker.conf.js" .
 
   local tmp="$(mktemp)"
   # jq '.scripts += {
@@ -59,7 +57,7 @@ setup_testers() {
   #   "test:mutation": "stryker run"
   # }' ./package.json > "$tmp" && mv "$tmp" ./package.json
   jq '.scripts += {
-    test: "jest",
-    "test:coverage": "jest --coverage"
+    test: "npx jest",
+    "test:coverage": "npx jest --coverage"
   }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 }

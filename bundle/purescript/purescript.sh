@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
 setup_purescript() {
+  local modules=()
+
   # Pulp
   # A build tool for PureScript.
   # https://github.com/purescript-contrib/pulp
-  yarn add --dev pulp
+  modules+=('pulp')
+
+  yarn add --dev "${modules[@]}"
 
   # # purescript-halogen
   # # A declarative, type-safe UI library for PureScript.
@@ -18,15 +22,15 @@ setup_purescript() {
 
   local tmp="$(mktemp)"
   jq '.scripts += {
-    browserify: "pulp --psc-package browserify",
-    build: "pulp --psc-package build",
-    craft: "pulp --psc-package build --optimise",
-    docs: "pulp --psc-package docs",
-    psci: "pulp --psc-package psci",
-    repl: "pulp --psc-package psci",
-    go: "pulp --psc-package run",
-    serve: "pulp --psc-package server",
-    test: "pulp --psc-package test"
+    browserify: "npx pulp --psc-package browserify",
+    build: "npx pulp --psc-package build",
+    craft: "npx pulp --psc-package build --optimise",
+    docs: "npx pulp --psc-package docs",
+    psci: "npx pulp --psc-package psci",
+    repl: "npx pulp --psc-package psci",
+    go: "npx pulp --psc-package run",
+    serve: "npx pulp --psc-package server",
+    test: "npx pulp --psc-package test"
   }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 
   if we_have save_gitignore ; then

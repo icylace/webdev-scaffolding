@@ -1,27 +1,23 @@
 #!/usr/bin/env bash
 
-# $1 = Directory containing scaffold bundles.
+# $1 = Directory for the ESLint bundle.
 setup_eslint() {
-  if [ -z "$1" ] ; then
-    echo 'ERROR: Scaffold bundle directory required.'
-    return 1
-  fi
-
-  # TODO: decide if/how we want to use ESLint
+  local modules=()
 
   # ESLint
   # Checks the style of JavaScript code.
   # https://eslint.org/
-  yarn add --dev eslint
+  modules+=('eslint')
 
+  yarn add --dev "${modules[@]}"
+
+  # TODO:
   # "eslint-config-standard": "^11.0.0",
   # "eslint-plugin-import": "^2.9.0",
   # "eslint-plugin-node": "^6.0.1",
   # "eslint-plugin-promise": "^3.6.0",
   # "eslint-plugin-standard": "^3.0.1",
 
-  # ----------------------------------------------------------------------------
-
-  cp "$1/eslint/.eslintignore" .
-  cp "$1/eslint/.eslintrc.js" .
+  cp "$1/.eslintignore" .
+  cp "$1/.eslintrc.js" .
 }

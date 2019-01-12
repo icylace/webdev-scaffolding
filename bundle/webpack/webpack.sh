@@ -1,78 +1,54 @@
 #!/usr/bin/env bash
 
-# $1 = Directory containing scaffold bundles.
+# $1 = Directory for the webpack bundle.
+# $2+ = Optional integrations to use.
 setup_webpack() {
-  local error='\e[1;31m'
-  local reset='\e[0m'
+  source "$1/core/core.sh"
+  setup_webpack_core "$1/core"
 
-  if [[ -z "$1" ]] ; then
-    echo "${error}ERROR: Scaffold bundle directory required!${reset}"
-    return 1
+  source "$1/setters/base/base.sh"
+  setup_webpack_base "$1/setters/base"
+
+  source "$1/setters/optimization/optimization.sh"
+  setup_webpack_optimization "$1/setters/optimization"
+
+  source "$1/setters/dev-server/dev-server.sh"
+  setup_webpack_dev_server "$1/setters/dev-server"
+
+  source "$1/setters/cleaning/cleaning.sh"
+  setup_webpack_cleaning "$1/setters/cleaning"
+
+  source "$1/setters/assets/assets.sh"
+  setup_webpack_assets "$1/setters/assets"
+
+  source "$1/setters/compression/compression.sh"
+  setup_webpack_compression "$1/setters/compression"
+
+  source "$1/setters/css/css.sh"
+  setup_webpack_css "$1/setters/css"
+
+  source "$1/setters/html/html.sh"
+  setup_webpack_html "$1/setters/html"
+
+  if [[ $@ == *'purescript'* ]] ; then
+    source "$1/setters/purescript/purescript.sh"
+    setup_webpack_purescript "$1/setters/purescript"
+  fi
+
+  if [[ $@ == *'typescript'* ]] ; then
+    source "$1/setters/typescript/typescript.sh"
+    setup_webpack_purescript "$1/setters/typescript"
   fi
 
   mkdir ./tmp
-
-  local coreDir="$1/webpack/core"
-  source "$coreDir/core.sh"
-  setup_webpack_core "$coreDir"
-
-  local baseDir="$1/webpack/setters/base"
-  source "$baseDir/base.sh"
-  setup_webpack_base "$baseDir"
-
-  local optimizationDir="$1/webpack/setters/optimization"
-  source "$optimizationDir/optimization.sh"
-  setup_webpack_optimization "$optimizationDir"
-
-  local devServerDir="$1/webpack/setters/dev-server"
-  source "$devServerDir/dev-server.sh"
-  setup_webpack_dev_server "$devServerDir"
-
-  local cleaningDir="$1/webpack/setters/cleaning"
-  source "$cleaning/cleaning.sh"
-  setup_webpack_cleaning "$cleaning"
-
-  local assetsDir="$1/webpack/setters/assets"
-  source "$assetsDir/assets.sh"
-  setup_webpack_assets "$assetsDir"
-
-  local compressionDir="$1/webpack/setters/compression"
-  source "$compressionDir/compression.sh"
-  setup_webpack_compression "$compressionDir"
-
-  local cssDir="$1/webpack/setters/css"
-  source "$cssDir/css.sh"
-  setup_webpack_css "$cssDir"
-
-  local htmlDir="$1/webpack/setters/html"
-  source "$htmlDir/html.sh"
-  setup_webpack_html "$htmlDir"
-
-  # If we're using PureScript, set up webpack accordingly.
-  if [[ $@ == *'purescript'* ]] ; then
-    local purescriptDir="$1/webpack/setters/purescript"
-    source "$purescriptDir/purescript.sh"
-    setup_webpack_purescript "$purescriptDir"
-  fi
-
-  # If we're using TypeScript, set up webpack accordingly.
-  if [[ $@ == *'typescript'* ]] ; then
-    local typescriptDir = "$1/webpack/setters/typescript"
-    source "$typescriptDir/typescript.sh"
-    setup_webpack_purescript "$typescriptDir"
-  fi
 
   local tmp="$(mktemp)"
   jq '.scripts += {
     analyze: "npx webpack --profile --json > ./tmp/stats.json && npx webpack-bundle-analyzer ./tmp/stats.json",
     build: "npx webpack --mode production --progress",
     dev: "npx webpack --mode development --progress --watch",
-    serve: "npx webpack-dev-server --color --progress"
   }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 }
-
-
-
 
 
 # TODO:

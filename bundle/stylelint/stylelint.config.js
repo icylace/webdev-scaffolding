@@ -4,7 +4,7 @@ const propertiesOrder = require("./stylelint-order-properties.js")
 
 // https://stylelint.io/user-guide/rules/
 
-module.exports = {
+const settings = {
   plugins: [
     "stylelint-csstree-validator",
     "stylelint-declaration-block-no-ignored-properties",
@@ -146,3 +146,5 @@ module.exports = {
     "order/properties-alphabetical-order": null,
   },
 }
+
+module.exports = settings

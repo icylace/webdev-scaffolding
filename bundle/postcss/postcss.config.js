@@ -1,6 +1,6 @@
 // https://github.com/postcss/postcss#usage
 
-module.exports = {
+const settings = {
   modules: true,
   plugins: {
     "postcss-import": {},
@@ -8,3 +8,5 @@ module.exports = {
     "postcss-reporter": { clearReportedMessages: true },
   },
 }
+
+module.exports = settings
