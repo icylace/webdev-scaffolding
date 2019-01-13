@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for webpack html settings.
 setup_webpack_html() {
   local modules=()
 
@@ -21,7 +20,7 @@ setup_webpack_html() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/html.js" ./webpack.config.js/setters
+  cp "$WEBDEV_BUNDLE/webpack/setters/html/html.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/html.js"))' >> ./webpack.config.js/setters.js
 }

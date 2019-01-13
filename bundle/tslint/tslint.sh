@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for the tslint bundle.
 setup_tslint() {
   local modules=()
 
@@ -46,7 +45,7 @@ setup_tslint() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/tslint.json" .
+  cp "$WEBDEV_BUNDLE/tslint/tslint.json" .
 
   local tmp="$(mktemp)"
   jq '.scripts += {

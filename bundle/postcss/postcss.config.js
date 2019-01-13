@@ -2,11 +2,14 @@
 
 const settings = {
   modules: true,
-  plugins: {
-    "postcss-import": {},
-    "postcss-cssnext": { browsers: "last 2 versions" },
-    "postcss-reporter": { clearReportedMessages: true },
-  },
+  plugins: [
+    require("postcss-import"),
+    require("postcss-preset-env")({
+      stage: 2,
+      features: { "nesting-rules": true },
+    }),
+    require("postcss-reporter")({ clearReportedMessages: true }),
+  ],
 }
 
 module.exports = settings

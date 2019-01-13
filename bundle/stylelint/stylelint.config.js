@@ -17,8 +17,8 @@ const settings = {
   extends: [
     // We're explicitly extending `stylelint-config-recommended` even though
     // it's already included with `stylelint-config-standard` so that the
-    // `stylelint-find-unused-rules` package.json script recognizes that
-    // it is being used.
+    // `check:stylelint` package.json script recognizes that it is being
+    // used.
     "stylelint-config-recommended",
     "stylelint-config-standard",
     "stylelint-config-prettier",

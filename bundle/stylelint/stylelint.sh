@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for the stylelint bundle.
-# $2+ = Optional integrations to use.
+# $@ = Optional integrations to use.
 setup_stylelint() {
   local modules=()
 
@@ -75,9 +74,9 @@ setup_stylelint() {
 
   # ----------------------------------------------------------------------------
 
-  cp "$1/.stylelintignore" .
-  cp "$1/stylelint-order-properties.js" .
-  cp "$1/stylelint.config.js" .
+  cp "$WEBDEV_BUNDLE/stylelint/.stylelintignore" .
+  cp "$WEBDEV_BUNDLE/stylelint/stylelint-order-properties.js" .
+  cp "$WEBDEV_BUNDLE/stylelint/stylelint.config.js" .
 
   # TODO: resolve invalid rules messages
   local tmp="$(mktemp)"

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for webpack cleaning settings.
 setup_webpack_cleaning() {
   local modules=()
 
@@ -11,7 +10,7 @@ setup_webpack_cleaning() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/cleaning.js" ./webpack.config.js/setters
+  cp "$WEBDEV_BUNDLE/webpack/setters/cleaning/cleaning.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/cleaning.js"))' >> ./webpack.config.js/setters.js
 }

@@ -1,43 +1,35 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for the webpack bundle.
-# $2+ = Optional integrations to use.
+source "$WEBDEV_BUNDLE/webpack/core/core.sh"
+source "$WEBDEV_BUNDLE/webpack/setters/base/base.sh"
+source "$WEBDEV_BUNDLE/webpack/setters/optimization/optimization.sh"
+source "$WEBDEV_BUNDLE/webpack/setters/dev-server/dev-server.sh"
+source "$WEBDEV_BUNDLE/webpack/setters/cleaning/cleaning.sh"
+source "$WEBDEV_BUNDLE/webpack/setters/assets/assets.sh"
+source "$WEBDEV_BUNDLE/webpack/setters/compression/compression.sh"
+source "$WEBDEV_BUNDLE/webpack/setters/css/css.sh"
+source "$WEBDEV_BUNDLE/webpack/setters/html/html.sh"
+source "$WEBDEV_BUNDLE/webpack/setters/purescript/purescript.sh"
+source "$WEBDEV_BUNDLE/webpack/setters/typescript/typescript.sh"
+
+# $@ = Optional integrations to use.
 setup_webpack() {
-  source "$1/core/core.sh"
-  setup_webpack_core "$1/core"
-
-  source "$1/setters/base/base.sh"
-  setup_webpack_base "$1/setters/base"
-
-  source "$1/setters/optimization/optimization.sh"
-  setup_webpack_optimization "$1/setters/optimization"
-
-  source "$1/setters/dev-server/dev-server.sh"
-  setup_webpack_dev_server "$1/setters/dev-server"
-
-  source "$1/setters/cleaning/cleaning.sh"
-  setup_webpack_cleaning "$1/setters/cleaning"
-
-  source "$1/setters/assets/assets.sh"
-  setup_webpack_assets "$1/setters/assets"
-
-  source "$1/setters/compression/compression.sh"
-  setup_webpack_compression "$1/setters/compression"
-
-  source "$1/setters/css/css.sh"
-  setup_webpack_css "$1/setters/css"
-
-  source "$1/setters/html/html.sh"
-  setup_webpack_html "$1/setters/html"
+  setup_webpack_core
+  setup_webpack_base
+  setup_webpack_optimization
+  setup_webpack_dev_server
+  setup_webpack_cleaning
+  setup_webpack_assets
+  setup_webpack_compression
+  setup_webpack_css
+  setup_webpack_html
 
   if [[ $@ == *'purescript'* ]] ; then
-    source "$1/setters/purescript/purescript.sh"
-    setup_webpack_purescript "$1/setters/purescript"
+    setup_webpack_purescript
   fi
 
   if [[ $@ == *'typescript'* ]] ; then
-    source "$1/setters/typescript/typescript.sh"
-    setup_webpack_purescript "$1/setters/typescript"
+    setup_webpack_typescript
   fi
 
   mkdir ./tmp
@@ -91,12 +83,6 @@ setup_webpack() {
 
 
 # "devDependencies": {
-#       "@babel/core": "^7.1.0",
-#       "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-#       "@babel/plugin-transform-runtime": "^7.1.0",
-#       "@babel/preset-env": "^7.1.0",
-#       "@babel/register": "^7.0.0",
-#       "@babel/runtime": "^7.0.0",
 #       "babel-loader": "^8.0.2",
 #       "clean-webpack-plugin": "^0.1.19",
 #       "copy-webpack-plugin": "^4.5.2",

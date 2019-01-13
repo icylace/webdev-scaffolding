@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for the ESLint bundle.
 setup_eslint() {
   local modules=()
 
@@ -18,6 +17,6 @@ setup_eslint() {
   # "eslint-plugin-promise": "^3.6.0",
   # "eslint-plugin-standard": "^3.0.1",
 
-  cp "$1/.eslintignore" .
-  cp "$1/.eslintrc.js" .
+  cp "$WEBDEV_BUNDLE/eslint/.eslintignore" .
+  cp "$WEBDEV_BUNDLE/eslint/.eslintrc.js" .
 }

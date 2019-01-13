@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for webpack compression settings.
 setup_webpack_compression() {
   local modules=()
 
@@ -22,7 +21,7 @@ setup_webpack_compression() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/compression.js" ./webpack.config.js/setters
+  cp "$WEBDEV_BUNDLE/webpack/setters/compression/compression.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/compression.js"))' >> ./webpack.config.js/setters.js
 }

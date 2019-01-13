@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for the testers bundle.
 setup_testers() {
   local modules=()
 
@@ -47,8 +46,8 @@ setup_testers() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/jest.config.js" .
-  # cp "$1/stryker.conf.js" .
+  cp "$WEBDEV_BUNDLE/testers/jest.config.js" .
+  # cp "$WEBDEV_BUNDLE/testers/stryker.conf.js" .
 
   local tmp="$(mktemp)"
   # jq '.scripts += {

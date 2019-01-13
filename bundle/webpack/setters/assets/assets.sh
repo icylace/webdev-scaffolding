@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for webpack assets settings.
 setup_webpack_assets() {
   local modules=()
 
@@ -24,7 +23,7 @@ setup_webpack_assets() {
 
   mkdir -p ./src/client/assets/root
 
-  cp "$1/assets.js" ./webpack.config.js/setters
+  cp "$WEBDEV_BUNDLE/webpack/setters/assets/assets.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/assets.js"))' >> ./webpack.config.js/setters.js
 }

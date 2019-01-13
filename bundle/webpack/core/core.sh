@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for webpack core settings.
 setup_webpack_core() {
   local modules=()
 
@@ -26,9 +25,9 @@ setup_webpack_core() {
   mkdir -p ./webpack.config.js/setters
   mkdir -p ./src/client/assets/icons
 
-  cp "$1/index.ejs" ./src/client
-  cp "$1/index.js" ./src/client
-  cp "$1/logo-ipsum.png" ./src/client/assets/icons
+  cp "$WEBDEV_BUNDLE/webpack/core/index.ejs" ./src/client
+  cp "$WEBDEV_BUNDLE/webpack/core/index.js" ./src/client
+  cp "$WEBDEV_BUNDLE/webpack/core/logo-ipsum.png" ./src/client/assets/icons
 
-  cp "$1/webpack.config.js/"* ./webpack.config.js
+  cp "$WEBDEV_BUNDLE/webpack/core/webpack.config.js/"* ./webpack.config.js
 }

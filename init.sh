@@ -4,6 +4,36 @@
 # set -euo pipefail
 # IFS=$'\n\t'
 
+WEBDEV_SCAFFOLD="$WEBDEV_SCAFFOLDING/scaffold"
+
+source "$WEBDEV_SCAFFOLD/purescript.sh"
+source "$WEBDEV_SCAFFOLD/typescript.sh"
+source "$WEBDEV_SCAFFOLD/test/base.sh"
+source "$WEBDEV_SCAFFOLD/test/css.sh"
+source "$WEBDEV_SCAFFOLD/test/js.sh"
+source "$WEBDEV_SCAFFOLD/test/purescript.sh"
+source "$WEBDEV_SCAFFOLD/test/webpack.sh"
+
+WEBDEV_BUNDLE="$WEBDEV_SCAFFOLDING/bundle"
+
+source "$WEBDEV_BUNDLE/babel/babel.sh"
+source "$WEBDEV_BUNDLE/base/base.sh"
+source "$WEBDEV_BUNDLE/commitlint/commitlint.sh"
+source "$WEBDEV_BUNDLE/eslint/eslint.sh"
+source "$WEBDEV_BUNDLE/git/git.sh"
+source "$WEBDEV_BUNDLE/hyperapp/hyperapp.sh"
+source "$WEBDEV_BUNDLE/markdown/markdown.sh"
+source "$WEBDEV_BUNDLE/node/node.sh"
+source "$WEBDEV_BUNDLE/parcel/parcel.sh"
+source "$WEBDEV_BUNDLE/postcss/postcss.sh"
+source "$WEBDEV_BUNDLE/prettier/prettier.sh"
+source "$WEBDEV_BUNDLE/purescript/purescript.sh"
+source "$WEBDEV_BUNDLE/stylelint/stylelint.sh"
+source "$WEBDEV_BUNDLE/testers/testers.sh"
+source "$WEBDEV_BUNDLE/tslint/tslint.sh"
+source "$WEBDEV_BUNDLE/typescript/typescript.sh"
+source "$WEBDEV_BUNDLE/webpack/webpack.sh"
+
 #
 # Checks if a command or program is available.
 #
@@ -49,29 +79,25 @@ gimme() {
   # # https://stackoverflow.com/a/59916
   # local bundleDir="$(dirname $0)/bundle"
 
-  local bundleDir="$HOME/My/Code/webdev-scaffolding/bundle"
-
   case "$1" in
-    purs)
-      scaffold_purescript "$bundleDir" "$2"
-      ;;
-    ts)
-      scaffold_typescript "$bundleDir" "$2"
-      ;;
-    testcss)
-      scaffold_css_test "$bundleDir" "$2"
-      ;;
-    testpurs)
-      scaffold_purescript_test "$bundleDir" "$2"
-      ;;
-    testwebpack)
-      scaffold_webpack_test "$bundleDir" "$2"
-      ;;
+    purescript) ;;
+    typescript) ;;
+    test_base) ;;
+    test_css) ;;
+    test_js) ;;
+    test_purscript) ;;
+    test_webpack) ;;
     *)
       echo "${error}ERROR: You need to use a proper scaffold code!${reset}"
       return 1
       ;;
   esac
+
+  mkdir "$2"
+  cd "$2"
+  mkdir ./src
+
+  "scaffold_$1"
 
   if [[ "$?" -ne 0 ]] ; then
     echo "${error}ERROR: Errors happened!${reset}"

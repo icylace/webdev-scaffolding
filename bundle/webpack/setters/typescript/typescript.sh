@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for webpack TypeScript settings.
 setup_webpack_typescript() {
   local modules=()
 
@@ -16,7 +15,7 @@ setup_webpack_typescript() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/typescript.js" ./webpack.config.js/setters
+  cp "$WEBDEV_BUNDLE/webpack/setters/typescript/typescript.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/typescript.js"))' >> ./webpack.config.js/setters.js
 }

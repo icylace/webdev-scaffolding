@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for the Prettier bundle.
-# $2+ = Optional integrations to use.
+# $@ = Optional integrations to use.
 setup_prettier() {
   local modules=()
 
@@ -27,6 +26,6 @@ setup_prettier() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/.prettierignore" .
-  cp "$1/prettier.config.js" .
+  cp "$WEBDEV_BUNDLE/prettier/.prettierignore" .
+  cp "$WEBDEV_BUNDLE/prettier/prettier.config.js" .
 }

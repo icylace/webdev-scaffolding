@@ -23,39 +23,13 @@ save_gitignore() {
 
 # ------------------------------------------------------------------------------
 
-# $1 = Directory for the Git bundle.
 setup_git() {
   if ! we_have git ; then
     echo 'ERROR: `git` is missing !'
     return 1
   fi
 
-  # local modules=()
-
-  # TODO: do we wanna use Commitizen stuff ?
-
-  # # Commitizen
-  # # Simple commit conventions for internet citizens.
-  # # https://commitizen.github.io/cz-cli/
-  # modules+=('commitizen')
-
-  # # commitlint
-  # # Lint commit messages
-  # # https://marionebl.github.io/commitlint/#/
-  # modules+=('@commitlint/cli')
-
-  # # @commitlint/prompt
-  # # This is the library and commitizen adapter version of commitlint prompt.
-  # # https://www.npmjs.com/package/@commitlint/prompt
-  # modules+=('@commitlint/prompt')
-
-  # yarn add --dev "${modules[@]}"
-
-  cp "$1/.gitattributes" .
-  # cp "$1/commitlint.config.js" .
-
-  # mkdir -v ./.githooks
-  # cp "$1/commit-msg" ./.githooks
+  cp "$WEBDEV_BUNDLE/git/.gitattributes" .
 
   local tmp="$(mktemp)"
 
@@ -102,7 +76,6 @@ EOF
   mv -f "$tmp" ./.gitignore
 
   git init
-  # git config core.hooksPath .githooks
-  git add --all
-  git commit --message='set: Scaffold a new project.'
+  # git add --all
+  # git commit --message='set: Scaffold a new project.'
 }

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for webpack css settings.
 setup_webpack_css() {
   local modules=()
 
@@ -28,7 +27,7 @@ setup_webpack_css() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/css.js" ./webpack.config.js/setters
+  cp "$WEBDEV_BUNDLE/webpack/setters/css/css.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/css.js"))' >> ./webpack.config.js/setters.js
 }

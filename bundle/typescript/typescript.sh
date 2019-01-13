@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for the TypeScript bundle.
-# $2+ = Optional integrations to use.
+# $@ = Optional integrations to use.
 setup_typescript() {
   local modules=()
 
@@ -30,7 +29,7 @@ setup_typescript() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/tsconfig.json" .
+  cp "$WEBDEV_BUNDLE/typescript/tsconfig.json" .
 
   local tmp="$(mktemp)"
   jq '.scripts += {

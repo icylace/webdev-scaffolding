@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# $1 = Directory for the Markdown bundle.
 setup_markdown() {
   local modules=()
 
@@ -176,7 +175,7 @@ setup_markdown() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$1/.remarkrc.js" .
+  cp "$WEBDEV_BUNDLE/markdown/.remarkrc.js" .
 
   local tmp="$(mktemp)"
   jq '.scripts += {
