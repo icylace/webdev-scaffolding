@@ -3,13 +3,12 @@
 scaffold_purescript() {
   # setup_git
   # setup_base
-  # setup_node
+  # setup_node git
   # setup_webpack purescript
   # setup_postcss
-  # setup_stylelint
+  # setup_stylelint prettier
   setup_purescript
   # setup_hyperapp
-  # setup_prettier stylelint
-  # setup_parcel
+  # setup_prettier
   # setup_testers
 }

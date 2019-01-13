@@ -10,7 +10,9 @@ source "$WEBDEV_SCAFFOLD/purescript.sh"
 source "$WEBDEV_SCAFFOLD/typescript.sh"
 source "$WEBDEV_SCAFFOLD/test/base.sh"
 source "$WEBDEV_SCAFFOLD/test/css.sh"
+source "$WEBDEV_SCAFFOLD/test/git.sh"
 source "$WEBDEV_SCAFFOLD/test/js.sh"
+source "$WEBDEV_SCAFFOLD/test/node.sh"
 source "$WEBDEV_SCAFFOLD/test/purescript.sh"
 source "$WEBDEV_SCAFFOLD/test/webpack.sh"
 
@@ -84,7 +86,9 @@ gimme() {
     typescript
     test_base
     test_css
+    test_git
     test_js
+    test_node
     test_purscript
     test_webpack
   )
