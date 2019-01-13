@@ -61,13 +61,13 @@ gimme() {
   local error='\e[1;31m'
   local reset='\e[0m'
 
-  if ! we_have yarn ; then
-    echo "${error}`yarn` is missing !${reset}"
+  if ! we_have jq ; then
+    echo "${error}`jq` (https://stedolan.github.io/jq/) is missing !${reset}"
     return 1
   fi
 
-  if ! we_have jq ; then
-    echo "${error}`jq` is missing !${reset}"
+  if ! we_have yarn ; then
+    echo "${error}`yarn` (https://yarnpkg.com/en/) is missing !${reset}"
     return 1
   fi
 
@@ -79,19 +79,20 @@ gimme() {
   # # https://stackoverflow.com/a/59916
   # local bundleDir="$(dirname $0)/bundle"
 
-  case "$1" in
-    purescript) ;;
-    typescript) ;;
-    test_base) ;;
-    test_css) ;;
-    test_js) ;;
-    test_purscript) ;;
-    test_webpack) ;;
-    *)
-      echo "${error}ERROR: You need to use a proper scaffold code!${reset}"
-      return 1
-      ;;
-  esac
+  local scaffolds=(
+    purescript
+    typescript
+    test_base
+    test_css
+    test_js
+    test_purscript
+    test_webpack
+  )
+
+  if [[ " ${scaffolds[@]} " != *" $1 "* ]] ; then
+    echo "${error}ERROR: You need to use a proper scaffold code!${reset}"
+    return 1
+  fi
 
   mkdir "$2"
   cd "$2"

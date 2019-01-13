@@ -21,6 +21,7 @@ const settings = {
     // used.
     "stylelint-config-recommended",
     "stylelint-config-standard",
+    // TODO: make this dependent upon the presence of Prettier
     "stylelint-config-prettier",
   ],
   rules: {

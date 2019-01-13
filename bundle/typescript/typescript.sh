@@ -19,7 +19,7 @@ setup_typescript() {
   # https://github.com/TypeStrong/ts-node
   modules+=('ts-node')
 
-  if [[ $@ == *'jest'* ]] ; then
+  if [[ " $* " == *' jest '* ]] ; then
     # @types/jest
     # This package contains type definitions for Jest
     # (http://facebook.github.io/jest/).

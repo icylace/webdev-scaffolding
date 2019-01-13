@@ -63,7 +63,7 @@ setup_stylelint() {
   # https://github.com/hudochenkov/stylelint-order
   modules+=('stylelint-order')
 
-  if [[ $@ == *'prettier'* ]] ; then
+  if [[ " $* " == *' prettier '* ]] ; then
     # stylelint-config-prettier
     # Turns off all rules that are unnecessary or might conflict with prettier.
     # https://github.com/prettier/stylelint-config-prettier

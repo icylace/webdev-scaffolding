@@ -24,11 +24,11 @@ setup_webpack() {
   setup_webpack_css
   setup_webpack_html
 
-  if [[ $@ == *'purescript'* ]] ; then
+  if [[ " $* " == *' purescript '* ]] ; then
     setup_webpack_purescript
   fi
 
-  if [[ $@ == *'typescript'* ]] ; then
+  if [[ " $* " == *' typescript '* ]] ; then
     setup_webpack_typescript
   fi
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# $@ = Optional integrations to use.
 setup_tslint() {
   local modules=()
 
@@ -42,6 +43,13 @@ setup_tslint() {
   # A extra set of tslint rules
   # https://github.com/vrsource/vrsource-tslint-rules
   modules+=('vrsource-tslint-rules')
+
+  if [[ " $* " == *' prettier '* ]] ; then
+    # tslint-config-prettier
+    # Use tslint with prettier without any conflict
+    # https://github.com/prettier/tslint-config-prettier
+    modules+=('tslint-config-prettier')
+  fi
 
   yarn add --dev "${modules[@]}"
 

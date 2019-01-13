@@ -11,6 +11,7 @@
     "tslint-microsoft-contrib",
     "tslint-plugin-ikatyang",
     "tslint-immutable",
+    // TODO: make this dependent upon the presence of Prettier
     "tslint-config-prettier"
   ],
   "rules": {
