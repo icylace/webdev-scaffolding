@@ -6,6 +6,7 @@
 
 WEBDEV_SCAFFOLD="$WEBDEV_SCAFFOLDING/scaffold"
 
+source "$WEBDEV_SCAFFOLD/hyperapp_basic.sh"
 source "$WEBDEV_SCAFFOLD/purescript.sh"
 source "$WEBDEV_SCAFFOLD/typescript.sh"
 source "$WEBDEV_SCAFFOLD/test/base.sh"
@@ -14,6 +15,7 @@ source "$WEBDEV_SCAFFOLD/test/git.sh"
 source "$WEBDEV_SCAFFOLD/test/js.sh"
 source "$WEBDEV_SCAFFOLD/test/node.sh"
 source "$WEBDEV_SCAFFOLD/test/purescript.sh"
+source "$WEBDEV_SCAFFOLD/test/typescript.sh"
 source "$WEBDEV_SCAFFOLD/test/webpack.sh"
 
 WEBDEV_BUNDLE="$WEBDEV_SCAFFOLDING/bundle"
@@ -21,20 +23,33 @@ WEBDEV_BUNDLE="$WEBDEV_SCAFFOLDING/bundle"
 source "$WEBDEV_BUNDLE/babel/babel.sh"
 source "$WEBDEV_BUNDLE/base/base.sh"
 source "$WEBDEV_BUNDLE/commitlint/commitlint.sh"
+source "$WEBDEV_BUNDLE/cypress/cypress.sh"
 source "$WEBDEV_BUNDLE/eslint/eslint.sh"
+source "$WEBDEV_BUNDLE/faker/faker.sh"
 source "$WEBDEV_BUNDLE/git/git.sh"
 source "$WEBDEV_BUNDLE/hyperapp/hyperapp.sh"
+source "$WEBDEV_BUNDLE/jest/jest.sh"
+source "$WEBDEV_BUNDLE/jsverify/jsverify.sh"
 source "$WEBDEV_BUNDLE/markdown/markdown.sh"
 source "$WEBDEV_BUNDLE/node/node.sh"
 source "$WEBDEV_BUNDLE/parcel/parcel.sh"
 source "$WEBDEV_BUNDLE/postcss/postcss.sh"
 source "$WEBDEV_BUNDLE/prettier/prettier.sh"
 source "$WEBDEV_BUNDLE/purescript/purescript.sh"
+source "$WEBDEV_BUNDLE/stryker/stryker.sh"
 source "$WEBDEV_BUNDLE/stylelint/stylelint.sh"
-source "$WEBDEV_BUNDLE/testers/testers.sh"
+source "$WEBDEV_BUNDLE/supertest/supertest.sh"
 source "$WEBDEV_BUNDLE/tslint/tslint.sh"
 source "$WEBDEV_BUNDLE/typescript/typescript.sh"
 source "$WEBDEV_BUNDLE/webpack/webpack.sh"
+
+setup_bundles() {
+  # When we call each setup function we make sure it's aware of other bundles
+  # being used so it can take special care with relevant integrations.
+  for i in "$@" ; do
+    "setup_$i" "$@"
+  done
+}
 
 #
 # Checks if a command or program is available.
@@ -82,6 +97,7 @@ gimme() {
   # local bundleDir="$(dirname $0)/bundle"
 
   local scaffolds=(
+    hyperapp_basic
     purescript
     typescript
     test_base
@@ -89,7 +105,8 @@ gimme() {
     test_git
     test_js
     test_node
-    test_purscript
+    test_purescript
+    test_typescript
     test_webpack
   )
 
@@ -100,7 +117,7 @@ gimme() {
 
   mkdir "$2"
   cd "$2"
-  mkdir ./src
+  # mkdir ./src
 
   "scaffold_$1"
 

@@ -24,12 +24,10 @@ const merge = require("webpack-merge")
 
 const setters = require("./setters.js")
 
-const webpackConfig = (env, argv) => {
+module.exports = (env, argv) => {
   const inProduction = argv.mode === "production"
   return setters.reduce((acc, f) => merge.smart(acc, f(inProduction)), {})
 }
-
-module.exports = webpackConfig
 
 // https://github.com/webpack/webpack/issues/1315#issuecomment-386267369
 // https://medium.com/webpack/predictable-long-term-caching-with-webpack-d3eee1d3fa31
@@ -37,6 +35,8 @@ module.exports = webpackConfig
 // -----------------------------------------------------------------------------
 
 // https://nystudio107.com/blog/an-annotated-webpack-4-config-for-frontend-web-development
+
+// TODO:
 
 // const configureManifest = fileName => {
 //   return {

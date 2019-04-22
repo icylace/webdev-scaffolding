@@ -1,6 +1,6 @@
 "use strict"
 
-const typescriptSetup = () => ({
+module.exports = () => ({
   resolve: {
     extensions: [".ts", ".tsx"],
   },
@@ -18,5 +18,3 @@ const typescriptSetup = () => ({
     ],
   },
 })
-
-module.exports = typescriptSetup

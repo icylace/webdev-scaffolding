@@ -20,6 +20,8 @@ setup_webpack_dev_server() {
 
   yarn add --dev "${modules[@]}"
 
+  # ----------------------------------------------------------------------------
+
   cp "$WEBDEV_BUNDLE/webpack/setters/dev-server/dev-server.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/dev-server.js"))' >> ./webpack.config.js/setters.js

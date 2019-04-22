@@ -4,7 +4,7 @@ const path = require("path")
 
 const CleanPlugin = require("clean-webpack-plugin")
 
-const cleaningSetup = () => ({
+module.exports = () => ({
   plugins: [
     new CleanPlugin(["./dist"], {
       // exclude: inProduction ? [] : ["icons", "images"],
@@ -13,5 +13,3 @@ const cleaningSetup = () => ({
     }),
   ],
 })
-
-module.exports = cleaningSetup

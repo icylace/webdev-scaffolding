@@ -35,6 +35,7 @@ setup_webpack() {
   mkdir ./tmp
 
   local tmp="$(mktemp)"
+
   jq '.scripts += {
     analyze: "npx webpack --profile --json > ./tmp/stats.json && npx webpack-bundle-analyzer ./tmp/stats.json",
     build: "npx webpack --mode production --progress",

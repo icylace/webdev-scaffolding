@@ -1,6 +1,8 @@
+"use strict"
+
 // https://github.com/postcss/postcss#usage
 
-const settings = {
+module.exports = {
   modules: true,
   plugins: [
     require("postcss-import"),
@@ -11,5 +13,3 @@ const settings = {
     require("postcss-reporter")({ clearReportedMessages: true }),
   ],
 }
-
-module.exports = settings

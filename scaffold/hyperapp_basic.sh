@@ -1,17 +1,11 @@
 #!/usr/bin/env bash
 
-scaffold_purescript() {
+scaffold_hyperapp_basic() {
   local bundles=(
     git
     base
-    node
-    webpack
-    postcss
-    stylelint
-    purescript
     prettier
     hyperapp
-    testers
   )
   setup_bundles "${bundles[@]}"
 }

@@ -27,8 +27,9 @@ setup_commitlint() {
 
   yarn add --dev "${modules[@]}"
 
-  cp "$WEBDEV_BUNDLE/commitlint/commitlint.config.js" .
+  # ----------------------------------------------------------------------------
 
+  cp "$WEBDEV_BUNDLE/commitlint/commitlint.config.js" .
   mkdir ./.githooks
   cp "$WEBDEV_BUNDLE/commitlint/commit-msg" ./.githooks
 

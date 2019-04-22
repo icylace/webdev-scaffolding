@@ -10,6 +10,8 @@ setup_webpack_purescript() {
 
   yarn add --dev "${modules[@]}"
 
+  # ----------------------------------------------------------------------------
+
   cp "$WEBDEV_BUNDLE/webpack/setters/purescript/purescript.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/purescript.js"))' >> ./webpack.config.js/setters.js

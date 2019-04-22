@@ -1,6 +1,6 @@
 "use strict"
 
-const cssSetup = inProduction => ({
+module.exports = inProduction => ({
   module: {
     rules: [
       {
@@ -30,5 +30,3 @@ const cssSetup = inProduction => ({
     ],
   },
 })
-
-module.exports = cssSetup

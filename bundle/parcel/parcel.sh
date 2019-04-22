@@ -14,9 +14,11 @@ setup_parcel() {
 
   local tmp="$(mktemp)"
   jq '.scripts += {
-    dev: "npx parcel ./src/client/main.html",
+    build: "npx parcel build ./src/client/main.html",
+    dev: "yarn serve",
     prod: "rm ./dist/* && npx parcel build ./src/client/main.html",
-    start: "yarn run dev",
-    watch: "npx parcel watch ./src/client/main.html"
+    serve: "npx parcel ./src/client/main.html --no-minify",
+    start: "yarn serve",
+    watch: "npx parcel watch ./src/client/main.html --no-minify"
   }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 }

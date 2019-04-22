@@ -18,7 +18,7 @@ save_gitignore() {
 
   curl --location "https://www.gitignore.io/api/$1" >> "$tmp"
 
-  mv "$tmp" ./.gitignore
+  mv -f "$tmp" ./.gitignore
 }
 
 # ------------------------------------------------------------------------------

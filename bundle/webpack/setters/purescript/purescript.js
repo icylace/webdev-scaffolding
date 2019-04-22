@@ -1,6 +1,6 @@
 "use strict"
 
-const purescriptSetup = () => ({
+module.exports = () => ({
   resolve: {
     extensions: [".purs"],
   },
@@ -17,5 +17,3 @@ const purescriptSetup = () => ({
     ],
   },
 })
-
-module.exports = purescriptSetup

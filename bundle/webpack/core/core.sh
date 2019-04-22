@@ -22,6 +22,8 @@ setup_webpack_core() {
 
   yarn add --dev "${modules[@]}"
 
+  # ----------------------------------------------------------------------------
+
   mkdir -p ./webpack.config.js/setters
   mkdir -p ./src/client/assets/icons
 

@@ -2,7 +2,7 @@
 
 // https://github.com/remarkjs/remark-lint/blob/master/doc/rules.md
 
-const settings = {
+module.exports = {
   plugins: [
     "remark-preset-lint-consistent",
     "remark-preset-lint-recommended",
@@ -75,5 +75,3 @@ const settings = {
     // "remark-validate-links",
   ],
 }
-
-module.exports = settings

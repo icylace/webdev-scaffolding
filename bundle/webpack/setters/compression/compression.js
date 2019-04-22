@@ -4,7 +4,7 @@ const BrotliPlugin = require("brotli-webpack-plugin")
 const CompressionPlugin = require("compression-webpack-plugin")
 const ImageminPlugin = require("imagemin-webpack-plugin").default
 
-const compressionSetup = inProduction => {
+module.exports = inProduction => {
   // Make sure `ImageminPlugin` is after copy-webpack-plugin and any plugins
   // that add images.
   const settings = {
@@ -37,5 +37,3 @@ const compressionSetup = inProduction => {
 
   return settings
 }
-
-module.exports = compressionSetup

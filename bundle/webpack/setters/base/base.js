@@ -2,7 +2,7 @@
 
 const path = require("path")
 
-const baseSetup = inProduction => ({
+module.exports = inProduction => ({
   // devtool: inProduction ? "hidden-source-map" : "cheap-module-eval-source-map",
   devtool: inProduction ? "source-map" : "inline-source-map",
   mode: inProduction ? "production" : "development",
@@ -23,5 +23,3 @@ const baseSetup = inProduction => ({
     extensions: [".js"],
   },
 })
-
-module.exports = baseSetup

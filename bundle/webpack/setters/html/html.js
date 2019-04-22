@@ -3,7 +3,7 @@
 const HtmlPlugin = require("html-webpack-plugin")
 const SriPlugin = require("webpack-subresource-integrity")
 
-const htmlSetup = inProduction => {
+module.exports = inProduction => {
   const setup = {
     plugins: [
       new HtmlPlugin({
@@ -20,8 +20,6 @@ const htmlSetup = inProduction => {
 
   return setup
 }
-
-module.exports = htmlSetup
 
 // TODO: replace this:
 // const FaviconsPlugin = require("favicons-webpack-plugin")

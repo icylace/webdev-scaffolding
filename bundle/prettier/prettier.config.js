@@ -2,7 +2,7 @@
 
 // https://prettier.io/docs/en/options.html
 
-const settings = {
+module.exports = {
   arrowParens: "avoid",
   bracketSpacing: true,
   endOfLine: "auto",
@@ -10,8 +10,9 @@ const settings = {
   insertPragma: false,
   jsxBracketSameLine: false,
   jsxSingleQuote: false,
-  printWidth: 120,
+  printWidth: 90,
   proseWrap: "never",
+  quoteProps: "as-needed",
   rangeEnd: Infinity,
   rangeStart: 0,
   requirePragma: false,
@@ -21,5 +22,3 @@ const settings = {
   trailingComma: "all",
   useTabs: false,
 }
-
-module.exports = settings

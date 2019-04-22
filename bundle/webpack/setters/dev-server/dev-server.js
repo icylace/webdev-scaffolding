@@ -2,7 +2,7 @@
 
 const webpack = require("webpack")
 
-const devServerSetup = inProduction => {
+module.exports = inProduction => {
   const settings = {
     devServer: {
       // compress: true,
@@ -32,5 +32,3 @@ const devServerSetup = inProduction => {
 
   return settings
 }
-
-module.exports = devServerSetup

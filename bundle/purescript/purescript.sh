@@ -3,34 +3,52 @@
 setup_purescript() {
   local modules=()
 
-  # Pulp
-  # A build tool for PureScript.
-  # https://github.com/purescript-contrib/pulp
-  modules+=('pulp')
+  # PureScript
+  # A strongly-typed functional programming language that compiles to JavaScript
+  # http://www.purescript.org/
+  modules+=('purescript')
+
+  # psa
+  # Error/Warning reporting frontend for the PureScript compiler
+  # https://github.com/natefaubion/purescript-psa
+  modules+=('purescript-psa')
+
+  # spago
+  # 🍝 PureScript package manager and build tool powered by Dhall and package-sets
+  # https://github.com/spacchetti/spago
+  modules+=('spago')
 
   yarn add --dev "${modules[@]}"
 
-  # # purescript-halogen
-  # # A declarative, type-safe UI library for PureScript.
-  # # https://github.com/slamdata/purescript-halogen
-  # psc-package install halogen
+  # ----------------------------------------------------------------------------
+
+  # Generate a default PureScript project.
+  spago init
 
   # ----------------------------------------------------------------------------
 
-  # Generate an example PureScript project.
-  pulp --psc-package init
+  local packages=()
+
+  # purescript-quickcheck
+  # An implementation of QuickCheck in PureScript.
+  # https://pursuit.purescript.org/packages/purescript-quickcheck
+  packages+=('quickcheck')
+
+  spago install "${packages[@]}"
+
+  # ----------------------------------------------------------------------------
 
   local tmp="$(mktemp)"
   jq '.scripts += {
-    browserify: "npx pulp --psc-package browserify",
-    build: "npx pulp --psc-package build",
-    craft: "npx pulp --psc-package build --optimise",
-    docs: "npx pulp --psc-package docs",
-    psci: "npx pulp --psc-package psci",
-    repl: "npx pulp --psc-package psci",
-    go: "npx pulp --psc-package run",
-    serve: "npx pulp --psc-package server",
-    test: "npx pulp --psc-package test"
+    build: "npx spago build",
+    bundle: "npx spago bundle",
+    docs: "npx spago docs",
+    go: "npx spago run",
+    live: "npx spago run --watch",
+    "make-module": "npx spago make-module",
+    repl: "npx spago repl",
+    test: "npx spago test",
+    watch: "npx spago build --watch",
   }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
 
   if we_have save_gitignore ; then

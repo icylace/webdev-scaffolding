@@ -21,6 +21,8 @@ setup_webpack_assets() {
 
   yarn add --dev "${modules[@]}"
 
+  # ----------------------------------------------------------------------------
+
   mkdir -p ./src/client/assets/root
 
   cp "$WEBDEV_BUNDLE/webpack/setters/assets/assets.js" ./webpack.config.js/setters

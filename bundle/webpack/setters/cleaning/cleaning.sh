@@ -10,6 +10,8 @@ setup_webpack_cleaning() {
 
   yarn add --dev "${modules[@]}"
 
+  # ----------------------------------------------------------------------------
+
   cp "$WEBDEV_BUNDLE/webpack/setters/cleaning/cleaning.js" ./webpack.config.js/setters
 
   echo 'module.exports.push(require("./setters/cleaning.js"))' >> ./webpack.config.js/setters.js

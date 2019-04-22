@@ -1,6 +1,6 @@
 "use strict"
 
-const optimizationSetup = inProduction => ({
+module.exports = inProduction => ({
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -18,5 +18,3 @@ const optimizationSetup = inProduction => ({
     maxAssetSize: 200000,
   },
 })
-
-module.exports = optimizationSetup
