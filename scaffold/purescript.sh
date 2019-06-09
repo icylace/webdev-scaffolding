@@ -2,16 +2,16 @@
 
 scaffold_purescript() {
   local bundles=(
-    git
     base
+    git
     node
     webpack
+    # markdown
     postcss
     stylelint
     purescript
     prettier
     hyperapp
-    testers
   )
   setup_bundles "${bundles[@]}"
 }

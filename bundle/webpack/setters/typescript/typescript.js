@@ -1,8 +1,11 @@
 "use strict"
 
+const tsConfigPaths = require("tsconfig-paths-webpack-plugin")
+
 module.exports = () => ({
   resolve: {
     extensions: [".ts", ".tsx"],
+    plugins: [new tsConfigPaths()],
   },
   module: {
     rules: [

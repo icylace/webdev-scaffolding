@@ -8,6 +8,13 @@ setup_parcel() {
   # https://parceljs.org/
   modules+=('parcel-bundler')
 
+  if [[ " $* " == *' typescript '* ]] ; then
+    # parcel-plugin-typescript
+    # 🚨 Enhanced TypeScript support for Parcel
+    # https://www.npmjs.com/package/parcel-plugin-typescript
+    modules+=('parcel-plugin-typescript')
+  fi
+
   yarn add --dev "${modules[@]}"
 
   # ----------------------------------------------------------------------------

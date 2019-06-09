@@ -8,6 +8,7 @@
     "checkJs": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["dom", "es2015", "es2017.object"],
+    "moduleResolution": "node",
     "noEmitOnError": true,
     "noErrorTruncation": true,
     "noFallthroughCasesInSwitch": true,
@@ -17,7 +18,7 @@
     "outDir": "./dist",
     "removeComments": true,
     "resolveJsonModule": true,
-    "rootDir": ".",
+    "rootDir": "./src",
     "strict": true,
     "target": "ES2017"
   }

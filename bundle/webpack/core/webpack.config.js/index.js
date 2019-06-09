@@ -24,9 +24,10 @@ const merge = require("webpack-merge")
 
 const setters = require("./setters.js")
 
-module.exports = (env, argv) => {
+module.exports = (_env, argv) => {
   const inProduction = argv.mode === "production"
-  return setters.reduce((acc, f) => merge.smart(acc, f(inProduction)), {})
+  const watching = argv.watch
+  return setters.reduce((acc, f) => merge.smart(acc, f(inProduction, watching)), {})
 }
 
 // https://github.com/webpack/webpack/issues/1315#issuecomment-386267369

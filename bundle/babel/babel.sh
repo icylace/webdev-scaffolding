@@ -45,6 +45,14 @@ setup_babel() {
   # https://babeljs.io/docs/en/babel-runtime
   modules+=('@babel/runtime')
 
+  if [[ " $* " == *' typescript '* ]] ; then
+    # @babel/preset-typescript
+    # Babel preset for TypeScript.
+    # https://www.npmjs.com/package/@babel/preset-typescript
+    # https://devblogs.microsoft.com/typescript/typescript-and-babel-7/
+    modules+=('@babel/preset-typescript')
+  fi
+
   yarn add --dev "${modules[@]}"
 
   cp "$WEBDEV_BUNDLE/babel/babel.config.js" .

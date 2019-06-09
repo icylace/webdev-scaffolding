@@ -13,6 +13,12 @@ setup_webpack_typescript() {
   # https://github.com/s-panferov/awesome-typescript-loader
   modules+=('awesome-typescript-loader')
 
+  # tsconfig-paths-webpack-plugin
+  # Use this to load modules whose location is specified in the paths section
+  # of tsconfig.json when using webpack.
+  # https://www.npmjs.com/package/tsconfig-paths-webpack-plugin
+  modules+=('tsconfig-paths-webpack-plugin')
+
   yarn add --dev "${modules[@]}"
 
   # ----------------------------------------------------------------------------

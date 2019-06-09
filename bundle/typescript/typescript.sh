@@ -35,9 +35,16 @@ setup_typescript() {
 
   cp "$WEBDEV_BUNDLE/typescript/tsconfig.json" .
 
-  local tmp="$(mktemp)"
+  if [[ " $* " == *' tslint '* ]] ; then
+    local tmp="$(mktemp)"
+    jq '.compilerOptions += {
+      plugins: [{ name: "typescript-tslint-plugin" }]
+    }' ./tsconfig.json > "$tmp" && mv -f "$tmp" ./tsconfig.json
+  fi
 
+  local tmp="$(mktemp)"
   jq '.scripts += {
+    build: "npx tsc --build"
     typecheck: "npx tsc --noEmit",
     watch: "npx tsc --watch"
   }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json

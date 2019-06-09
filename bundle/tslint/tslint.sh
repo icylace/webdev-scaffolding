@@ -39,6 +39,11 @@ setup_tslint() {
   # https://github.com/ikatyang/tslint-plugin-ikatyang
   modules+=('tslint-plugin-ikatyang')
 
+  # TypeScript TSLint Language Service Plugin
+  # TypeScript language service plugin for TSLint.
+  # https://github.com/Microsoft/typescript-tslint-plugin
+  modules+=('typescript-tslint-plugin')
+
   # vrsource-tslint-rules
   # A extra set of tslint rules
   # https://github.com/vrsource/vrsource-tslint-rules

@@ -6,9 +6,9 @@
 
 WEBDEV_SCAFFOLD="$WEBDEV_SCAFFOLDING/scaffold"
 
-source "$WEBDEV_SCAFFOLD/hyperapp_basic.sh"
 source "$WEBDEV_SCAFFOLD/purescript.sh"
 source "$WEBDEV_SCAFFOLD/typescript.sh"
+source "$WEBDEV_SCAFFOLD/vanilla.sh"
 source "$WEBDEV_SCAFFOLD/test/base.sh"
 source "$WEBDEV_SCAFFOLD/test/css.sh"
 source "$WEBDEV_SCAFFOLD/test/git.sh"
@@ -75,8 +75,12 @@ we_have() {
 # $2 = Name for project directory.
 #
 gimme() {
-  local error='\e[1;31m'
+  local boldBlack='\e[1;30m'
+  local boldRed='\e[1;31m'
+  local boldMagenta='\e[1;35m'
+  local boldCyan='\e[1;36m'
   local reset='\e[0m'
+  local error="${boldRed}"
 
   if ! we_have jq ; then
     echo "${error}`jq` (https://stedolan.github.io/jq/) is missing !${reset}"
@@ -89,7 +93,7 @@ gimme() {
   fi
 
   if [[ -z "$2" ]] ; then
-    echo "${error}ERROR: You need to name your new project!${reset}"
+    echo "format: ${boldMagenta}gimme ${boldBlack}[${boldCyan}scaffold-name${boldBlack}] [${boldCyan}project-name${boldBlack}]${reset}"
     return 1
   fi
 

@@ -4,7 +4,6 @@ source "$WEBDEV_BUNDLE/webpack/core/core.sh"
 source "$WEBDEV_BUNDLE/webpack/setters/base/base.sh"
 source "$WEBDEV_BUNDLE/webpack/setters/optimization/optimization.sh"
 source "$WEBDEV_BUNDLE/webpack/setters/dev-server/dev-server.sh"
-source "$WEBDEV_BUNDLE/webpack/setters/cleaning/cleaning.sh"
 source "$WEBDEV_BUNDLE/webpack/setters/assets/assets.sh"
 source "$WEBDEV_BUNDLE/webpack/setters/compression/compression.sh"
 source "$WEBDEV_BUNDLE/webpack/setters/css/css.sh"
@@ -18,7 +17,6 @@ setup_webpack() {
   setup_webpack_base
   setup_webpack_optimization
   setup_webpack_dev_server
-  setup_webpack_cleaning
   setup_webpack_assets
   setup_webpack_compression
   setup_webpack_css
@@ -141,6 +139,4 @@ setup_webpack() {
 #   "@babel/polyfill": "^7.0.0",
 #   "axios": "^0.18.0",
 #   "tailwindcss": "^0.6.6",
-#   "vue": "^2.5.17",
-#   "vue-confetti": "^0.4.2"
 # }

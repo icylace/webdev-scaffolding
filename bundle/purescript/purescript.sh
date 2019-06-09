@@ -41,11 +41,11 @@ setup_purescript() {
   local tmp="$(mktemp)"
   jq '.scripts += {
     build: "npx spago build",
-    bundle: "npx spago bundle",
+    bundle: "npx spago bundle-module",
+    "bundle:app": "npx spago bundle-app",
     docs: "npx spago docs",
     go: "npx spago run",
     live: "npx spago run --watch",
-    "make-module": "npx spago make-module",
     repl: "npx spago repl",
     test: "npx spago test",
     watch: "npx spago build --watch",

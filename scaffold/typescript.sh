@@ -2,14 +2,14 @@
 
 scaffold_typescript() {
   local bundles=(
-    git
     base
+    git
     node
     webpack
     postcss
     stylelint
     # eslint
-    markdown
+    # markdown
     typescript
     tslint
     prettier

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-scaffold_hyperapp_basic() {
+scaffold_vanilla() {
   local bundles=(
-    git
     base
+    git
     prettier
     hyperapp
   )

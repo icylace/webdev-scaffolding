@@ -14,10 +14,20 @@ setup_webpack_compression() {
   # https://github.com/webpack-contrib/compression-webpack-plugin
   modules+=('compression-webpack-plugin')
 
-  # Imagemin plugin for Webpack
-  # Plugin to compress images with imagemin
-  # https://github.com/Klathmon/imagemin-webpack-plugin
-  modules+=('imagemin-webpack-plugin')
+  # Imagemin Webpack
+  # Webpack loader and plugin to compress images using imagemin
+  # https://github.com/itgalaxy/imagemin-webpack
+  modules+=('imagemin-webpack')
+
+  # imagemin-jpegtran
+  # jpegtran plugin for imagemin
+  # https://github.com/imagemin/imagemin-jpegtran
+  modules+=('imagemin-jpegtran')
+
+  # imagemin-optipng
+  # Imagemin plugin for OptiPNG
+  # https://github.com/imagemin/imagemin-optipng
+  modules+=('imagemin-optipng')
 
   yarn add --dev "${modules[@]}"
 
