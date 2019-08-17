@@ -4,18 +4,18 @@ setup_hyperapp() {
   local prodModules=()
 
   # Hyperapp
-  # 1 KB JavaScript library for building frontend applications
-  # https://hyperapp.js.org/
+  # The tiny framework for building web interfaces.
+  # https://hyperapp.dev/
   prodModules+=('hyperapp')
 
   # # Hyperapp FX
-  # # Effects as data for Hyperapp.
-  # # https://github.com/hyperapp/fx
-  # prodModules+=('@hyperapp/fx')
+  # # Effects for use with Hyperapp
+  # # https://github.com/okwolf/hyperapp-fx
+  # prodModules+=('hyperapp-fx@next')
 
-  # # @hyperapp/router
-  # # Declarative routing for Hyperapp using the History API.
-  # # https://github.com/hyperapp/router
+  # # Hyperapp Router
+  # # Declarative routing for Hyperapp V1 using the History API.
+  # # https://github.com/jorgebucaran/hyperapp-router
   # prodModules+=('@hyperapp/router')
 
   yarn add "${prodModules[@]}"

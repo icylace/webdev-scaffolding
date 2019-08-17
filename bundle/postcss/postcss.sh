@@ -5,7 +5,7 @@ setup_postcss() {
 
   # PostCSS
   # A tool for transforming CSS with JavaScript
-  # http://postcss.org/
+  # https://postcss.org/
   modules+=('postcss')
 
   # PostCSS CLI
