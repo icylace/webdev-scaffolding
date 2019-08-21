@@ -4,6 +4,7 @@ scaffold_typescript() {
   local bundles=(
     base
     git
+    jest
     node
     webpack
     postcss

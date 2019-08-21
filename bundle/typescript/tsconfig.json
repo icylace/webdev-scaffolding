@@ -5,6 +5,7 @@
   "include": ["./src/**/*.ts", "./test/**/*.ts"],
   "compilerOptions": {
     "allowJs": true,
+    "baseUrl": "./src",
     "checkJs": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["dom", "es2015", "es2017.object"],
@@ -12,6 +13,8 @@
     "noEmitOnError": true,
     "noErrorTruncation": true,
     "noFallthroughCasesInSwitch": true,
+    // Use the following as needed:
+    // "noImplicitAny": false,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

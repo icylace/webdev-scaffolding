@@ -23,7 +23,7 @@ setup_webpack_typescript() {
 
   # ----------------------------------------------------------------------------
 
-  cp "$WEBDEV_BUNDLE/webpack/setters/typescript/typescript.js" ./webpack.config.js/setters
+  cp "$WEBDEV_WEBPACK_SETTERS/typescript/typescript.js" ./webpack.config.js/setters
 
-  echo 'module.exports.push(require("./setters/typescript.js"))' >> ./webpack.config.js/setters.js
+  echo '  require("./setters/typescript.js"),' >> ./webpack.config.js/setters.js
 }

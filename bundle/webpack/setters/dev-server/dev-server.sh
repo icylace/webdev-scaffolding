@@ -22,9 +22,9 @@ setup_webpack_dev_server() {
 
   # ----------------------------------------------------------------------------
 
-  cp "$WEBDEV_BUNDLE/webpack/setters/dev-server/dev-server.js" ./webpack.config.js/setters
+  cp "$WEBDEV_WEBPACK_SETTERS/dev-server/dev-server.js" ./webpack.config.js/setters
 
-  echo 'module.exports.push(require("./setters/dev-server.js"))' >> ./webpack.config.js/setters.js
+  echo '  require("./setters/dev-server.js"),' >> ./webpack.config.js/setters.js
 
   jq '.scripts += {
     serve: "npx webpack-dev-server --color --progress"

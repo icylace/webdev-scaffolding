@@ -5,43 +5,24 @@
 # IFS=$'\n\t'
 
 WEBDEV_SCAFFOLD="$WEBDEV_SCAFFOLDING/scaffold"
+WEBDEV_BUNDLE="$WEBDEV_SCAFFOLDING/bundle"
 
 source "$WEBDEV_SCAFFOLD/purescript.sh"
 source "$WEBDEV_SCAFFOLD/typescript.sh"
 source "$WEBDEV_SCAFFOLD/vanilla.sh"
-source "$WEBDEV_SCAFFOLD/test/base.sh"
-source "$WEBDEV_SCAFFOLD/test/css.sh"
-source "$WEBDEV_SCAFFOLD/test/git.sh"
-source "$WEBDEV_SCAFFOLD/test/js.sh"
-source "$WEBDEV_SCAFFOLD/test/node.sh"
-source "$WEBDEV_SCAFFOLD/test/purescript.sh"
-source "$WEBDEV_SCAFFOLD/test/typescript.sh"
-source "$WEBDEV_SCAFFOLD/test/webpack.sh"
 
-WEBDEV_BUNDLE="$WEBDEV_SCAFFOLDING/bundle"
+source "$WEBDEV_SCAFFOLDING/test/scaffold.sh"
 
-source "$WEBDEV_BUNDLE/babel/babel.sh"
-source "$WEBDEV_BUNDLE/base/base.sh"
-source "$WEBDEV_BUNDLE/commitlint/commitlint.sh"
-source "$WEBDEV_BUNDLE/cypress/cypress.sh"
-source "$WEBDEV_BUNDLE/eslint/eslint.sh"
-source "$WEBDEV_BUNDLE/faker/faker.sh"
-source "$WEBDEV_BUNDLE/git/git.sh"
-source "$WEBDEV_BUNDLE/hyperapp/hyperapp.sh"
-source "$WEBDEV_BUNDLE/jest/jest.sh"
-source "$WEBDEV_BUNDLE/jsverify/jsverify.sh"
-source "$WEBDEV_BUNDLE/markdown/markdown.sh"
-source "$WEBDEV_BUNDLE/node/node.sh"
-source "$WEBDEV_BUNDLE/parcel/parcel.sh"
-source "$WEBDEV_BUNDLE/postcss/postcss.sh"
-source "$WEBDEV_BUNDLE/prettier/prettier.sh"
-source "$WEBDEV_BUNDLE/purescript/purescript.sh"
-source "$WEBDEV_BUNDLE/stryker/stryker.sh"
-source "$WEBDEV_BUNDLE/stylelint/stylelint.sh"
-source "$WEBDEV_BUNDLE/supertest/supertest.sh"
-source "$WEBDEV_BUNDLE/tslint/tslint.sh"
-source "$WEBDEV_BUNDLE/typescript/typescript.sh"
-source "$WEBDEV_BUNDLE/webpack/webpack.sh"
+# $1 = directory
+gather_bundles() {
+  for filepath in "$1/"* ; do
+    if [ -d "$filepath" ] ; then
+      source "$filepath/"*.sh
+    fi
+  done
+}
+
+gather_bundles "$WEBDEV_SCAFFOLDING/bundle"
 
 setup_bundles() {
   # When we call each setup function we make sure it's aware of other bundles
@@ -66,6 +47,30 @@ setup_bundles() {
 #
 we_have() {
   return $(type "$@" > /dev/null 2>&1)
+}
+
+# $1 = directory
+# $2 = prefix
+scaffold_files() {
+  local prefix="$2"
+  local names=()
+
+  for filepath in "$1/"* ; do
+    if [ -f "$filepath" ] ; then
+      local filename="${filepath//$1\//}"
+      local slashesIntoUnderscores="${filename//\//_}"
+      local baseName="${slashesIntoUnderscores/\.sh/}"
+      names+=("${prefix:+${prefix}_}$baseName")
+    elif [ -d "$filepath" ] ; then
+      local dirName="${filepath//$1\//}"
+      local slashesIntoUnderscores="${dirName//\//_}"
+      local dirCleanName="$slashesIntoUnderscores"
+      local xs=$(scaffold_files "$filepath" "${prefix:+${prefix}_}${dirCleanName}")
+      names+=("$xs")
+    fi
+  done
+
+  echo "$names"
 }
 
 #
@@ -100,19 +105,19 @@ gimme() {
   # # https://stackoverflow.com/a/59916
   # local bundleDir="$(dirname $0)/bundle"
 
-  local scaffolds=(
-    hyperapp_basic
-    purescript
-    typescript
-    test_base
-    test_css
-    test_git
-    test_js
-    test_node
-    test_purescript
-    test_typescript
-    test_webpack
-  )
+  local scaffolds=$(scaffold_files "$WEBDEV_SCAFFOLD")
+
+  scaffolds+=('test_base')
+  scaffolds+=('test_css')
+  scaffolds+=('test_git')
+  scaffolds+=('test_hyperapp')
+  scaffolds+=('test_js')
+  scaffolds+=('test_node')
+  scaffolds+=('test_purescript')
+  scaffolds+=('test_typescript')
+  scaffolds+=('test_webpack')
+  scaffolds+=('test_webpack_purescript')
+  scaffolds+=('test_webpack_typescript')
 
   if [[ " ${scaffolds[@]} " != *" $1 "* ]] ; then
     echo "${error}ERROR: You need to use a proper scaffold code!${reset}"
@@ -121,7 +126,6 @@ gimme() {
 
   mkdir "$2"
   cd "$2"
-  # mkdir ./src
 
   "scaffold_$1"
 

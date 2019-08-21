@@ -25,7 +25,7 @@ setup_webpack_assets() {
 
   mkdir -p ./src/client/assets/root
 
-  cp "$WEBDEV_BUNDLE/webpack/setters/assets/assets.js" ./webpack.config.js/setters
+  cp "$WEBDEV_WEBPACK_SETTERS/assets/assets.js" ./webpack.config.js/setters
 
-  echo 'module.exports.push(require("./setters/assets.js"))' >> ./webpack.config.js/setters.js
+  echo '  require("./setters/assets.js"),' >> ./webpack.config.js/setters.js
 }

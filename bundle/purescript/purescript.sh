@@ -29,6 +29,12 @@ setup_purescript() {
 
   local packages=()
 
+  # PureScript Spec
+  # PureScript Spec is a testing framework for Purescript, inspired by hspec.
+  # https://github.com/purescript-spec/purescript-spec
+  # https://pursuit.purescript.org/packages/purescript-spec
+  packages+=('spec')
+
   # purescript-quickcheck
   # An implementation of QuickCheck in PureScript.
   # https://pursuit.purescript.org/packages/purescript-quickcheck

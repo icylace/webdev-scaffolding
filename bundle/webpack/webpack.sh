@@ -1,19 +1,27 @@
 #!/usr/bin/env bash
 
 source "$WEBDEV_BUNDLE/webpack/core/core.sh"
-source "$WEBDEV_BUNDLE/webpack/setters/base/base.sh"
-source "$WEBDEV_BUNDLE/webpack/setters/optimization/optimization.sh"
-source "$WEBDEV_BUNDLE/webpack/setters/dev-server/dev-server.sh"
-source "$WEBDEV_BUNDLE/webpack/setters/assets/assets.sh"
-source "$WEBDEV_BUNDLE/webpack/setters/compression/compression.sh"
-source "$WEBDEV_BUNDLE/webpack/setters/css/css.sh"
-source "$WEBDEV_BUNDLE/webpack/setters/html/html.sh"
-source "$WEBDEV_BUNDLE/webpack/setters/purescript/purescript.sh"
-source "$WEBDEV_BUNDLE/webpack/setters/typescript/typescript.sh"
+
+WEBDEV_WEBPACK_SETTERS="$WEBDEV_BUNDLE/webpack/setters"
+
+# $1 = directory
+gather_webpack_setters() {
+  for filepath in "$1/"* ; do
+    if [ -d "$filepath" ] ; then
+      source "$filepath/"*.sh
+    fi
+  done
+}
+
+gather_webpack_setters "$WEBDEV_WEBPACK_SETTERS"
 
 # $@ = Optional integrations to use.
 setup_webpack() {
   setup_webpack_core
+
+  echo >> ./webpack.config.js/setters.js
+  echo 'module.exports = [' >> ./webpack.config.js/setters.js
+
   setup_webpack_base
   setup_webpack_optimization
   setup_webpack_dev_server
@@ -29,6 +37,8 @@ setup_webpack() {
   if [[ " $* " == *' typescript '* ]] ; then
     setup_webpack_typescript
   fi
+
+  echo ']' >> ./webpack.config.js/setters.js
 
   mkdir ./tmp
 

@@ -12,7 +12,7 @@ setup_webpack_purescript() {
 
   # ----------------------------------------------------------------------------
 
-  cp "$WEBDEV_BUNDLE/webpack/setters/purescript/purescript.js" ./webpack.config.js/setters
+  cp "$WEBDEV_WEBPACK_SETTERS/purescript/purescript.js" ./webpack.config.js/setters
 
-  echo 'module.exports.push(require("./setters/purescript.js"))' >> ./webpack.config.js/setters.js
+  echo '  require("./setters/purescript.js"),' >> ./webpack.config.js/setters.js
 }

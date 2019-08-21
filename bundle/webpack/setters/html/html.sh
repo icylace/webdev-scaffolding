@@ -22,7 +22,7 @@ setup_webpack_html() {
 
   # ----------------------------------------------------------------------------
 
-  cp "$WEBDEV_BUNDLE/webpack/setters/html/html.js" ./webpack.config.js/setters
+  cp "$WEBDEV_WEBPACK_SETTERS/html/html.js" ./webpack.config.js/setters
 
-  echo 'module.exports.push(require("./setters/html.js"))' >> ./webpack.config.js/setters.js
+  echo '  require("./setters/html.js"),' >> ./webpack.config.js/setters.js
 }
