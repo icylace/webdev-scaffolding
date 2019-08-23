@@ -25,5 +25,5 @@ setup_webpack_typescript() {
 
   cp "$WEBDEV_WEBPACK_SETTERS/typescript/typescript.js" ./webpack.config.js/setters
 
-  echo '  require("./setters/typescript.js"),' >> ./webpack.config.js/setters.js
+  echo 'typescript' >> ./webpack.config.js/setters.js
 }

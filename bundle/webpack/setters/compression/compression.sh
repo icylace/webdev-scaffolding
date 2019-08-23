@@ -35,5 +35,5 @@ setup_webpack_compression() {
 
   cp "$WEBDEV_WEBPACK_SETTERS/compression/compression.js" ./webpack.config.js/setters
 
-  echo '  require("./setters/compression.js"),' >> ./webpack.config.js/setters.js
+  echo 'compression' >> ./webpack.config.js/setters.js
 }

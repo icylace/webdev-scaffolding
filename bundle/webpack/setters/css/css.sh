@@ -31,5 +31,5 @@ setup_webpack_css() {
 
   cp "$WEBDEV_WEBPACK_SETTERS/css/css.js" ./webpack.config.js/setters
 
-  echo '  require("./setters/css.js"),' >> ./webpack.config.js/setters.js
+  echo 'css' >> ./webpack.config.js/setters.js
 }

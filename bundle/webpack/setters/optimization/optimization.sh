@@ -3,5 +3,5 @@
 setup_webpack_optimization() {
   cp "$WEBDEV_WEBPACK_SETTERS/optimization/optimization.js" ./webpack.config.js/setters
 
-  echo '  require("./setters/optimization.js"),' >> ./webpack.config.js/setters.js
+  echo 'optimization' >> ./webpack.config.js/setters.js
 }

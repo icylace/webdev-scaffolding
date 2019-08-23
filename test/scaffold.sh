@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 scaffold_test_base()               { setup_bundles base               }
+scaffold_test_basic_site()         { setup_bundles basic_site         }
 scaffold_test_css()                { setup_bundles postcss stylelint  }
 scaffold_test_git()                { setup_bundles git                }
 scaffold_test_hyperapp()           { setup_bundles hyperapp           }

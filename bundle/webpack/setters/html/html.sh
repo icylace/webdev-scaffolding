@@ -24,5 +24,5 @@ setup_webpack_html() {
 
   cp "$WEBDEV_WEBPACK_SETTERS/html/html.js" ./webpack.config.js/setters
 
-  echo '  require("./setters/html.js"),' >> ./webpack.config.js/setters.js
+  echo 'html' >> ./webpack.config.js/setters.js
 }

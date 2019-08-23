@@ -4,14 +4,7 @@
 # set -euo pipefail
 # IFS=$'\n\t'
 
-WEBDEV_SCAFFOLD="$WEBDEV_SCAFFOLDING/scaffold"
 WEBDEV_BUNDLE="$WEBDEV_SCAFFOLDING/bundle"
-
-source "$WEBDEV_SCAFFOLD/purescript.sh"
-source "$WEBDEV_SCAFFOLD/typescript.sh"
-source "$WEBDEV_SCAFFOLD/vanilla.sh"
-
-source "$WEBDEV_SCAFFOLDING/test/scaffold.sh"
 
 # $1 = directory
 gather_bundles() {
@@ -21,8 +14,6 @@ gather_bundles() {
     fi
   done
 }
-
-gather_bundles "$WEBDEV_SCAFFOLDING/bundle"
 
 setup_bundles() {
   # When we call each setup function we make sure it's aware of other bundles
@@ -56,17 +47,15 @@ scaffold_files() {
   local names=()
 
   for filepath in "$1/"* ; do
+    local name="${filepath//$1\/}"
+    local unslash="${name//\//_}"
+    local undash="${unslash//-/_}"
+    local baseName="${undash/\.sh/}"
+    local pureName="${prefix:+${prefix}_}$baseName"
     if [ -f "$filepath" ] ; then
-      local filename="${filepath//$1\//}"
-      local slashesIntoUnderscores="${filename//\//_}"
-      local baseName="${slashesIntoUnderscores/\.sh/}"
-      names+=("${prefix:+${prefix}_}$baseName")
+      names+=("$pureName")
     elif [ -d "$filepath" ] ; then
-      local dirName="${filepath//$1\//}"
-      local slashesIntoUnderscores="${dirName//\//_}"
-      local dirCleanName="$slashesIntoUnderscores"
-      local xs=$(scaffold_files "$filepath" "${prefix:+${prefix}_}${dirCleanName}")
-      names+=("$xs")
+      names+=("$(scaffold_files "$filepath" "$pureName")")
     fi
   done
 
@@ -105,7 +94,7 @@ gimme() {
   # # https://stackoverflow.com/a/59916
   # local bundleDir="$(dirname $0)/bundle"
 
-  local scaffolds=$(scaffold_files "$WEBDEV_SCAFFOLD")
+  local scaffolds=$(scaffold_files "$WEBDEV_SCAFFOLDING/scaffold")
 
   scaffolds+=('test_base')
   scaffolds+=('test_css')
@@ -114,6 +103,7 @@ gimme() {
   scaffolds+=('test_js')
   scaffolds+=('test_node')
   scaffolds+=('test_purescript')
+  scaffolds+=('test_static_site')
   scaffolds+=('test_typescript')
   scaffolds+=('test_webpack')
   scaffolds+=('test_webpack_purescript')
@@ -136,3 +126,10 @@ gimme() {
 
   echo "\n\n🔥  🎉  ✨  ········«  Project setup done ‼  »········ ✨  🎉  🔥"
 }
+
+# ------------------------------------------------------------------------------
+
+gather_bundles "$WEBDEV_SCAFFOLDING/bundle"
+
+source "$WEBDEV_SCAFFOLDING/scaffold/"*.sh
+source "$WEBDEV_SCAFFOLDING/test/scaffold.sh"

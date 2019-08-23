@@ -27,5 +27,5 @@ setup_webpack_assets() {
 
   cp "$WEBDEV_WEBPACK_SETTERS/assets/assets.js" ./webpack.config.js/setters
 
-  echo '  require("./setters/assets.js"),' >> ./webpack.config.js/setters.js
+  echo 'assets' >> ./webpack.config.js/setters.js
 }

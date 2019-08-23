@@ -14,5 +14,5 @@ setup_webpack_base() {
 
   cp "$WEBDEV_WEBPACK_SETTERS/base/base.js" ./webpack.config.js/setters
 
-  echo '  require("./setters/base.js"),' >> ./webpack.config.js/setters.js
+  echo 'base' >> ./webpack.config.js/setters.js
 }

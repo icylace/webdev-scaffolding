@@ -20,7 +20,7 @@ setup_webpack() {
   setup_webpack_core
 
   echo >> ./webpack.config.js/setters.js
-  echo 'module.exports = [' >> ./webpack.config.js/setters.js
+  echo 'module.exports = include`' >> ./webpack.config.js/setters.js
 
   setup_webpack_base
   setup_webpack_optimization
@@ -38,7 +38,7 @@ setup_webpack() {
     setup_webpack_typescript
   fi
 
-  echo ']' >> ./webpack.config.js/setters.js
+  echo '`' >> ./webpack.config.js/setters.js
 
   mkdir ./tmp
 

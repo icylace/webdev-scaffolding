@@ -14,5 +14,5 @@ setup_webpack_purescript() {
 
   cp "$WEBDEV_WEBPACK_SETTERS/purescript/purescript.js" ./webpack.config.js/setters
 
-  echo '  require("./setters/purescript.js"),' >> ./webpack.config.js/setters.js
+  echo 'purescript' >> ./webpack.config.js/setters.js
 }
