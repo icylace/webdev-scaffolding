@@ -8,15 +8,10 @@ setup_hyperapp() {
   # https://hyperapp.dev/
   prodModules+=('hyperapp')
 
-  # # Hyperapp FX
-  # # Effects for use with Hyperapp
-  # # https://github.com/okwolf/hyperapp-fx
-  # prodModules+=('hyperapp-fx@next')
-
-  # # Hyperapp Router
-  # # Declarative routing for Hyperapp V1 using the History API.
-  # # https://github.com/jorgebucaran/hyperapp-router
-  # prodModules+=('@hyperapp/router')
+  # Hyperapp FX
+  # Effects for use with Hyperapp
+  # https://github.com/okwolf/hyperapp-fx
+  prodModules+=('hyperapp-fx@next')
 
   yarn add "${prodModules[@]}"
 }

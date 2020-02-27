@@ -8,6 +8,7 @@ scaffold_test_hyperapp()           { setup_bundles hyperapp           }
 scaffold_test_js()                 { setup_bundles babel              }
 scaffold_test_node()               { setup_bundles node               }
 scaffold_test_purescript()         { setup_bundles purescript         }
+scaffold_test_snowpack()           { setup_bundles snowpack           }
 scaffold_test_typescript()         { setup_bundles typescript tslint  }
 scaffold_test_webpack()            { setup_bundles webpack            }
 scaffold_test_webpack_purescript() { setup_bundles webpack purescript }
