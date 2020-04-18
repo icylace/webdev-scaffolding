@@ -41,11 +41,12 @@ setup_eslint() {
   # https://www.npmjs.com/package/eslint-config-standard
   modules+=('eslint-config-standard')
 
-  # eslint-plugin-standard
-  # ESlint Rules for the Standard Linter
-  # https://github.com/standard/eslint-plugin-standard
-  # https://www.npmjs.com/package/eslint-plugin-standard
-  modules+=('eslint-plugin-standard')
+  # # TODO:
+  # # eslint-plugin-standard
+  # # ESlint Rules for the Standard Linter
+  # # https://github.com/standard/eslint-plugin-standard
+  # # https://www.npmjs.com/package/eslint-plugin-standard
+  # modules+=('eslint-plugin-standard')
 
   # ----------------------------------------------------------------------------
 
