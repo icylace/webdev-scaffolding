@@ -24,7 +24,7 @@ module.exports = inProduction => ({
   plugins: [
     new CopyPlugin([
       {
-        from: "./src/client/assets/root",
+        from: "./src/assets/root",
         to: "[name].[ext]",
       },
     ]),

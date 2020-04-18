@@ -12,8 +12,8 @@ module.exports = inProduction => ({
   plugins: [new CleanWebpackPlugin()],
   stats: "normal",
   entry: {
-    main: "./src/client/index.js",
-    // vendor: "./src/client/vendor.js",
+    main: "./src/index.js",
+    // vendor: "./src/vendor.js",
   },
   output: {
     path: path.resolve(__dirname, "..", "..", "dist"),

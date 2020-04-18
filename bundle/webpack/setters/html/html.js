@@ -8,7 +8,7 @@ module.exports = inProduction => {
     plugins: [
       new HtmlPlugin({
         title: "WORK-IN-PROGRESS",
-        template: "./src/client/index.ejs",
+        template: "./src/index.ejs",
         inject: "body",
       }),
     ],
@@ -28,7 +28,7 @@ module.exports = inProduction => {
 //     ? {
 //         plugins: [
 //           new FaviconsPlugin({
-//             logo: "./src/client/assets/icons/logo-ipsum.png",
+//             logo: "./src/assets/icons/logo-ipsum.png",
 //             prefix: "icons/[hash]/",
 //             background: "#000000",
 //           }),

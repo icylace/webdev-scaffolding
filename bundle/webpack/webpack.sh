@@ -42,13 +42,11 @@ setup_webpack() {
 
   mkdir ./tmp
 
-  local tmp="$(mktemp)"
-
-  jq '.scripts += {
-    analyze: "npx webpack --profile --json > ./tmp/stats.json && npx webpack-bundle-analyzer ./tmp/stats.json",
-    build: "npx webpack --mode production --progress",
-    dev: "npx webpack --mode development --progress --watch",
-  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
+  update_json '.scripts += {
+    analyze: "webpack --profile --json > ./tmp/stats.json && webpack-bundle-analyzer ./tmp/stats.json",
+    build: "webpack --mode production --progress",
+    dev: "webpack --mode development --progress --watch",
+  }' ./package.json
 }
 
 
@@ -59,8 +57,8 @@ setup_webpack() {
 
 
 # "scripts": {
-#     "dev": "npx webpack-dev-server --config webpack.dev.js",
-#     "build": "npx webpack --config webpack.prod.js --progress --hide-modules"
+#     "dev": "webpack-dev-server --config webpack.dev.js",
+#     "build": "webpack --config webpack.prod.js --progress --hide-modules"
 # },
 
 

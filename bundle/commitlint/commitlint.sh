@@ -9,23 +9,26 @@ setup_commitlint() {
   local modules=()
 
   # TODO: do we wanna use Commitizen stuff ?
-
+  #
   # Commitizen
   # Simple commit conventions for internet citizens.
   # https://commitizen.github.io/cz-cli/
+  # https://www.npmjs.com/package/commitizen
   modules+=('commitizen')
 
   # commitlint
   # Lint commit messages
-  # https://marionebl.github.io/commitlint/#/
+  # https://commitlint.js.org/
+  # https://www.npmjs.com/package/@commitlint/cli
   modules+=('@commitlint/cli')
 
   # @commitlint/prompt
   # This is the library and commitizen adapter version of commitlint prompt.
+  # https://github.com/conventional-changelog/commitlint
   # https://www.npmjs.com/package/@commitlint/prompt
   modules+=('@commitlint/prompt')
 
-  yarn add --dev "${modules[@]}"
+  npm install --save-dev "${modules[@]}"
 
   # ----------------------------------------------------------------------------
 

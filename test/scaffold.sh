@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+scaffold_test_babel()              { setup_bundles babel              }
 scaffold_test_base()               { setup_bundles base               }
 scaffold_test_basic_site()         { setup_bundles basic_site         }
 scaffold_test_css()                { setup_bundles postcss stylelint  }

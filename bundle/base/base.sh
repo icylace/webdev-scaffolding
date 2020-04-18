@@ -2,7 +2,7 @@
 
 setup_base() {
   mkdir ./dist
-  mkdir -p ./src/client
+  mkdir -p ./src
 
   # EditorConfig
   # EditorConfig helps developers define and maintain consistent coding styles
@@ -19,10 +19,10 @@ setup_base() {
   # humans.txt
   # It's an initiative for knowing the people behind a website.
   # http://humanstxt.org/
-  cp "$WEBDEV_BUNDLE/base/humans.txt" ./src/client
+  cp "$WEBDEV_BUNDLE/base/humans.txt" ./src
 
-  # The MIT License
-  # https://opensource.org/licenses/MIT
+  # ISC License (ISC)
+  # https://opensource.org/licenses/ISC
 
   # Put the current year in the license file.
   sed "s/{{year}}/$(date +%Y)/g" "$WEBDEV_BUNDLE/base/LICENSE.md" > ./LICENSE.md

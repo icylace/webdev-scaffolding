@@ -6,9 +6,20 @@ setup_eslint() {
   # ESLint
   # Checks the style of JavaScript code.
   # https://eslint.org/
+  # https://www.npmjs.com/package/eslint
   modules+=('eslint')
 
-  yarn add --dev "${modules[@]}"
+  if [[ " $* " == *' typescript '* ]] ; then
+    # ESLint Plugin TypeScript
+    # ✨ Monorepo for all the tooling which enables ESLint to support TypeScript
+    # https://typescript-eslint.io/
+    # https://www.npmjs.com/package/@typescript-eslint/eslint-plugin
+    modules+=('@typescript-eslint/eslint-plugin')
+  fi
+
+  npm install --save-dev "${modules[@]}"
+
+  # ----------------------------------------------------------------------------
 
   # TODO:
   # "eslint-config-standard": "^11.0.0",

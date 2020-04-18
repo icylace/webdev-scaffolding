@@ -1,7 +1,6 @@
-// https://palantir.github.io/tslint/usage/configuration/
-// https://palantir.github.io/tslint/rules/
-
 {
+  "//": "https://palantir.github.io/tslint/usage/configuration/",
+  "//": "https://palantir.github.io/tslint/rules/",
   "defaultSeverity": "error",
   "extends": [
     "tslint:latest",

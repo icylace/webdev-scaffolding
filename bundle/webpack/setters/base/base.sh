@@ -3,12 +3,13 @@
 setup_webpack_base() {
   local modules=()
 
-  # Clean for WebPack
+  # Clean plugin for webpack
   # A webpack plugin to remove your build folder(s) before building
   # https://github.com/johnagan/clean-webpack-plugin
+  # https://www.npmjs.com/package/clean-webpack-plugin
   modules+=('clean-webpack-plugin')
 
-  yarn add --dev "${modules[@]}"
+  npm install --save-dev "${modules[@]}"
 
   # ----------------------------------------------------------------------------
 

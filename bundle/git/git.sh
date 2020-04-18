@@ -76,6 +76,8 @@ EOF
   mv -f "$tmp" ./.gitignore
 
   git init
+
+  # TODO:
   # git add --all
-  # git commit --message='set: Scaffold a new project.'
+  # git commit --message='sow: Scaffold a new project.'
 }

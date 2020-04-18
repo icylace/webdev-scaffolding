@@ -6,19 +6,24 @@ setup_webpack_dev_server() {
   # webpack-dev-server
   # Serves a webpack app. Updates the browser on changes.
   # https://github.com/webpack/webpack-dev-server
+  # https://www.npmjs.com/package/webpack-dev-server
   modules+=('webpack-dev-server')
 
+  # TODO:
   # # webpack-dev-middleware
   # # A development middleware for webpack
   # # https://github.com/webpack/webpack-dev-middleware
+  # # https://www.npmjs.com/package/webpack-dev-middleware
   # modules+=('webpack-dev-middleware')
 
+  # TODO:
   # # Webpack Hot Middleware
   # # Webpack hot reloading you can attach to your own server
   # # https://github.com/webpack-contrib/webpack-hot-middleware
+  # # https://www.npmjs.com/package/webpack-hot-middleware
   # modules+=('webpack-hot-middleware')
 
-  yarn add --dev "${modules[@]}"
+  npm install --save-dev "${modules[@]}"
 
   # ----------------------------------------------------------------------------
 
@@ -26,7 +31,7 @@ setup_webpack_dev_server() {
 
   echo 'dev-server' >> ./webpack.config.js/setters.js
 
-  jq '.scripts += {
-    serve: "npx webpack-dev-server --color --progress"
-  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
+  update_json '.scripts += {
+    serve: "webpack-dev-server --color --progress"
+  }' ./package.json
 }

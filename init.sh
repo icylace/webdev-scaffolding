@@ -6,6 +6,18 @@
 
 WEBDEV_BUNDLE="$WEBDEV_SCAFFOLDING/bundle"
 
+update_json() {
+  local filter="$1"
+  local file="$2"
+  local tmp="$(mktemp)"
+
+  if [ ! -f "$file" ] ; then
+    echo '{}' > "$file"
+  fi
+
+  jq "$filter" "$file" > "$tmp" && mv -f "$tmp" "$file"
+}
+
 # $1 = directory
 gather_bundles() {
   for filepath in "$1/"* ; do
@@ -96,6 +108,7 @@ gimme() {
 
   local scaffolds=$(scaffold_files "$WEBDEV_SCAFFOLDING/scaffold")
 
+  scaffolds+=('test_babel')
   scaffolds+=('test_base')
   scaffolds+=('test_css')
   scaffolds+=('test_git')

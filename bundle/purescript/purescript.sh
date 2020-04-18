@@ -6,26 +6,35 @@ setup_purescript() {
   # PureScript
   # A strongly-typed functional programming language that compiles to JavaScript
   # http://www.purescript.org/
+  # https://www.npmjs.com/package/purescript
   modules+=('purescript')
-
-  # psa
-  # Error/Warning reporting frontend for the PureScript compiler
-  # https://github.com/natefaubion/purescript-psa
-  modules+=('purescript-psa')
 
   # spago
   # 🍝 PureScript package manager and build tool powered by Dhall and package-sets
-  # https://github.com/spacchetti/spago
+  # https://github.com/purescript/spago
+  # https://www.npmjs.com/package/spago
   modules+=('spago')
 
-  yarn add --dev "${modules[@]}"
+  # TODO:
+  # # psa
+  # # Error/Warning reporting frontend for the PureScript compiler
+  # # https://github.com/natefaubion/purescript-psa
+  # # https://www.npmjs.com/package/purescript-psa
+  # modules+=('purescript-psa')
+
+  # TODO:
+  # # purty
+  # # PureScript pretty-printer
+  # # https://gitlab.com/joneshf/purty
+  # # https://www.npmjs.com/package/purty
+  # modules+=('purty')
+
+  npm install --save-dev "${modules[@]}"
 
   # ----------------------------------------------------------------------------
 
   # Generate a default PureScript project.
   spago init
-
-  # ----------------------------------------------------------------------------
 
   local packages=()
 
@@ -37,6 +46,7 @@ setup_purescript() {
 
   # purescript-quickcheck
   # An implementation of QuickCheck in PureScript.
+  # https://github.com/purescript/purescript-quickcheck
   # https://pursuit.purescript.org/packages/purescript-quickcheck
   packages+=('quickcheck')
 
@@ -44,20 +54,19 @@ setup_purescript() {
 
   # ----------------------------------------------------------------------------
 
-  local tmp="$(mktemp)"
-  jq '.scripts += {
-    build: "npx spago build",
-    bundle: "npx spago bundle-module",
-    "bundle:app": "npx spago bundle-app",
-    docs: "npx spago docs",
-    go: "npx spago run",
-    live: "npx spago run --watch",
-    repl: "npx spago repl",
-    test: "npx spago test",
-    watch: "npx spago build --watch",
-  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
-
   if we_have save_gitignore ; then
     save_gitignore purescript
   fi
+
+  update_json '.scripts += {
+    build: "spago build",
+    bundle: "spago bundle-module",
+    "bundle:app": "spago bundle-app",
+    docs: "spago docs",
+    go: "spago run",
+    live: "spago run --watch",
+    repl: "spago repl",
+    test: "spago test",
+    watch: "spago build --watch",
+  }' ./package.json
 }

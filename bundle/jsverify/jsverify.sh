@@ -6,7 +6,8 @@ setup_jsverify() {
   # JSVerify
   # JSVerify is a property-based testing library, highly inspired by QuickCheck.
   # https://jsverify.github.io/
+  # https://www.npmjs.com/package/jsverify
   modules+=('jsverify')
 
-  yarn add --dev "${modules[@]}"
+  npm install --save-dev "${modules[@]}"
 }

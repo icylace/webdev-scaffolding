@@ -7,45 +7,33 @@ setup_typescript() {
   # TypeScript
   # A superset of JavaScript that compiles to clean JavaScript output.
   # https://www.typescriptlang.org/
+  # https://www.npmjs.com/package/typescript
   modules+=('typescript')
 
   if [[ " $* " == *' node '* ]] ; then
     # @types/node
     # This package contains type definitions for Node.js (http://nodejs.org/).
+    # https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node
     # https://www.npmjs.com/package/@types/node
     modules+=('@types/node')
 
     # TypeScript Node
     # TypeScript execution environment and REPL for node.
     # https://github.com/TypeStrong/ts-node
+    # https://www.npmjs.com/package/ts-node
     modules+=('ts-node')
   fi
 
-  if [[ " $* " == *' jest '* ]] ; then
-    # @types/jest
-    # This package contains type definitions for Jest
-    # (http://facebook.github.io/jest/).
-    # https://www.npmjs.com/package/@types/jest
-    modules+=('@types/jest')
-  fi
-
-  yarn add --dev "${modules[@]}"
+  npm install --save-dev "${modules[@]}"
 
   # ----------------------------------------------------------------------------
 
   cp "$WEBDEV_BUNDLE/typescript/tsconfig.json" .
 
-  if [[ " $* " == *' tslint '* ]] ; then
-    local tmp="$(mktemp)"
-    jq '.compilerOptions += {
-      plugins: [{ name: "typescript-tslint-plugin" }]
-    }' ./tsconfig.json > "$tmp" && mv -f "$tmp" ./tsconfig.json
-  fi
-
-  local tmp="$(mktemp)"
-  jq '.scripts += {
-    build: "npx tsc --build"
-    typecheck: "npx tsc --noEmit",
-    watch: "npx tsc --watch"
-  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
+  update_json '.scripts += {
+    build: "tsc --build --incremental false"
+    "build:dev": "tsc --build",
+    typecheck: "tsc --noEmit --incremental false",
+    watch: "tsc --watch"
+  }' ./package.json
 }

@@ -6,9 +6,10 @@ setup_webpack_purescript() {
   # purs-loader
   # PureScript loader for webpack
   # https://github.com/ethul/purs-loader
+  # https://www.npmjs.com/package/purs-loader
   modules+=('purs-loader')
 
-  yarn add --dev "${modules[@]}"
+  npm install --save-dev "${modules[@]}"
 
   # ----------------------------------------------------------------------------
 

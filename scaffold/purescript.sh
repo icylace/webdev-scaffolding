@@ -5,12 +5,12 @@ scaffold_purescript() {
     base
     git
     node
-    webpack
+    # webpack
     # markdown
     postcss
     stylelint
     purescript
-    prettier
+    # prettier
     hyperapp
   )
   setup_bundles "${bundles[@]}"

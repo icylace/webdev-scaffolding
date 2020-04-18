@@ -4,6 +4,11 @@
 setup_stylelint() {
   local modules=()
 
+
+
+  # TODO:
+
+
   # stylelint
   # A mighty, modern linter that helps you avoid errors and enforce conventions
   # in your styles.
@@ -70,7 +75,7 @@ setup_stylelint() {
     modules+=('stylelint-config-prettier')
   fi
 
-  yarn add --dev "${modules[@]}"
+  npm install --save-dev "${modules[@]}"
 
   # ----------------------------------------------------------------------------
 
@@ -79,9 +84,8 @@ setup_stylelint() {
   cp "$WEBDEV_BUNDLE/stylelint/stylelint.config.js" .
 
   # TODO: resolve invalid rules messages
-  local tmp="$(mktemp)"
-  jq '.scripts += {
-    "lint:css": "npx stylelint ./src/**/*.css",
-    "check:stylelint": "npx stylelint-find-rules"
-  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
+  update_json '.scripts += {
+    "lint:css": "stylelint ./src/**/*.css",
+    "check:stylelint": "stylelint-find-rules"
+  }' ./package.json
 }

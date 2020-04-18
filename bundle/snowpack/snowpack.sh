@@ -6,16 +6,15 @@ setup_snowpack() {
   # Snowpack
   # Build web applications with less tooling and 10x faster iteration.
   # https://www.snowpack.dev/
+  # https://www.npmjs.com/package/snowpack
   modules+=('snowpack')
 
-  yarn add --dev "${modules[@]}"
-  # npm install --save-dev snowpack "${modules[@]}"
+  npm install --save-dev "${modules[@]}"
 
   # ----------------------------------------------------------------------------
 
   # https://www.snowpack.dev/#run-after-every-install
-  local tmp="$(mktemp)"
-  jq '.scripts += {
-    "prepare": "npx snowpack"
-  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
+  update_json '.scripts += {
+    prepare: "snowpack"
+  }' ./package.json
 }

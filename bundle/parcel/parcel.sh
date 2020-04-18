@@ -6,26 +6,27 @@ setup_parcel() {
   # Parcel
   # Blazing fast, zero configuration web application bundler
   # https://parceljs.org/
+  # https://www.npmjs.com/package/parcel-bundler
   modules+=('parcel-bundler')
 
   if [[ " $* " == *' typescript '* ]] ; then
     # parcel-plugin-typescript
     # 🚨 Enhanced TypeScript support for Parcel
+    # https://github.com/fathyb/parcel-plugin-typescript
     # https://www.npmjs.com/package/parcel-plugin-typescript
     modules+=('parcel-plugin-typescript')
   fi
 
-  yarn add --dev "${modules[@]}"
+  npm install --save-dev "${modules[@]}"
 
   # ----------------------------------------------------------------------------
 
-  local tmp="$(mktemp)"
-  jq '.scripts += {
-    build: "npx parcel build ./src/client/main.html",
-    dev: "yarn serve",
-    prod: "rm ./dist/* && npx parcel build ./src/client/main.html",
-    serve: "npx parcel ./src/client/main.html --no-minify",
-    start: "yarn serve",
-    watch: "npx parcel watch ./src/client/main.html --no-minify"
-  }' ./package.json > "$tmp" && mv -f "$tmp" ./package.json
+  update_json '.scripts += {
+    build: "parcel build ./src/main.html",
+    build:prod: "npm run clean && parcel build ./src/main.html",
+    dev: "npm run serve",
+    serve: "parcel ./src/main.html --no-minify",
+    start: "npm run serve",
+    watch: "parcel watch ./src/main.html --no-minify"
+  }' ./package.json
 }

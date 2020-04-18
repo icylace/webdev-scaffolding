@@ -5,7 +5,7 @@
   "description": "Example project.",
   "homepage": "https://example.com/",
   "license": "See the license is in the LICENSE.md file.",
-  "main": "./dist/main.js",
+  "main": "./dist/index.js",
   "browser": "/",
   "private": true,
   "keywords": [
@@ -25,9 +25,10 @@
     "url": "https://github.com/example-developer/example-project/issues"
   },
   "engines": {
-    "node": ">=10.15",
-    "yarn": ">=1.15"
+    "node": ">=10.15"
   },
   "devDependencies": {},
-  "scripts": {}
+  "scripts": {
+    "clean": "rm -fr ./dist && mkdir ./dist"
+  }
 }
