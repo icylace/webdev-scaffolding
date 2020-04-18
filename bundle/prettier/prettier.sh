@@ -12,6 +12,20 @@ setup_prettier() {
   # https://prettier.io/docs/en/install.html
   # npm install --save-dev --save-exact prettier
 
+  if [[ " $* " == *' eslint '* ]] ; then
+    # eslint-config-prettier
+    # Turns off all rules that are unnecessary or might conflict with Prettier.
+    # https://github.com/prettier/eslint-config-prettier
+    # https://www.npmjs.com/package/eslint-config-prettier
+    modules+=('eslint-config-prettier')
+
+    # eslint-plugin-prettier
+    # ESLint plugin for Prettier formatting
+    # https://github.com/prettier/eslint-plugin-prettier
+    # https://www.npmjs.com/package/eslint-plugin-prettier
+    modules+=('eslint-plugin-prettier')
+  fi
+
   if [[ " $* " == *' tslint '* ]] ; then
     # tslint-config-prettier
     # Use tslint with prettier without any conflict

@@ -2,4 +2,63 @@
 
 // https://eslint.org/docs/rules/
 
-module.exports = { extends: "standard" }
+// https://github.com/sanctuary-js/sanctuary-style
+// https://github.com/Gipphe/eslint-config-haskellish
+// https://medium.com/@uistephen/style-guides-for-linting-ecmascript-2015-eslint-common-google-airbnb-6c25fd3dff0
+
+module.exports = {
+  extends: ["eslint:recommended", "standard"],
+  rules: {
+    "array-bracket-newline": ["error", "consistent"],
+    // "array-bracket-spacing": [ "error", "always" ],
+    "arrow-parens": ["error", "as-needed"],
+    "comma-dangle": [
+      "error",
+      {
+        arrays: "always-multiline",
+        objects: "always-multiline",
+        imports: "always-multiline",
+        exports: "always-multiline",
+        functions: "never",
+      },
+    ],
+    // , "comma-style": [ "error", "first" ]
+    "func-call-spacing": ["error", "always", { allowNewlines: true }],
+    "import/no-absolute-path": ["error", { esmodule: false }],
+    indent: [
+      "error",
+      2,
+      {
+        // ArrayExpression: "first",
+        // CallExpression: { arguments: "first" },
+        // FunctionDeclaration: { parameters: "first" },
+        // FunctionExpression: { parameters: "first" },
+        ignoredNodes: ["CallExpression"],
+        //  ignoredNodes: ["CallExpression",
+        //                 "CallExpression > *",
+        //                 "CallExpression > ArrowFunctionExpression ArrowFunctionExpression > *",
+        //                 "CallExpression > FunctionExpression > BlockStatement",
+        //                 "ConditionalExpression",
+        //                 "MemberExpression"],
+        // ImportDeclaration: "first",
+        // ObjectExpression: "first",
+        SwitchCase: 1,
+      },
+    ],
+    // "object-curly-newline": [ "error",
+    //                           { ObjectExpression: "never",
+    //                             ObjectPattern: "never",
+    //                             ImportDeclaration: "never",
+    //                             ExportDeclaration: "never" } ],
+    "no-extra-parens": [
+      "error",
+      "all",
+      {
+        enforceForArrowConditionals: false,
+        nestedBinaryExpressions: false,
+      },
+    ],
+    "no-unexpected-multiline": ["off"],
+    quotes: ["error", "double"],
+  },
+}
