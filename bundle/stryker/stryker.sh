@@ -60,6 +60,11 @@ setup_stryker() {
 
   # ----------------------------------------------------------------------------
 
+  if [ -f ./.gitignore ] ; then
+    echo >> ./.gitignore
+    echo '.stryker-tmp' >> ./.gitignore
+  fi
+
   cp "$WEBDEV_BUNDLE/stryker/stryker.conf.js" .
 
   # TODO: use this?

@@ -77,7 +77,7 @@ setup_eslint() {
       # ESLint plugin wraps a TSLint configuration and lints the whole source using TSLint.
       # https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin-tslint
       # https://www.npmjs.com/package/@typescript-eslint/eslint-plugin-tslint
-      modules+=('@typescript-eslint/parser')
+      modules+=('@typescript-eslint/eslint-plugin-tslint')
     fi
   fi
 
