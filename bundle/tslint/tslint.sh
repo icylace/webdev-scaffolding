@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# TODO:
+# - migrate to ESLint
+#   - https://github.com/typescript-eslint/tslint-to-eslint-config
+#
+# - tslint-config-prettier
+
 # $@ = Optional integrations to use.
 setup_tslint() {
   local modules=()
@@ -57,6 +63,14 @@ setup_tslint() {
   # https://github.com/vrsource/vrsource-tslint-rules
   # https://www.npmjs.com/package/vrsource-tslint-rules
   modules+=('vrsource-tslint-rules')
+
+  if [[ " $* " == *' eslint '* ]] ; then
+    # ESLint Plugin TSLint
+    # ESLint plugin wraps a TSLint configuration and lints the whole source using TSLint.
+    # https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin-tslint
+    # https://www.npmjs.com/package/@typescript-eslint/eslint-plugin-tslint
+    modules+=('@typescript-eslint/eslint-plugin-tslint')
+  fi
 
   npm install --save-dev "${modules[@]}"
 

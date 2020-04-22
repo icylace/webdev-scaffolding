@@ -29,6 +29,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "clean": "rm -fr ./dist && mkdir ./dist"
+    "clean": "npm run clean:dist && npm run clean:output",
+    "clean:dist": "rm -fr ./dist && mkdir ./dist",
+    "clean:output": "rm -fr ./output && mkdir ./output && mkdir ./output/terser && mkdir ./output/gzip"
   }
 }

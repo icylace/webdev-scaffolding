@@ -72,14 +72,6 @@ setup_eslint() {
     # https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/parser
     # https://www.npmjs.com/package/@typescript-eslint/parser
     modules+=('@typescript-eslint/parser')
-
-    if [[ " $* " == *' tslint '* ]] ; then
-      # ESLint Plugin TSLint
-      # ESLint plugin wraps a TSLint configuration and lints the whole source using TSLint.
-      # https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin-tslint
-      # https://www.npmjs.com/package/@typescript-eslint/eslint-plugin-tslint
-      modules+=('@typescript-eslint/eslint-plugin-tslint')
-    fi
   fi
 
   npm install --save-dev "${modules[@]}"
@@ -90,5 +82,9 @@ setup_eslint() {
   cp "$WEBDEV_BUNDLE/eslint/.eslintrc.js" .
 
   # TODO:
-  # eslint --init
+  # npx eslint --init
+
+  update_json '.scripts += {
+    "check:lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+  }' ./package.json
 }

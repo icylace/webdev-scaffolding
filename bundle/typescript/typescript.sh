@@ -22,6 +22,13 @@ setup_typescript() {
     # https://github.com/TypeStrong/ts-node
     # https://www.npmjs.com/package/ts-node
     modules+=('ts-node')
+
+    # TODO:
+    # # utility-types
+    # # Collection of utility types, complementing TypeScript built-in mapped types and aliases (think "lodash" for static types).
+    # # https://github.com/piotrwitek/utility-types
+    # # https://www.npmjs.com/package/utility-types
+    # modules+=('utility-types')
   fi
 
   npm install --save-dev "${modules[@]}"
@@ -31,9 +38,9 @@ setup_typescript() {
   cp "$WEBDEV_BUNDLE/typescript/tsconfig.json" .
 
   update_json '.scripts += {
-    build: "tsc --build --incremental false"
-    "build:dev": "tsc --build",
-    typecheck: "tsc --noEmit --incremental false",
-    watch: "tsc --watch"
+    "check:types": "tsc --noEmit --incremental false",
+    "transpile:full": "tsc --build --incremental false",
+    "transpile:update": "tsc --build",
+    "transpile:watch": "tsc --watch"
   }' ./package.json
 }

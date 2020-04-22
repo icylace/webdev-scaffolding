@@ -14,7 +14,12 @@ setup_terser() {
   # ----------------------------------------------------------------------------
 
   update_json '.scripts += {
-    "bundle:min:esm": "terser --ecma 6 --compress --mangle --module --output ./dist/index.min.js -- ./dist/index.js && gzip --best --to-stdout ./dist/index.min.js > ./dist/index.min.js.gz",
-    "bundle:min:umd": "terser --ecma 6 --compress --mangle --output ./dist/index.umd.min.js -- ./dist/index.umd.js && gzip --best --to-stdout ./dist/index.umd.min.js > ./dist/index.umd.min.js.gz",
+    "gzip": "npm run gzip:esm && npm run gzip:umd",
+    "gzip:esm": "gzip --best --to-stdout ./output/terser/index.min.js > ./output/gzip/index.min.js.gz",
+    "gzip:umd": "gzip --best --to-stdout ./output/terser/index.umd.min.js > ./output/gzip/index.umd.min.js.gz",
+
+    "min": "npm run min:esm && npm run min:umd",
+    "min:esm": "terser --ecma 6 --compress --mangle --module --output ./output/terser/index.min.js -- ./output/rollup/index.js",
+    "min:umd": "terser --ecma 6 --compress --mangle --output ./output/terser/index.umd.min.js -- ./output/rollup/index.umd.js",
   }' ./package.json
 }

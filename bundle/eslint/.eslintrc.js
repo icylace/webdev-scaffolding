@@ -5,9 +5,38 @@
 // https://github.com/sanctuary-js/sanctuary-style
 // https://github.com/Gipphe/eslint-config-haskellish
 // https://medium.com/@uistephen/style-guides-for-linting-ecmascript-2015-eslint-common-google-airbnb-6c25fd3dff0
+// https://levelup.gitconnected.com/setting-up-eslint-with-prettier-typescript-and-visual-studio-code-d113bbec9857
 
 module.exports = {
-  extends: ["eslint:recommended", "standard"],
+  env: {
+    browser: true,
+    es6: true,
+  },
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "standard",
+  ],
+  globals: {
+    Atomics: "readonly",
+    SharedArrayBuffer: "readonly",
+  },
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint", "prettier"],
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: "module",
+  },
+  settings: {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"],
+    },
+    "import/resolver": {
+      typescript: {},
+    },
+  },
   rules: {
     "array-bracket-newline": ["error", "consistent"],
     // "array-bracket-spacing": [ "error", "always" ],
@@ -60,5 +89,10 @@ module.exports = {
     ],
     "no-unexpected-multiline": ["off"],
     quotes: ["error", "double"],
+
+    "import/no-extraneous-dependencies": [2, { devDependencies: ["**/test.tsx", "**/test.ts"] }],
+
+    "@typescript-eslint/no-explicit-any": ["off", { "ignoreRestArgs": false }],
+    "@typescript-eslint/indent": [2, 2],
   },
 }

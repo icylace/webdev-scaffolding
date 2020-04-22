@@ -67,6 +67,6 @@ setup_babel() {
   cp "$WEBDEV_BUNDLE/babel/babel.config.js" .
 
   update_json '.scripts += {
-    "build:js": "babel src --out-dir ./dist"
+    "build:babel": "babel ./output/rollup --out-dir ./output/babel",
   }' ./package.json
 }
