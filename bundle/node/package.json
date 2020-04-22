@@ -29,6 +29,10 @@
   },
   "devDependencies": {},
   "scripts": {
+    "build:dev": "npm run clean && npm run transpile:full && npm run bundle && npm run build:babel && npm run build:dist",
+    "build:dev:update": "npm run transpile:update && npm run bundle && npm run build:babel && npm run build:dist",
+    "build:full": "npm run clean && npm run transpile:full && npm run bundle && npm run build:babel && npm run build:dist && npm run min && npm run gzip",
+
     "clean": "npm run clean:dist && npm run clean:output",
     "clean:dist": "rm -fr ./dist && mkdir ./dist",
     "clean:output": "rm -fr ./output && mkdir ./output && mkdir ./output/terser && mkdir ./output/gzip"

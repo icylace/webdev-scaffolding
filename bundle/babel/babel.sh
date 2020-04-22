@@ -68,5 +68,6 @@ setup_babel() {
 
   update_json '.scripts += {
     "build:babel": "babel ./output/rollup --out-dir ./output/babel",
+    "build:dist": "cp ./output/babel/* ./dist",
   }' ./package.json
 }
