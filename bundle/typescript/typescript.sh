@@ -40,6 +40,7 @@ setup_typescript() {
   update_json '.scripts += {
     "check:types": "tsc --noEmit --incremental false",
     "transpile:full": "tsc --build --incremental false",
+    "transpile:types": "tsc --declaration --emitDeclarationOnly --incremental false",
     "transpile:update": "tsc --build",
     "transpile:watch": "tsc --watch"
   }' ./package.json

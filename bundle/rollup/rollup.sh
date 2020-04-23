@@ -24,7 +24,8 @@ setup_rollup() {
   cp "$WEBDEV_BUNDLE/rollup/rollup.config.js" .
 
   update_json '.scripts += {
-    "bundle": "rollup --config",
+    "bundle": "npm run build:rollup && npm run build:babel && npm run build:dist",
+    "bundle:rollup": "rollup --config",
     "bundle:watch": "rollup --config --watch",
   }' ./package.json
 }
