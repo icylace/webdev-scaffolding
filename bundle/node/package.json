@@ -38,7 +38,7 @@
   },
   "scripts": {
     "prepublish": "TODO:",
-    "prepare": "TODO:",
+    "prepare": "snowpack",
     "prepublishOnly": "TODO:",
     "prepack": "TODO:",
     "postpack": "TODO:",
@@ -54,7 +54,7 @@
     "version": "TODO:",
     "postversion": "TODO:",
     "pretest": "TODO:",
-    "test": "TODO:",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "posttest": "TODO:",
     "prestop": "TODO:",
     "stop": "TODO:",
@@ -75,6 +75,7 @@
     "lint": "./task.sh lint",
     "lint:fix": "./task.sh lint:fix",
     "lint:fix-dry-run": "./task.sh lint:fix-dry-run",
+    "release": "np",
     "typecheck": "./task.sh typecheck",
     "watch:postcss": "./task.sh watch:postcss",
     "watch:rollup": "./task.sh watch:rollup",
@@ -82,7 +83,10 @@
   },
   "config": {},
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "np": "*",
+    "snowpack": "*"
+  },
   "peerDependencies": {},
   "optionalDependencies": {},
   "bundledDependencies": {},

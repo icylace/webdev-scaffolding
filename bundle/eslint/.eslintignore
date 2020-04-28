@@ -6,6 +6,6 @@
 
 *.min.js
 
-dist/*
+dist/
 
-output/*
+output/

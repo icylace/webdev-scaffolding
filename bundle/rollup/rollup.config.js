@@ -1,26 +1,19 @@
-// import includePaths from "rollup-plugin-includepaths"
 // import resolve from "@rollup/plugin-node-resolve"
 
-export default {
+export default ctx => ({
   input: "./output/typescript/index.js",
   output: [
     {
       file: "./output/rollup/index.js",
       format: "esm",
     },
-    {
+    ctx.env === "prod" ? {
       file: "./output/rollup/index.umd.js",
       format: "umd",
       name: "TODO:",
-    },
+    } : null,
   ],
   plugins: [
-    // includePaths({
-    //   include: {},
-    //   paths: ['src/lib', 'src/other'],
-    //   external: [],
-    //   extensions: ['.js', '.json', '.html']
-    // }),
     // resolve(),
   ],
-}
+})

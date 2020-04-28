@@ -24,6 +24,6 @@ setup_base() {
   # ISC License (ISC)
   # https://opensource.org/licenses/ISC
 
-  # Put the current year in the license file.
+  # Put the current year in the license file while copying it over.
   sed "s/{{year}}/$(date +%Y)/g" "$WEBDEV_BUNDLE/base/LICENSE.md" > ./LICENSE.md
 }
