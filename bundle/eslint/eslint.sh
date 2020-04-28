@@ -85,6 +85,6 @@ setup_eslint() {
   # npx eslint --init
 
   update_json '.scripts += {
-    "check:lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
   }' ./package.json
 }

@@ -1,40 +1,96 @@
 {
-  "//": "https://docs.npmjs.com/files/package.json",
-  "name": "example",
+  "name": "TODO:",
   "version": "0.0.0",
-  "description": "Example project.",
-  "homepage": "https://example.com/",
-  "license": "See the license is in the LICENSE.md file.",
-  "main": "./dist/index.js",
-  "browser": "/",
-  "private": true,
+  "description": "TODO:",
   "keywords": [
-    "example"
+    "TODO:"
   ],
-  "author": {
-    "name": "Example Developer",
-    "email": "someone@example.com",
-    "url": "https://example.com/"
-  },
+  "license": "ISC",
+  "homepage": "TODO:",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/example-developer/example-project.git"
+    "url": "TODO:"
   },
-  "bugs": {
-    "email": "someone@example.com",
-    "url": "https://github.com/example-developer/example-project/issues"
+  "bugs": "TODO:",
+  "author": {
+    "name": "TODO:",
+    "email": "TODO:",
+    "url": "TODO:"
   },
-  "engines": {
-    "node": ">=10.15"
+  "contributors": [],
+  "files": [
+    "./dist"
+  ],
+  "main": "./dist/index.js",
+  "browser": "./dist/index.js",
+  "unpkg": "./dist/index.js",
+  "module": "./dist/module/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": "TODO:",
+  "man": "TODO:",
+  "directories": {
+    "lib": "TODO:",
+    "bin": "TODO:",
+    "man": "TODO:",
+    "doc": "TODO:",
+    "example": "TODO:",
+    "test": "TODO:",
   },
-  "devDependencies": {},
   "scripts": {
-    "build:dev": "npm run clean && npm run transpile:full && npm run bundle && npm run build:babel && npm run build:dist",
-    "build:dev:update": "npm run transpile:update && npm run bundle && npm run build:babel && npm run build:dist",
-    "build:full": "npm run clean && npm run transpile:full && npm run bundle && npm run build:babel && npm run build:dist && npm run min && npm run gzip",
-
-    "clean": "npm run clean:dist && npm run clean:output",
-    "clean:dist": "rm -fr ./dist && mkdir ./dist",
-    "clean:output": "rm -fr ./output && mkdir ./output && mkdir ./output/terser && mkdir ./output/gzip"
-  }
+    "prepublish": "TODO:",
+    "prepare": "TODO:",
+    "prepublishOnly": "TODO:",
+    "prepack": "TODO:",
+    "postpack": "TODO:",
+    "publish": "TODO:",
+    "postpublish": "TODO:",
+    "preinstall": "TODO:",
+    "install": "TODO:",
+    "postinstall": "TODO:",
+    "preuninstall": "TODO:",
+    "uninstall": "TODO:",
+    "postuninstall": "TODO:",
+    "preversion": "TODO:",
+    "version": "TODO:",
+    "postversion": "TODO:",
+    "pretest": "TODO:",
+    "test": "TODO:",
+    "posttest": "TODO:",
+    "prestop": "TODO:",
+    "stop": "TODO:",
+    "poststop": "TODO:",
+    "prestart": "TODO:",
+    "start": "TODO:",
+    "poststart": "TODO:",
+    "prerestart": "TODO:",
+    "restart": "TODO:",
+    "postrestart": "TODO:",
+    "preshrinkwrap": "TODO:",
+    "shrinkwrap": "TODO:",
+    "postshrinkwrap": "TODO:",
+    "build:dev": "./task.sh build:dev",
+    "build:dev:update": "./task.sh build:dev:update",
+    "build:prod": "./task.sh build:prod",
+    "clean": "./task.sh clean",
+    "lint": "./task.sh lint",
+    "lint:fix": "./task.sh lint:fix",
+    "lint:fix-dry-run": "./task.sh lint:fix-dry-run",
+    "typecheck": "./task.sh typecheck",
+    "watch:postcss": "./task.sh watch:postcss",
+    "watch:rollup": "./task.sh watch:rollup",
+    "watch:typescript": "./task.sh watch:typescript"
+  },
+  "config": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": {},
+  "engines": {
+    "node": ">=12.16"
+  },
+  "os": [],
+  "cpu": [],
+  "private": true,
+  "publishConfig": {}
 }

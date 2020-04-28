@@ -62,6 +62,10 @@ setup_postcss() {
   cp "$WEBDEV_BUNDLE/postcss/postcss.config.js" .
 
   update_json '.scripts += {
-    "build:css": "postcss"
+    "build:dev:styles": "npm run output:postcss:dev && npm run dist:postcss",
+    "build:prod:styles": "npm run output:postcss:prod && npm run dist:postcss",
+    "dist:postcss": "cp ./output/postcss/index.css ./dist",
+    "output:postcss:dev": "postcss ./src/index.css --output ./output/postcss/index.css",
+    "output:postcss:prod": "postcss ./src/index.css --output ./output/postcss/index.css --env prod",
   }' ./package.json
 }

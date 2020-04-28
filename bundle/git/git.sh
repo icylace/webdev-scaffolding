@@ -45,15 +45,19 @@ EOF
 
   cat <<EOF >> "$tmp"
 
-# Generated output.
-dist
+# Ignore CLI tool output.
+output/
+
+# Generated files suitable for public distribution.
+dist/
 EOF
 
   curl --location "https://www.gitignore.io/api/git" >> "$tmp"
 
   # ----------------------------------------------------------------------------
 
-  # TODO: work on this
+  # TODO:
+  # - work on this
 
   # curl --location "https://www.gitignore.io/api/visualstudiocode" >> "$tmp"
 
@@ -69,6 +73,10 @@ EOF
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
 EOF
 
   # ----------------------------------------------------------------------------
