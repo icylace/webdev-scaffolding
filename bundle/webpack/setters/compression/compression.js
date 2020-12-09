@@ -7,7 +7,7 @@ const ImageminPlugin = require("imagemin-webpack")
 const imageminJpegtran = require("imagemin-jpegtran")
 const imageminOptipng = require("imagemin-optipng")
 
-module.exports = inProduction => {
+module.exports = (inProduction) => {
   if (!inProduction) return
 
   const compressionOptions = {

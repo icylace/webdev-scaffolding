@@ -4,7 +4,7 @@ const path = require("path")
 
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
-module.exports = inProduction => ({
+module.exports = (inProduction) => ({
   // devtool: inProduction ? "hidden-source-map" : "cheap-module-eval-source-map",
   devtool: inProduction ? "source-map" : "inline-source-map",
   mode: inProduction ? "production" : "development",

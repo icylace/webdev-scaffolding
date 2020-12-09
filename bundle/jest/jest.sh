@@ -27,6 +27,8 @@ setup_jest() {
 
   # ----------------------------------------------------------------------------
 
+  # npx jest --init
+
   cp "$WEBDEV_BUNDLE/jest/jest.config.js" .
 
   update_json '.scripts += {

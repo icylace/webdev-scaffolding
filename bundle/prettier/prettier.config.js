@@ -3,7 +3,7 @@
 // https://prettier.io/docs/en/options.html
 
 module.exports = {
-  arrowParens: "avoid",
+  arrowParens: "always",
   bracketSpacing: true,
   endOfLine: "auto",
   htmlWhitespaceSensitivity: "css",

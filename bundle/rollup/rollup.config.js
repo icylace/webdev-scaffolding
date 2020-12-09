@@ -7,11 +7,11 @@ export default ctx => ({
       file: "./output/rollup/index.js",
       format: "esm",
     },
-    ctx.env === "prod" ? {
-      file: "./output/rollup/index.umd.js",
-      format: "umd",
-      name: "TODO:",
-    } : null,
+    // ctx.env === "prod" ? {
+    //   file: "./output/rollup/index.umd.js",
+    //   format: "umd",
+    //   name: "TODO:",
+    // } : null,
   ],
   plugins: [
     // resolve(),

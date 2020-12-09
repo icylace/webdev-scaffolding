@@ -1,6 +1,6 @@
 "use strict"
 
-module.exports = inProduction => ({
+module.exports = (inProduction) => ({
   module: {
     rules: [
       {

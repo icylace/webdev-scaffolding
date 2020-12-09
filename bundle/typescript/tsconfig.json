@@ -1,7 +1,9 @@
-// https://www.typescriptlang.org/v2/en/tsconfig
+// https://www.typescriptlang.org/tsconfig
 // https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
 // https://www.typescriptlang.org/docs/handbook/compiler-options.html
+
 // https://github.com/pikapkg/snowpack/issues/4#issuecomment-529144878
+
 // $ npx tsc --init
 
 {

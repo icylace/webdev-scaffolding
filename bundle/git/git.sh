@@ -45,11 +45,11 @@ EOF
 
   cat <<EOF >> "$tmp"
 
-# Ignore CLI tool output.
-output/
-
 # Generated files suitable for public distribution.
 dist/
+
+# CLI tool output.
+output/
 EOF
 
   curl --location "https://www.gitignore.io/api/git" >> "$tmp"
@@ -86,5 +86,5 @@ EOF
   # TODO:
   # git init
   # git add --all
-  # git commit --message='sow: Scaffold a new project.'
+  # git commit --message='^^^: Scaffold a new project.'
 }

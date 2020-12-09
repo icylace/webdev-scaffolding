@@ -15,6 +15,6 @@ setup_snowpack() {
 
   # https://www.snowpack.dev/#run-after-every-install
   update_json '.scripts += {
-    prepare: "snowpack"
+    prepare: "snowpack build"
   }' ./package.json
 }

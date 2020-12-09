@@ -37,7 +37,6 @@
     "test": "TODO:",
   },
   "scripts": {
-    "prepublish": "TODO:",
     "prepare": "snowpack",
     "prepublishOnly": "TODO:",
     "prepack": "TODO:",

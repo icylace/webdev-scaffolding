@@ -9,11 +9,11 @@ setup_hyperapp() {
   # https://www.npmjs.com/package/hyperapp
   prodModules+=('hyperapp')
 
-  # Hyperapp FX
-  # Effects for use with Hyperapp
-  # https://github.com/okwolf/hyperapp-fx
-  # https://www.npmjs.com/package/hyperapp-fx
-  prodModules+=('hyperapp-fx@next')
+  # # Hyperapp FX
+  # # Effects for use with Hyperapp
+  # # https://github.com/okwolf/hyperapp-fx
+  # # https://www.npmjs.com/package/hyperapp-fx
+  # prodModules+=('hyperapp-fx@next')
 
   npm install --dev "${prodModules[@]}"
 }

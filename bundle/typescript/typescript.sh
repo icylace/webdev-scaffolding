@@ -24,6 +24,12 @@ setup_typescript() {
     modules+=('ts-node')
 
     # TODO:
+    # tsd
+    # Check TypeScript type definitions
+    # https://github.com/SamVerschueren/tsd
+    # modules+=('tsd')
+
+    # TODO:
     # # utility-types
     # # Collection of utility types, complementing TypeScript built-in mapped types and aliases (think "lodash" for static types).
     # # https://github.com/piotrwitek/utility-types

@@ -2,7 +2,7 @@
 
 const webpack = require("webpack")
 
-module.exports = inProduction => {
+module.exports = (inProduction) => {
   const settings = {
     devServer: {
       // compress: true,

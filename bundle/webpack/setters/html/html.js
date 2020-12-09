@@ -3,7 +3,7 @@
 const HtmlPlugin = require("html-webpack-plugin")
 const SriPlugin = require("webpack-subresource-integrity")
 
-module.exports = inProduction => {
+module.exports = (inProduction) => {
   const setup = {
     plugins: [
       new HtmlPlugin({

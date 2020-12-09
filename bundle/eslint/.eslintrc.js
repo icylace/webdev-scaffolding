@@ -40,7 +40,8 @@ module.exports = {
   rules: {
     "array-bracket-newline": ["error", "consistent"],
     // "array-bracket-spacing": [ "error", "always" ],
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-parens": ["error", "always"],
+    "camelcase": ["warn"],
     "comma-dangle": [
       "error",
       {
@@ -48,7 +49,7 @@ module.exports = {
         objects: "always-multiline",
         imports: "always-multiline",
         exports: "always-multiline",
-        functions: "never",
+        functions: "always-multiline",
       },
     ],
     // , "comma-style": [ "error", "first" ]
