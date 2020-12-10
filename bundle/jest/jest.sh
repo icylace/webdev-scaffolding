@@ -9,6 +9,12 @@ setup_jest() {
   # https://www.npmjs.com/package/jest
   modules+=('jest')
 
+  # TODO:
+  # # fast-check
+  # # Property based testing for JavaScript and TypeScript
+  # # https://dubzzz.github.io/fast-check.github.com/
+  # modules+=('fast-check')
+
   if [[ " $* " == *' typescript '* ]] ; then
     # @types/jest
     # This package contains type definitions for Jest (http://facebook.github.io/jest/).

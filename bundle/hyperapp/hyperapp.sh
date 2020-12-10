@@ -15,5 +15,10 @@ setup_hyperapp() {
   # # https://www.npmjs.com/package/hyperapp-fx
   # prodModules+=('hyperapp-fx@next')
 
+  # # TODO:
+  # prodModules+=('eyepiece')
+  # prodModules+=('hyperapplicable')
+  # prodModules+=('uy')
+
   npm install --dev "${prodModules[@]}"
 }
