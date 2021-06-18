@@ -3,37 +3,36 @@
 setup_postcss() {
   local modules=()
 
-  # PostCSS
-  # A tool for transforming CSS with JavaScript
-  # https://postcss.org/
-  # https://www.npmjs.com/package/postcss
-  modules+=('postcss')
+  if [[ " $* " != *' vite '* ]] ; then
+    # PostCSS
+    # A tool for transforming CSS with JavaScript
+    # https://postcss.org/
+    # https://www.npmjs.com/package/postcss
+    modules+=('postcss')
 
-  # PostCSS CLI
-  # CLI for postcss
-  # https://github.com/postcss/postcss-cli
-  # https://www.npmjs.com/package/postcss-cli
-  modules+=('postcss-cli')
+    # postcss-clean
+    # PostCss plugin to minify your CSS with clean-css
+    # https://github.com/leodido/postcss-clean
+    modules+=('postcss-clean')
 
-  # postcss-import
-  # A PostCSS plugin to inline `@import` rules content.
-  # https://github.com/postcss/postcss-import
-  # https://www.npmjs.com/package/postcss-import
-  modules+=('postcss-import')
+    # PostCSS CLI
+    # CLI for postcss
+    # https://github.com/postcss/postcss-cli
+    # https://www.npmjs.com/package/postcss-cli
+    modules+=('postcss-cli')
 
-  # postcss-reporter
-  # A PostCSS plugin to print messages registered by other PostCSS plugins.
-  # https://github.com/postcss/postcss-reporter
-  # https://www.npmjs.com/package/postcss-reporter
-  modules+=('postcss-reporter')
+    # postcss-import
+    # A PostCSS plugin to inline `@import` rules content.
+    # https://github.com/postcss/postcss-import
+    # https://www.npmjs.com/package/postcss-import
+    modules+=('postcss-import')
 
-  # ----------------------------------------------------------------------------
-
-  # cssnano
-  # A modular minifier, built on top of the PostCSS ecosystem.
-  # https://cssnano.co/
-  # https://www.npmjs.com/package/cssnano
-  modules+=('cssnano')
+    # postcss-modules
+    # PostCSS plugin to use CSS Modules everywhere
+    # https://github.com/css-modules/postcss-modules
+    # https://www.npmjs.com/package/postcss-modules
+    modules+=('postcss-modules')
+  fi
 
   TODO:
   # # PostCSS Colorblind Plugin
@@ -42,12 +41,11 @@ setup_postcss() {
   # # https://www.npmjs.com/package/postcss-colorblind
   # modules+=('postcss-colorblind')
 
-  TODO:
-  # # postcss-modules
-  # # PostCSS plugin to use CSS Modules everywhere
-  # # https://github.com/css-modules/postcss-modules
-  # # https://www.npmjs.com/package/postcss-modules
-  # modules+=('postcss-modules')
+  # PostCSS Normalize
+  # PostCSS Normalize lets you use the parts of normalize.css or sanitize.css
+  # that you need from your browserslist.
+  # https://github.com/csstools/postcss-normalize
+  modules+=('postcss-normalize')
 
   # PostCSS Preset Env
   # Use tomorrow’s CSS today.
@@ -55,17 +53,27 @@ setup_postcss() {
   # https://www.npmjs.com/package/postcss-preset-env
   modules+=('postcss-preset-env')
 
+  # postcss-reporter
+  # A PostCSS plugin to print messages registered by other PostCSS plugins.
+  # https://github.com/postcss/postcss-reporter
+  # https://www.npmjs.com/package/postcss-reporter
+  modules+=('postcss-reporter')
+
   npm install --save-dev "${modules[@]}"
 
   # ----------------------------------------------------------------------------
 
   cp "$WEBDEV_BUNDLE/postcss/postcss.config.js" .
 
-  update_json '.scripts += {
-    "build:dev:styles": "npm run output:postcss:dev && npm run dist:postcss",
-    "build:prod:styles": "npm run output:postcss:prod && npm run dist:postcss",
-    "dist:postcss": "cp ./output/postcss/index.css ./dist",
-    "output:postcss:dev": "postcss ./src/index.css --output ./output/postcss/index.css",
-    "output:postcss:prod": "postcss ./src/index.css --output ./output/postcss/index.css --env prod",
-  }' ./package.json
+  update_json '.browserslist = "last 2 versions"' ./package.json
+
+  if [[ " $* " != *' vite '* ]] ; then
+    update_json '.scripts += {
+      "build:dev:styles": "npm run output:postcss:dev && npm run dist:postcss",
+      "build:prod:styles": "npm run output:postcss:prod && npm run dist:postcss",
+      "dist:postcss": "cp ./output/postcss/index.css ./dist",
+      "output:postcss:dev": "postcss ./src/index.css --output ./output/postcss/index.css",
+      "output:postcss:prod": "postcss ./src/index.css --output ./output/postcss/index.css --env prod",
+    }' ./package.json
+  fi
 }
